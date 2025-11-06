@@ -42,26 +42,24 @@
         </nav>
     </header>
 
-    <section id="inicio" class="h-screen flex items-center justify-center text-center bg-gradient-to-b from-neutral-50 to-neutral-100 px-6 pt-32">
-        <div>
-            <h1 class="text-5xl md:text-7xl font-extrabold mb-4">
-                <span class="text-fuchsia-700">Projeto Meninas e Mulheres Cientistas</span>
-            </h1>
-            <p class="text-xl md:text-2xl text-neutral-700 mb-8 max-w-2xl mx-auto">
-                Tecendo redes em São Paulo e Minas Gerais
-            </p>
-            <div class="space-x-4">
-                <a href="#projetos" class="bg-fuchsia-700 hover:bg-fuchsia-800 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-transform transform hover:scale-105">
-                    Ver Projetos
-                </a>
-                <a href="https://github.com/Projeto-MeMC-Unifei" target="_blank" rel="noopener noreferrer" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-transform transform hover:scale-105">
-                    Meu GitHub
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section id="sobre" class="py-20 bg-white px-6">
+    <section id="inicio" class="h-screen flex items-center justify-center text-center bg-gradient-to-b from-neutral-50 to-neutral-100 px-6 pt-32">
+        <div class="max-w-6xl mx-auto w-full">
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-4">
+                <span class="text-fuchsia-700">Projeto Meninas e Mulheres Cientistas</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-neutral-700 mb-8 max-w-2xl mx-auto">
+                Tecendo redes em São Paulo e Minas Gerais
+            </p>
+            <div class="space-x-4">
+                <a href="#projetos" class="bg-fuchsia-700 hover:bg-fuchsia-800 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                    Ver Projetos
+                </a>
+                <a href="https://github.com/Projeto-MeMC-Unifei" target="_blank" rel="noopener noreferrer" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                    Meu GitHub
+                </a>
+            </div>
+        </div>
+    </section>    <section id="sobre" class="py-20 bg-white px-6">
         <div class="container mx-auto max-w-4xl text-center">
             <h2 class="text-4xl font-bold mb-8 text-fuchsia-700">Sobre Nós</h2>
             <p class="text-lg text-neutral-700 leading-relaxed mb-4">
@@ -70,64 +68,74 @@
         </div>
     </section>
 
-    <section id="projetos" class="py-20 bg-neutral-100 px-6">
-        <div class="container mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-12 text-fuchsia-700">Projetos em Andamento</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch">
-                
-                                <div class="bg-white rounded-lg shadow-xl overflow-hidden transform transition-transform hover:-translate-y-2 flex flex-col justify-between p-6 text-center h-full">
-                    <div>
-                        <h3 class="text-2xl font-bold mb-2 text-neutral-800">Grupo 1</h3>
-                        <p class="text-neutral-500 mb-4 px-2">
-                          Projeto Cientista por um Dia
-                        </p>
-                    </div>
-                    <div class="mt-auto">
-                        <a href="[LINK_DO_REPOSITORIO]" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-600 font-medium">Ver no GitHub</a>
-                    </div>
-                </div>
+    <section id="projetos" class="py-20 bg-neutral-100 px-6">
+        <div class="container mx-auto max-w-6xl text-center">
+            <h2 class="text-4xl font-bold mb-12 text-fuchsia-700">Projetos em Andamento</h2>
+            
+            <!-- Container centralizado para os grupos -->
+            <div id="grupos-container" class="flex flex-wrap justify-center gap-8 items-stretch">
+                <!-- Os grupos serão inseridos aqui pelo JavaScript -->
+            </div>
+        </div>
+    </section>
 
-                                <div class="bg-white rounded-lg shadow-xl overflow-hidden transform transition-transform hover:-translate-y-2 flex flex-col justify-between p-6 text-center h-full">
-                    <div>
-                        <h3 class="text-2xl font-bold mb-2 text-neutral-800">Grupo 2</h3>
-                        <p class="text-neutral-500 mb-4 px-2">
-                            Centro de Ensino Integrado de Química
-                        </p>
-                    </div>
-                    <div class="mt-auto">
-                        <a href="[LINK_DO_REPOSITORIO]" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-600 font-medium">Ver no GitHub</a>
-                    </div>
-                </div>
+    <script>
+        // Configuração dos grupos - Adicione ou remova grupos facilmente aqui!
+        const grupos = [
+            {
+                numero: 1,
+                nome: "Projeto Cientista por um Dia",
+                github: "[LINK_DO_REPOSITORIO]"
+            },
+            {
+                numero: 2,
+                nome: "Centro de Ensino Integrado de Química",
+                github: "[LINK_DO_REPOSITORIO]"
+            },
+            {
+                numero: 3,
+                nome: "Projeto Semeando Cientistas",
+                github: "#"
+            },
+            {
+                numero: 4,
+                nome: "Projeto Pequenas Cientistas",
+                github: "#"
+            }
+            // Para adicionar um novo grupo, copie e cole o bloco abaixo:
+            // {
+            //     numero: 5,
+            //     nome: "Nome do Novo Projeto",
+            //     github: "https://github.com/seu-usuario/seu-repositorio"
+            // }
+        ];
 
-                                <div class="bg-white rounded-lg shadow-xl overflow-hidden transform transition-transform hover:-translate-y-2 flex flex-col justify-between p-6 text-center h-full">
-                    <div>
-                        <h3 class="text-2xl font-bold mb-2 text-neutral-800">Grupo 3</h3>
-                        <p class="text-neutral-500 mb-4 px-2">
-                            Projeto Semeando Cientistas
-                        </p>
-                    </div>
-                    <div class="mt-auto">
-                        <a href="#" class="text-fuchsia-700 hover:text-fuchsia-600 font-medium">Ver no GitHub</a>
-                    </div>
-                </div>
-                
-                                <div class="bg-white rounded-lg shadow-xl overflow-hidden transform transition-transform hover:-translate-y-2 flex flex-col justify-between p-6 text-center h-full">
-                    <div>
-                        <h3 class="text-2xl font-bold mb-2 text-neutral-800">Grupo 4</h3>
-                        <p class="text-neutral-500 mb-4 px-2">
-                            Projeto Pequenas Cientistas
-                        </p>
-                    </div>
-                    <div class="mt-auto">
-                        <a href="#" class="text-fuchsia-700 hover:text-fuchsia-600 font-medium">Ver no GitHub</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        // Função para criar o HTML de cada grupo
+        function criarCardGrupo(grupo) {
+            return `
+                <div class="bg-white rounded-lg shadow-xl overflow-hidden transform transition-transform hover:-translate-y-2 flex flex-col justify-between p-6 text-center h-full w-full md:w-64">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-2 text-neutral-800">Grupo ${grupo.numero}</h3>
+                        <p class="text-neutral-500 mb-4 px-2">
+                            ${grupo.nome}
+                        </p>
+                    </div>
+                    <div class="mt-auto">
+                        <a href="${grupo.github}" ${grupo.github.startsWith('http') ? 'target="_blank" rel="noopener noreferrer"' : ''} class="text-fuchsia-700 hover:text-fuchsia-600 font-medium">Ver no GitHub</a>
+                    </div>
+                </div>
+            `;
+        }
 
-    <section id="contato" class="py-20 bg-white px-6">
+        // Renderizar todos os grupos
+        function renderizarGrupos() {
+            const container = document.getElementById('grupos-container');
+            container.innerHTML = grupos.map(grupo => criarCardGrupo(grupo)).join('');
+        }
+
+        // Executar quando a página carregar
+        document.addEventListener('DOMContentLoaded', renderizarGrupos);
+    </script>    <section id="contato" class="py-20 bg-white px-6">
         <div class="container mx-auto max-w-3xl text-center">
             <h2 class="text-4xl font-bold mb-8 text-fuchsia-700">Entre em Contato</h2>
             <p class="text-xl text-neutral-700 mb-8">
@@ -158,4 +166,3 @@
 
 </body>
 </html>
-
