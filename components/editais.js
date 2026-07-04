@@ -52,7 +52,7 @@ class Editais extends HTMLElement {
             classes_tag_espaçamento = '';
         }
 
-        else if (status.toUpperCase().includes('BREVE')) {
+        else if (status.toUpperCase().includes('INSCRIÇÕES EM BREVE')) {
             cor_tag_bg = 'bg-memc-azul';
             cor_tag_texto = 'text-white';
             cor_botao = 'bg-memc-rosa text-white cursor-default';
