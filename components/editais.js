@@ -36,7 +36,7 @@ class Editais extends HTMLElement {
 
         console.log("Renderizando edital:", title, " | Status:", status);
 
-        if (status.toUpperCase() === 'INSCRIÇÕES ABERTAS') {
+        if (['INSCRIÇÕES ABERTAS', 'NOVO'].includes(status.toUpperCase())) {
             cor_tag_bg = 'bg-memc-amarelo';
             cor_tag_texto = 'text-memc-roxo-escuro';
             cor_botao = 'bg-memc-verde hover:opacity-90 text-white';
