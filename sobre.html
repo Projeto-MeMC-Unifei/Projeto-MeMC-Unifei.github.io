@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/logo-memc-m.png">
+    <title>Sobre - Projeto Meninas e Mulheres Cientistas</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], },
+                    colors: {
+                        memc: {
+                            'roxo-escuro': '#23073A', 'roxo-medio': '#58288E',
+                            'rosa': '#E1267A', 'azul': '#2F75E3',
+                            'amarelo': '#FAC03E', 'verde': '#29A962',
+                            'cinza-claro': '#A3A3A3', 'cinza-escuro': '#737373',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .custom-scrollbar { scrollbar-color: #E1267A #f5f5f5; }
+        .custom-scrollbar::-webkit-scrollbar { height: 8px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #f5f5f5; border-radius: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #E1267A; border-radius: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #58288E; }
+
+        .tab-conteudo {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+
+<body class="bg-neutral-50 text-neutral-800 font-sans antialiased">
+
+    <header class="bg-neutral-50/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-10 shadow-lg">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="inline-block transition-transform hover:scale-105">
+                <img src="img/logo-colorido2.png" alt="Logo Projeto Meninas e Mulheres Cientistas" class="h-16 w-auto object-contain">
+            </a>
+            
+            <div class="space-x-4 md:space-x-6">
+                <a href="index.html" class="text-neutral-700 hover:text-memc-rosa transition-colors font-semibold">Início</a>
+                <a href="sobre.html" class="text-neutral-700 hover:text-memc-roxo-medio transition-colors font-semibold">Sobre</a>
+                <a href="editais.html" class="text-neutral-700 hover:text-memc-verde transition-colors font-semibold">Editais</a>
+                <a href="resultados.html" class="text-neutral-700 hover:text-memc-azul transition-colors font-semibold">Resultados</a>
+                <a href="projetos.html" class="text-neutral-700 hover:text-memc-amarelo transition-colors font-semibold">Projetos</a>
+                <a href="contatos.html" class="text-neutral-700 hover:text-memc-rosa transition-colors font-semibold">Contatos</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pt-32 pb-20 min-h-screen bg-white">
+        <section class="px-6">
+            <div class="container mx-auto max-w-4xl text-center">
+                <h1 class="text-4xl font-bold mb-8 text-fuchsia-700">Sobre Nós</h1>
+                
+                <div class="container-abas mt-8">
+
+                    <div class="botoes flex justify-center gap-4 border-b-2 border-neutral-200 mb-8 overflow-x-auto custom-scrollbar">
+                        <button class="tab-link py-3 px-6 text-lg font-semibold text-memc-roxo-medio border-b-4 border-memc-roxo-medio transition-all whitespace-nowrap" onclick="abrirAba(event, 'aba-projeto')">O Projeto</button>
+                        <button class="tab-link py-3 px-6 text-lg font-semibold text-neutral-400 hover:text-memc-rosa border-b-4 border-transparent transition-all whitespace-nowrap" onclick="abrirAba(event, 'aba-metodologia')">Metodologia</button>
+                        <button class="tab-link py-3 px-6 text-lg font-semibold text-neutral-400 hover:text-memc-rosa border-b-4 border-transparent transition-all whitespace-nowrap" onclick="abrirAba(event, 'aba-resultados-esp')">Resultados Esperados</button>
+                    </div>
+
+                    <div id="aba-projeto" class="tab-conteudo text-left" style="display: block;">
+                        <p class="text-lg text-neutral-700 leading-relaxed mb-4">
+                            O presente projeto tem por objetivo central promover ações formativas voltadas às meninas e mulheres para estímulo ao ingresso, formação, ampliação à participação e permanência deste público no campo científico das CTEM (Ciências, Tecnologias, Engenharias, Matemática e programas interdisciplinares abrangendo essas áreas).
+                        </p>
+                    </div>
+
+                    <div id="aba-metodologia" class="tab-conteudo text-left">
+                        <p class="text-lg text-neutral-700 leading-relaxed mb-4">
+                            Fundamentamos nossas atividades a partir da formação de uma rede colaborativa entre 16 pesquisadores paulistas e mineiros centrada no desenvolvimento de 4 Projetos de Pesquisa, Ensino e Extensão já em desenvolvimento: i) Projeto Cientista por um Dia (Grupo 1); Centro de Ensino Integrado de Química (Grupo 2); Projeto Semeando Cientistas (Grupo 3); Projeto Pequenas Cientistas (Grupo 4).
+                        </p>
+                        <p class="text-lg text-neutral-700 leading-relaxed mb-4">
+                            Os aportes teóricos e metodológicos possuem duas premissas fundamentais: a primeira que se refere à indissociabilidade da tríade ensino-pesquisa-extensão e a segunda mais estreita ao conceito de Natureza da Ciência que pode se desdobrar em duas interfaces: i) a historiografia da ciência e ii) a abordagem CTSA (Ciência, Tecnologia, Sociedade e Ambiente).
+                        </p>
+                    </div>
+
+                    <div id="aba-resultados-esp" class="tab-conteudo text-left">
+                        <ul class="text-lg text-neutral-700 leading-relaxed space-y-4 list-none">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check text-memc-verde mt-1 mr-3"></i>
+                                <span><strong>i)</strong> O fortalecimento de atividades de pesquisa, ensino e extensão com a finalidade de estimular o ingresso, a manutenção e o desenvolvimento de mulheres e meninas em cursos de graduação e nas carreiras profissionais na área de CTEM.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check text-memc-verde mt-1 mr-3"></i>
+                                <span><strong>ii)</strong> Ampliar os estudos ligados à Natureza da Ciência, tematizando questões relacionadas à justiça social e aos direitos humanos tanto na interface da Historiografia da Ciência, quanto na abordagem CTSA.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="bg-neutral-100 py-8 text-center mt-auto">
+        <div class="container mx-auto px-6">
+            <p class="text-neutral-600">
+                Feito com ❤️ por Meninas e Mulheres Cientistas 2026
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function abrirAba(evento, idAba) {
+            const conteudos = document.getElementsByClassName("tab-conteudo");
+            for (let i = 0; i < conteudos.length; i++) {
+                conteudos[i].style.display = "none";
+            }
+
+            const botoes = document.getElementsByClassName("tab-link");
+            for (let i = 0; i < botoes.length; i++) {
+                botoes[i].classList.remove("text-memc-roxo-medio", "border-memc-roxo-medio");
+                botoes[i].classList.add("text-neutral-400", "border-transparent");
+            }
+
+            document.getElementById(idAba).style.display = "block";
+            evento.currentTarget.classList.remove("text-neutral-400", "border-transparent");
+            evento.currentTarget.classList.add("text-memc-roxo-medio", "border-memc-roxo-medio");
+        }
+    </script>
+</body>
+</html>
