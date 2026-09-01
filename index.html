@@ -59,6 +59,16 @@
     .custom-scrollbar::-webkit-scrollbar-thumb:hover {
         background: #58288E;
     }
+
+    .tab-conteudo {
+        display: none;
+        animation: fadeIn 0.4s ease-in-out;
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(5px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
 </style>
 
 </head>
@@ -73,12 +83,12 @@
         </a>
             
             <div class="space-x-4 md:space-x-6">
-                <a href="#inicio" class="text-neutral-700 hover:text-memc-rosa transition-colors font-semibold">Início</a>
-                <a href="#sobre" class="text-neutral-700 hover:text-memc-roxo-medio transition-colors font-semibold">Sobre</a>
-                <a href="#editais" class="text-neutral-700 hover:text-memc-verde transition-colors font-semibold">Editais</a>
-                <a href="#resultados" class="text-neutral-700 hover:text-memc-azul transition-colors font-semibold">Resultados</a>
-                <a href="#projetos" class="text-neutral-700 hover:text-memc-amarelo transition-colors font-semibold">Projetos</a>
-                <a href="#contatos" class="text-neutral-700 hover:text-memc-rosa transition-colors font-semibold">Contatos</a>
+                <a href="index.html" class="text-neutral-700 hover:text-memc-rosa transition-colors font-semibold">Início</a>
+                <a href="sobre.html" target="_blank" class="text-neutral-700 hover:text-memc-roxo-medio transition-colors font-semibold">Sobre</a>
+                <a href="editais.html" class="text-neutral-700 hover:text-memc-verde transition-colors font-semibold">Editais</a>
+                <a href="resultados.html" class="text-neutral-700 hover:text-memc-azul transition-colors font-semibold">Resultados</a>
+                <a href="projetos.html" class="text-neutral-700 hover:text-memc-amarelo transition-colors font-semibold">Projetos</a>
+                <a href="contatos.html" class="text-neutral-700 hover:text-memc-rosa transition-colors font-semibold">Contatos</a>
             </div>
         </nav>
     </header>
@@ -93,15 +103,49 @@
         </div>
     </section>
 
-    <section id="sobre" class="py-20 bg-white px-6">
-        <div class="container mx-auto max-w-4xl text-center">
-            <h2 class="text-4xl font-bold mb-8 text-fuchsia-700">Sobre Nós</h2>
-            <p class="text-lg text-neutral-700 leading-relaxed mb-4">
-                O presente projeto tem por objetivo central promover ações formativas voltadas às meninas e mulheres para estímulo ao ingresso, formação, ampliação à participação e permanência deste público no campo científico das CTEM (Ciências, Tecnologias, Engenharias, Matemática e programas interdisciplinares abrangendo essas áreas). Nesse sentido, fundamentamos nossas atividades a partir da formação de uma rede colaborativa entre 16 pesquisadores paulistas e mineiros centrada no desenvolvimento de 4 Projetos de Pesquisa, Ensino e Extensão já em desenvolvimento: i) Projeto Cientista por um Dia (Grupo 1); Centro de Ensino Integrado de Química (Grupo 2); Projeto Semeando Cientistas (Grupo 3); Projeto Pequenas Cientistas (Grupo 4). Os aportes teóricos e metodológicos possuem duas premissas fundamentais: a primeira que se refere à indissociabilidade da tríade ensino-pesquisa-extensão e a segunda mais estreita ao conceito de Natureza da Ciência que pode se desdobrar em duas interfaces: i) a historiografia da ciência e ii) a abordagem CTSA (Ciência, Tecnologia, Sociedade e Ambiente. Como resultados esperado, destacamos: i) O fortalecimento de atividades de pesquisa, ensino e extensão com a finalidade de estimular o ingresso, a manutenção e o desenvolvimento de mulheres e meninas em cursos de graduação e nas carreiras profissionais na área de CTEM ii) Ampliar os estudos ligados à Natureza da Ciência, tematizando questões relacionadas à justiça social e aos direitos humanos tanto na interface da Historiografia da Ciência, quanto na abordagem CTSA.
-            </p>
+    <!-- MY MAPS -->
+    <section class="py-20 bg-white px-6">
+        <div class="container mx-auto max-w-5xl text-center">
+            <h2 class="text-4xl font-bold mb-8 text-memc-roxo-medio">Onde Estamos</h2>
+            
+            <!-- Contêiner do Mapa com estilo Tailwind -->
+            <div class="relative w-full h-[500px] rounded-2xl overflow-hidden shadow-2xl border-4 border-memc-rosa/20">
+                
+                <!-- Substitua o src abaixo pelo link gerado no seu My Maps -->
+                <iframe 
+                    src="https://www.google.com/maps/d/u/0/embed?mid=1G3fa8HOFsBnXTc7TLKso9YEIe-PC86A&ehbc=2E312F&noprof=1" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+                
+            </div>
         </div>
     </section>
 
+<!-- PADLE -->
+    <section class="py-20 bg-white px-6">
+        <div class="container mx-auto max-w-5xl text-center">
+            <h2 class="text-4xl font-bold mb-8 text-memc-roxo-medio">Onde Estamos 2</h2>
+            
+            <!-- Contêiner do Mapa com estilo Tailwind -->
+            <div class="relative w-full h-[500px] rounded-2xl overflow-hidden shadow-2xl border-4 border-memc-rosa/20">
+                
+                <!-- Substitua o src abaixo pelo link gerado no seu My Maps -->
+                <iframe 
+                    src="https://padlet.com/elizabetesantiago/meninas-e-mulheres-cientistas-dvwwxk9e5fcbidxe" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+                
+            </div>
+        </div>
+    </section>
 <!-- EDITAIS -->
 <section id="editais" class="py-20 bg-neutral-50 px-6">
     <div class="container mx-auto max-w-6xl text-center mb-12">
@@ -346,7 +390,26 @@
     btnPrev.addEventListener('click', () => {
         carrossel.scrollBy({ left: -tamanhoDoPulo, behavior: 'smooth' });
     });
-</script>    
+</script>
+    <script>
+        function abrirAba(evento, idAba) {
+            const conteudos = document.getElementsByClassName("tab-conteudo");
+            for (let i = 0; i < conteudos.length; i++) {
+                conteudos[i].style.display = "none";
+            }
+
+            const botoes = document.getElementsByClassName("tab-link");
+            for (let i = 0; i < botoes.length; i++) {
+                botoes[i].classList.remove("text-memc-roxo-medio", "border-memc-roxo-medio");
+                botoes[i].classList.add("text-neutral-400", "border-transparent");
+            }
+
+            document.getElementById(idAba).style.display = "block";
+
+            evento.currentTarget.classList.remove("text-neutral-400", "border-transparent");
+            evento.currentTarget.classList.add("text-memc-roxo-medio", "border-memc-roxo-medio");
+        }
+    </script>    
 </body>
 </html>
 
