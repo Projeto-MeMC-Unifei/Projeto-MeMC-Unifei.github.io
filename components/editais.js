@@ -44,9 +44,9 @@ class Editais extends HTMLElement {
         let texto_tag = status.toUpperCase();
         let html_botao = '';
 
-        if (status.toUpperCase() === 'INSCRIÇÕES ABERTAS') {
-            cor_tag_bg = 'bg-amber-300';
-            cor_tag_texto = 'text-amber-950 font-extrabold';
+        if (['INSCRIÇÕES ABERTAS', 'NOVO'].includes(status.toUpperCase())) {
+            cor_tag_bg = 'bg-memc-amarelo';
+            cor_tag_texto = 'text-memc-roxo-escuro';
             cor_botao = 'bg-memc-verde hover:opacity-90 text-white';
             texto_botao = 'Baixar Edital';
             borda_cartao = 'border-memc-rosa';
