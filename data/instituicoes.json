@@ -1,0 +1,282 @@
+[
+  {
+    "titulo": "UNIFESP Diadema - Prédio de Acesso",
+    "endereco": "Rua São Nicolau, 210 - Centro, Diadema - SP, 09913-030",
+    "geo": {
+      "lat": -23.6823,
+      "lng": -46.6190
+    },
+    "resumo": "Polo principal da Subsede 1 da Rede MeMC. Campus da UNIFESP focado em ciências exatas, biológicas e ambientais (Projeto Cientista por um Dia).",
+    "imagem": "https://via.placeholder.com/400x300?text=UNIFESP+Diadema",
+    "relevante": "Polo da Subsede 1: Projeto Cientista por um Dia.",
+    "grupo": "SUBSEDE 1",
+    "isPolo": true,
+    "cor": "#E1267A"
+  },
+  {
+    "titulo": "UFABC Bloco A",
+    "endereco": "Av. dos Estados, 5001 - Bangu, Santo André - SP, 09210-580",
+    "geo": {
+      "lat": -23.6438,
+      "lng": -46.5284
+    },
+    "resumo": "Universidade Federal do ABC, conhecida pelo seu projeto pedagógico inovador e interdisciplinar.",
+    "imagem": "https://via.placeholder.com/400x300?text=UFABC+Santo+Andre",
+    "relevante": "Atuação interdisciplinar no núcleo da Subsede 1.",
+    "grupo": "SUBSEDE 1",
+    "isPolo": false,
+    "cor": "#E1267A"
+  },
+  {
+    "titulo": "CeLin IFSP Sertãozinho",
+    "endereco": "R. Américo Ambrósio, 269 - Sertãozinho - SP, 14169-263",
+    "geo": {
+      "lat": -21.1215,
+      "lng": -47.9868
+    },
+    "resumo": "Centro de Línguas e campus do Instituto Federal de São Paulo em Sertãozinho.",
+    "imagem": "https://via.placeholder.com/400x300?text=IFSP+Sertaozinho",
+    "relevante": "Ensino técnico e superior tecnológico parceiro da Subsede 1.",
+    "grupo": "SUBSEDE 1",
+    "isPolo": false,
+    "cor": "#E1267A"
+  },
+  {
+    "titulo": "Ee Paulo Luiz Valerio",
+    "endereco": "Piracicaba - SP",
+    "geo": {
+      "lat": -22.7303,
+      "lng": -47.6496
+    },
+    "resumo": "Escola Estadual da rede pública paulista engajada nas ações da Subsede 1.",
+    "imagem": "https://via.placeholder.com/400x300?text=EE+Paulo+Luiz+Valerio",
+    "relevante": "Educação básica pública conectada à rede.",
+    "grupo": "SUBSEDE 1",
+    "isPolo": false,
+    "cor": "#E1267A"
+  },
+  {
+    "titulo": "E.E Barão de Jundiaí",
+    "endereco": "R. Barão de Jundiaí, Centro, Jundiaí - SP",
+    "geo": {
+      "lat": -23.1870,
+      "lng": -46.8837
+    },
+    "resumo": "Tradicional escola estadual da rede pública paulista no centro de Jundiaí.",
+    "imagem": "https://via.placeholder.com/400x300?text=EE+Barao+de+Jundiai",
+    "relevante": "Escola pública parceira na Subsede 1.",
+    "grupo": "SUBSEDE 1",
+    "isPolo": false,
+    "cor": "#E1267A"
+  },
+  {
+    "titulo": "E. E. PEI Dr. Antônio Furlan Júnior",
+    "endereco": "Sertãozinho - SP",
+    "geo": {
+      "lat": -21.1350,
+      "lng": -47.9890
+    },
+    "resumo": "Escola Estadual pertencente ao Programa de Ensino Integral (PEI).",
+    "imagem": "https://via.placeholder.com/400x300?text=EE+PEI+Dr+Antonio+Furlan",
+    "relevante": "Formação integral de jovens na Subsede 1.",
+    "grupo": "SUBSEDE 1",
+    "isPolo": false,
+    "cor": "#E1267A"
+  },
+  {
+    "titulo": "USP Campus de Ribeirão Preto",
+    "endereco": "Av. Bandeirantes, 3900 - Ribeirão Preto - SP, 14040-900",
+    "geo": {
+      "lat": -21.1638,
+      "lng": -47.8541
+    },
+    "resumo": "Polo principal da Subsede 2 da Rede MeMC. Centro de Ensino Integrado de Química (CEIQ) da USP Ribeirão Preto.",
+    "imagem": "https://via.placeholder.com/400x300?text=USP+Ribeirao+Preto",
+    "relevante": "Polo da Subsede 2: Centro de Ensino Integrado de Química (CEIQ).",
+    "grupo": "SUBSEDE 2",
+    "isPolo": true,
+    "cor": "#58288E"
+  },
+  {
+    "titulo": "Escola Estadual Eugenia Vilhena de Morais",
+    "endereco": "Ribeirão Preto - SP",
+    "geo": {
+      "lat": -21.1812,
+      "lng": -47.8105
+    },
+    "resumo": "Instituição estadual de ensino de Ribeirão Preto parceira do projeto CEIQ.",
+    "imagem": "https://via.placeholder.com/400x300?text=EE+Eugenia+Vilhena",
+    "relevante": "Escola da rede pública atenta às ações da Subsede 2.",
+    "grupo": "SUBSEDE 2",
+    "isPolo": false,
+    "cor": "#58288E"
+  },
+  {
+    "titulo": "EMEF Antônio Palocci - CAIC",
+    "endereco": "Complexo CAIC, Ribeirão Preto - SP",
+    "geo": {
+      "lat": -21.1550,
+      "lng": -47.8200
+    },
+    "resumo": "Escola Municipal de Ensino Fundamental inserida no contexto dos Centros de Atenção Integral à Criança.",
+    "imagem": "https://via.placeholder.com/400x300?text=EM+Antonio+Palocci",
+    "relevante": "Forte integração comunitária e projetos em CTEM.",
+    "grupo": "SUBSEDE 2",
+    "isPolo": false,
+    "cor": "#58288E"
+  },
+  {
+    "titulo": "E.E Bairro Francisco Castilho",
+    "endereco": "Cravinhos - SP",
+    "geo": {
+      "lat": -21.3400,
+      "lng": -47.7300
+    },
+    "resumo": "Escola pública estadual localizada no município de Cravinhos, integrante da Subsede 2.",
+    "imagem": "https://via.placeholder.com/400x300?text=EE+Bairro+Francisco+Castilho",
+    "relevante": "Parceira regional da Subsede 2.",
+    "grupo": "SUBSEDE 2",
+    "isPolo": false,
+    "cor": "#58288E"
+  },
+  {
+    "titulo": "Universidade Federal de Itajubá, Campus Principal",
+    "endereco": "Av. BPS, 1303 - Pinheirinho, Itajubá - MG, 37500-903",
+    "geo": {
+      "lat": -22.418249,
+      "lng": -45.4515553
+    },
+    "resumo": "Polo principal da Subsede 3 e Sede Geral da Rede MeMC. Universidade Federal de Itajubá (UNIFEI), base do projeto Semeando Cientistas.",
+    "imagem": "https://via.placeholder.com/400x300?text=UNIFEI+Itajuba",
+    "relevante": "Polo da Subsede 3: Projeto Semeando Cientistas e Sede Geral MeMC.",
+    "grupo": "SUBSEDE 3",
+    "isPolo": true,
+    "cor": "#2F75E3"
+  },
+  {
+    "titulo": "Universidade Federal de Itajubá - UNIFEI - Campus Itabira",
+    "endereco": "R. Irmã Ivone Drumond, 200 - Itabira - MG, 35903-087",
+    "geo": {
+      "lat": -19.6420,
+      "lng": -43.2355
+    },
+    "resumo": "Campus de expansão da UNIFEI em Itabira/MG com foco em engenharias e projetos da rede.",
+    "imagem": "https://via.placeholder.com/400x300?text=UNIFEI+Itabira",
+    "relevante": "Polo de difusão científica no centro de Minas Gerais.",
+    "grupo": "SUBSEDE 3",
+    "isPolo": false,
+    "cor": "#2F75E3"
+  },
+  {
+    "titulo": "Escola Estadual Major João Pereira",
+    "endereco": "Itajubá - MG",
+    "geo": {
+      "lat": -22.4260,
+      "lng": -45.4530
+    },
+    "resumo": "Instituição de ensino estadual localizada no município de Itajubá.",
+    "imagem": "https://via.placeholder.com/400x300?text=EE+Major+Joao+Pereira",
+    "relevante": "Escola parceira direta da UNIFEI em Itajubá.",
+    "grupo": "SUBSEDE 3",
+    "isPolo": false,
+    "cor": "#2F75E3"
+  },
+  {
+    "titulo": "Escola Estadual Wenceslau Braz",
+    "endereco": "Itajubá - MG",
+    "geo": {
+      "lat": -22.4220,
+      "lng": -45.4570
+    },
+    "resumo": "Escola estadual pública parceira das ações de difusão científica em Itajubá.",
+    "imagem": "https://via.placeholder.com/400x300?text=EE+Wenceslau+Braz",
+    "relevante": "Escola parceira na área urbana de Itajubá.",
+    "grupo": "SUBSEDE 3",
+    "isPolo": false,
+    "cor": "#2F75E3"
+  },
+  {
+    "titulo": "EE Antônio Eufrásio De Toledo",
+    "endereco": "Paraisópolis - MG",
+    "geo": {
+      "lat": -22.5540,
+      "lng": -45.7760
+    },
+    "resumo": "Tradicional escola da rede pública estadual mineira no município de Paraisópolis.",
+    "imagem": "https://via.placeholder.com/400x300?text=EE+Antonio+Eufrasio+Toledo",
+    "relevante": "Escola estadual participante da Subsede 3.",
+    "grupo": "SUBSEDE 3",
+    "isPolo": false,
+    "cor": "#2F75E3"
+  },
+  {
+    "titulo": "UFSCar - Universidade Federal de São Carlos",
+    "endereco": "Rod. Washington Luís, km 235 - São Carlos - SP, 13565-905",
+    "geo": {
+      "lat": -21.9806,
+      "lng": -47.8814
+    },
+    "resumo": "Polo principal da Subsede 4 da Rede MeMC. Universidade Federal de São Carlos, sede do projeto Pequenas Cientistas.",
+    "imagem": "https://via.placeholder.com/400x300?text=UFSCar+Sao+Carlos",
+    "relevante": "Polo da Subsede 4: Projeto Pequenas Cientistas.",
+    "grupo": "SUBSEDE 4",
+    "isPolo": true,
+    "cor": "#29A962"
+  },
+  {
+    "titulo": "UFSCar - Campus Araras",
+    "endereco": "Araras - SP",
+    "geo": {
+      "lat": -22.3117,
+      "lng": -47.3789
+    },
+    "resumo": "Campus da UFSCar em Araras focado nas ciências agrárias e ações do Pequenas Cientistas.",
+    "imagem": "https://via.placeholder.com/400x300?text=UFSCar+Araras",
+    "relevante": "Campus parceiro no interior de SP.",
+    "grupo": "SUBSEDE 4",
+    "isPolo": false,
+    "cor": "#29A962"
+  },
+  {
+    "titulo": "SP-264, km 110 norte - UFSCAR campus Sorocaba",
+    "endereco": "Sorocaba - SP",
+    "geo": {
+      "lat": -23.5855,
+      "lng": -47.5226
+    },
+    "resumo": "Campus da UFSCar especializado em biologia, sustentabilidade e engenharias em Sorocaba.",
+    "imagem": "https://via.placeholder.com/400x300?text=UFSCar+Sorocaba",
+    "relevante": "Campus parceiro da Subsede 4.",
+    "grupo": "SUBSEDE 4",
+    "isPolo": false,
+    "cor": "#29A962"
+  },
+  {
+    "titulo": "Unesp - Faculdade de Ciências e Tecnologia (Campus Presidente Prudente)",
+    "endereco": "Pres. Prudente - SP",
+    "geo": {
+      "lat": -22.1205,
+      "lng": -51.4087
+    },
+    "resumo": "Faculdade de Ciências e Tecnologia da UNESP no oeste paulista.",
+    "imagem": "https://via.placeholder.com/400x300?text=UNESP+Presidente+Prudente",
+    "relevante": "Instituição parceira da Subsede 4.",
+    "grupo": "SUBSEDE 4",
+    "isPolo": false,
+    "cor": "#29A962"
+  },
+  {
+    "titulo": "Instituto Federal de Educação, Ciência e Tecnologia (IFSP Campus Tupã)",
+    "endereco": "Av. dos Universitários, 145 - Tupã - SP, 17602-496",
+    "geo": {
+      "lat": -21.9333,
+      "lng": -50.5140
+    },
+    "resumo": "Unidade do Instituto Federal de Educação, Ciência e Tecnologia de São Paulo em Tupã.",
+    "imagem": "https://via.placeholder.com/400x300?text=IFSP+Tupa",
+    "relevante": "Instituto Federal parceiro da Subsede 4.",
+    "grupo": "SUBSEDE 4",
+    "isPolo": false,
+    "cor": "#29A962"
+  }
+]

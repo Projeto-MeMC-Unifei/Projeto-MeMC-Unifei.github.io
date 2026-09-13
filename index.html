@@ -1,344 +1,981 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="icon" type="image/png" href="img/logo-memc-m.png">
+    <link rel="icon" type="image/png" href="img/logo-m.png">
 
     <title>Projeto Meninas e Mulheres Cientistas</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
 
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+
     <script>
         tailwind.config = {
             theme: {
-            extend: {
-                fontFamily: {
-                    sans: ['Inter', 'sans-serif'],
-                },
-                colors: {
-                    memc: {
-                        'roxo-escuro': '#23073A',
-                        'roxo-medio': '#58288E',
-                        'rosa': '#E1267A',
-                        'azul': '#2F75E3',
-                        'amarelo': '#FAC03E',
-                        'verde': '#29A962',
-                        'cinza-claro': '#A3A3A3',
-                        'cinza-escuro': '#737373',
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        memc: {
+                            'roxo-escuro': '#23073A',
+                            'roxo-medio': '#58288E',
+                            'rosa': '#E1267A',
+                            'azul': '#2F75E3',
+                            'amarelo': '#FAC03E',
+                            'verde': '#29A962',
+                            'cinza-claro': '#A3A3A3',
+                            'cinza-escuro': '#737373',
+                        }
                     }
                 }
             }
         }
-    }
     </script>
 
     <script src="components/editais.js"></script>
     <script src="components/contatos.js"></script>
 
-    
-<style>
-    .custom-scrollbar {
-        scrollbar-color: #E1267A #f5f5f5;
-    }
+    <!-- Leaflet CSS & JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="components/mapa.js"></script>
 
-    .custom-scrollbar::-webkit-scrollbar {
-        height: 8px;
-    }
-    .custom-scrollbar::-webkit-scrollbar-track {
-        background: #f5f5f5;
-        border-radius: 10px;
-    }
-    .custom-scrollbar::-webkit-scrollbar-thumb {
-        background: #E1267A;
-        border-radius: 10px;
-    }
-    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-        background: #58288E;
-    }
-</style>
+    <style>
+        .custom-scrollbar {
+            scrollbar-color: #E1267A #f5f5f5;
+        }
 
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f5f5f5;
+            border-radius: 10px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #E1267A;
+            border-radius: 10px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #58288E;
+        }
+
+        /* Leaflet Overrides e Mapa Transparente */
+        #map,
+        .leaflet-container {
+            background: transparent !important;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .leaflet-popup-content-wrapper {
+            padding: 0 !important;
+            border-radius: 0.75rem !important;
+            overflow: hidden !important;
+            border: none !important;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1) !important;
+            background: transparent !important;
+        }
+
+        .leaflet-popup-content {
+            margin: 0 !important;
+            width: 280px !important;
+        }
+
+        .leaflet-popup-tip-container {
+            display: none !important;
+        }
+
+        .leaflet-container a.leaflet-popup-close-button {
+            color: #58288E !important;
+            top: 8px !important;
+            right: 8px !important;
+            background: white !important;
+            border-radius: 50% !important;
+            width: 24px !important;
+            height: 24px !important;
+            line-height: 24px !important;
+            text-align: center !important;
+            border: 1px solid #e5e5e5 !important;
+            z-index: 50;
+            transition: all 0.2s;
+        }
+
+        .leaflet-container a.leaflet-popup-close-button:hover {
+            background: #E1267A !important;
+            color: white !important;
+            border-color: #E1267A !important;
+        }
+    </style>
 </head>
 
-<body class="bg-neutral-50 text-neutral-800 font-sans antialiased">
+<body class="bg-slate-100/80 text-neutral-800 font-sans antialiased selection:bg-memc-rosa selection:text-white">
 
-    <header class="bg-neutral-50/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-10 shadow-lg">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            
-        <a href="#" class="inline-block transition-transform hover:scale-105">
-            <img src="img/logo-colorido2.png" alt="Logo Projeto Meninas e Mulheres Cientistas" class="h-16 w-auto object-contain">
-        </a>
-            
-            <div class="space-x-4 md:space-x-6">
-                <a href="#inicio" class="text-neutral-700 hover:text-memc-rosa transition-colors font-semibold">Início</a>
-                <a href="#sobre" class="text-neutral-700 hover:text-memc-roxo-medio transition-colors font-semibold">Sobre</a>
-                <a href="#editais" class="text-neutral-700 hover:text-memc-verde transition-colors font-semibold">Editais</a>
-                <a href="#resultados" class="text-neutral-700 hover:text-memc-azul transition-colors font-semibold">Resultados</a>
-                <a href="#projetos" class="text-neutral-700 hover:text-memc-amarelo transition-colors font-semibold">Projetos</a>
-                <a href="#contatos" class="text-neutral-700 hover:text-memc-rosa transition-colors font-semibold">Contatos</a>
+    <!-- CABEÇALHO PRINCIPAL DA APLICAÇÃO COM BARRA SUPERIOR EM DEGRADÊ -->
+    <header
+        class="bg-white/95 backdrop-blur-md fixed top-0 left-0 right-0 z-50 shadow-md border-b border-neutral-200/90">
+        <!-- BARRA SUPERIOR EM DEGRADÊ DAS CORES DA REDE -->
+        <div class="h-1 bg-gradient-to-r from-memc-rosa via-memc-roxo-medio via-memc-azul to-memc-verde w-full"></div>
+
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 sm:py-3 flex justify-between items-center"
+            aria-label="Navegação Principal">
+
+            <!-- LOGOTIPO INSTITUCIONAL COM RETORNO AO INÍCIO -->
+            <button type="button" onclick="mudarAba('inicio')" aria-label="Ir para a página inicial da Rede MeMC"
+                class="cursor-pointer inline-flex items-center shrink-0 transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-memc-rosa rounded-xl p-1">
+                <img src="img/logo_projeto/logo-colorido2.png" alt="Logo do Projeto Meninas e Mulheres Cientistas"
+                    class="h-10 sm:h-12 md:h-14 w-auto object-contain">
+            </button>
+
+            <!-- NAVEGAÇÃO DESKTOP RESPONSIVA E ACESSÍVEL -->
+            <div class="hidden md:flex items-center gap-1 sm:gap-1.5 lg:gap-3">
+                <button type="button" onclick="mudarAba('inicio')" data-aba="inicio"
+                    class="nav-link cursor-pointer text-neutral-700 hover:text-memc-rosa hover:bg-neutral-100 transition-all font-semibold text-sm lg:text-base px-3.5 py-2 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-memc-rosa">Início</button>
+                <button type="button" onclick="mudarAba('sobre')" data-aba="sobre"
+                    class="nav-link cursor-pointer text-neutral-700 hover:text-memc-roxo-medio hover:bg-neutral-100 transition-all font-semibold text-sm lg:text-base px-3.5 py-2 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-memc-roxo-medio">Sobre</button>
+                <button type="button" onclick="mudarAba('editais')" data-aba="editais"
+                    class="nav-link cursor-pointer text-neutral-700 hover:text-memc-verde hover:bg-neutral-100 transition-all font-semibold text-sm lg:text-base px-3.5 py-2 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-memc-verde">Editais</button>
+                <button type="button" onclick="mudarAba('resultados')" data-aba="resultados"
+                    class="nav-link cursor-pointer text-neutral-700 hover:text-memc-azul hover:bg-neutral-100 transition-all font-semibold text-sm lg:text-base px-3.5 py-2 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-memc-azul">Resultados</button>
+                <button type="button" onclick="mudarAba('projetos')" data-aba="projetos"
+                    class="nav-link cursor-pointer text-neutral-700 hover:text-memc-amarelo hover:bg-neutral-100 transition-all font-semibold text-sm lg:text-base px-3.5 py-2 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-memc-amarelo">Projetos</button>
+                <button type="button" onclick="mudarAba('contatos')" data-aba="contatos"
+                    class="nav-link cursor-pointer text-neutral-700 hover:text-memc-rosa hover:bg-neutral-100 transition-all font-semibold text-sm lg:text-base px-3.5 py-2 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-memc-rosa">Contatos</button>
             </div>
+
+            <!-- BOTÃO MENU HAMBÚRGUER (MOBILE) -->
+            <button id="btn-menu-mobile" type="button" aria-label="Abrir menu de navegação" aria-expanded="false"
+                aria-controls="menu-mobile"
+                class="md:hidden text-memc-roxo-escuro hover:text-memc-rosa p-2 text-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-memc-rosa rounded-lg transition-colors">
+                <i class="fa-solid fa-bars"></i>
+            </button>
         </nav>
+
+        <!-- MENU GAVETA RESPONSIVO (MOBILE) -->
+        <div id="menu-mobile"
+            class="hidden md:hidden bg-white/95 backdrop-blur-md border-b border-neutral-200 px-6 py-4 flex flex-col space-y-3 shadow-xl transition-all duration-300">
+            <button type="button" onclick="mudarAba('inicio')" data-aba-mobile="inicio"
+                class="text-left py-2.5 px-3 text-neutral-800 hover:bg-memc-rosa/10 hover:text-memc-rosa rounded-lg font-semibold transition-colors">Início</button>
+            <button type="button" onclick="mudarAba('sobre')" data-aba-mobile="sobre"
+                class="text-left py-2.5 px-3 text-neutral-800 hover:bg-memc-roxo-medio/10 hover:text-memc-roxo-medio rounded-lg font-semibold transition-colors">Sobre</button>
+            <button type="button" onclick="mudarAba('editais')" data-aba-mobile="editais"
+                class="text-left py-2.5 px-3 text-neutral-800 hover:bg-memc-verde/10 hover:text-memc-verde rounded-lg font-semibold transition-colors">Editais</button>
+            <button type="button" onclick="mudarAba('resultados')" data-aba-mobile="resultados"
+                class="text-left py-2.5 px-3 text-neutral-800 hover:bg-memc-azul/10 hover:text-memc-azul rounded-lg font-semibold transition-colors">Resultados</button>
+            <button type="button" onclick="mudarAba('projetos')" data-aba-mobile="projetos"
+                class="text-left py-2.5 px-3 text-neutral-800 hover:bg-memc-amarelo/10 hover:text-memc-amarelo rounded-lg font-semibold transition-colors">Projetos</button>
+            <button type="button" onclick="mudarAba('contatos')" data-aba-mobile="contatos"
+                class="text-left py-2.5 px-3 text-neutral-800 hover:bg-memc-rosa/10 hover:text-memc-rosa rounded-lg font-semibold transition-colors">Contatos</button>
+        </div>
     </header>
 
-    <section id="inicio" class="h-screen flex items-center justify-center text-center bg-gradient-to-b from-neutral-50 to-neutral-100 px-6 pt-32">
-        <div class="max-w-6xl mx-auto w-full">
-            <a>
-                <img src="img/logo-memc.png" alt="Logo Projeto Meninas e Mulheres Cientistas" class="h-100 w-auto object-contain">
-            </a>
-            <div class="space-x-4">
-            </div>
-        </div>
-    </section>
+    <!-- CONTAINER PRINCIPAL DAS ABAS -->
+    <main class="min-h-screen">
 
-    <section id="sobre" class="py-20 bg-white px-6">
-        <div class="container mx-auto max-w-4xl text-center">
-            <h2 class="text-4xl font-bold mb-8 text-fuchsia-700">Sobre Nós</h2>
-            <p class="text-lg text-neutral-700 leading-relaxed mb-4">
-                O presente projeto tem por objetivo central promover ações formativas voltadas às meninas e mulheres para estímulo ao ingresso, formação, ampliação à participação e permanência deste público no campo científico das CTEM (Ciências, Tecnologias, Engenharias, Matemática e programas interdisciplinares abrangendo essas áreas). Nesse sentido, fundamentamos nossas atividades a partir da formação de uma rede colaborativa entre 16 pesquisadores paulistas e mineiros centrada no desenvolvimento de 4 Projetos de Pesquisa, Ensino e Extensão já em desenvolvimento: i) Projeto Cientista por um Dia (Grupo 1); Centro de Ensino Integrado de Química (Grupo 2); Projeto Semeando Cientistas (Grupo 3); Projeto Pequenas Cientistas (Grupo 4). Os aportes teóricos e metodológicos possuem duas premissas fundamentais: a primeira que se refere à indissociabilidade da tríade ensino-pesquisa-extensão e a segunda mais estreita ao conceito de Natureza da Ciência que pode se desdobrar em duas interfaces: i) a historiografia da ciência e ii) a abordagem CTSA (Ciência, Tecnologia, Sociedade e Ambiente. Como resultados esperado, destacamos: i) O fortalecimento de atividades de pesquisa, ensino e extensão com a finalidade de estimular o ingresso, a manutenção e o desenvolvimento de mulheres e meninas em cursos de graduação e nas carreiras profissionais na área de CTEM ii) Ampliar os estudos ligados à Natureza da Ciência, tematizando questões relacionadas à justiça social e aos direitos humanos tanto na interface da Historiografia da Ciência, quanto na abordagem CTSA.
-            </p>
-        </div>
-    </section>
+        <!-- SEÇÃO INÍCIO (HOMEPAGE & MAPA DO BRASIL) -->
+        <section id="inicio"
+            class="aba-conteudo block min-h-screen pt-28 pb-16 px-4 sm:px-6 lg:px-8 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-purple-100/60 via-slate-100/80 to-pink-50/40">
+            <div class="max-w-7xl mx-auto w-full flex flex-col items-center">
 
-<!-- EDITAIS -->
-<section id="editais" class="py-20 bg-neutral-50 px-6">
-    <div class="container mx-auto max-w-6xl text-center mb-12">
-        <h2 class="text-5xl font-bold mb-4 text-memc-rosa">Editais e Chamadas</h2>
-        <p class="text-2xl text-neutral-600">Confira as oportunidades para participação no projeto.</p>
-    </div>
+                <!-- CABEÇALHO DA SEÇÃO INÍCIO -->
+                <div class="text-center max-w-4xl shrink-0 mb-10 mt-4">
+                    <div
+                        class="inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm px-4 py-1.5 rounded-full border border-memc-roxo-medio/20 shadow-xs mb-4">
+                        <span class="w-2.5 h-2.5 rounded-full bg-memc-rosa animate-pulse"></span>
+                        <span class="text-xs font-bold uppercase tracking-wider text-memc-roxo-medio">Rede São Paulo &
+                            Minas Gerais</span>
+                    </div>
 
-    <div class="container mx-auto max-w-6xl">
+                    <h1
+                        class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-memc-roxo-escuro mb-4 leading-tight">
+                        Tecendo redes, <br>
+                        <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-memc-rosa via-memc-roxo-medio to-memc-azul">aproximando
+                            caminhos</span>
+                    </h1>
 
-    <div class="flex justify-end gap-4 mb-4">
-            <button id="btn-prev" class="w-12 h-12 rounded-full bg-memc-rosa hover:bg-memc-roxo-medio text-white flex items-center justify-center transition-colors shadow-sm hover:shadow-md">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-            </button>
-            <button id="btn-next" class="w-12 h-12 rounded-full bg-memc-roxo-medio hover:bg-memc-rosa text-white flex items-center justify-center transition-colors shadow-sm hover:shadow-md">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-            </button>
-        </div>
+                    <p class="text-base sm:text-lg md:text-xl text-neutral-800 font-semibold mb-4 leading-relaxed">
+                        Instituições de São Paulo e Minas Gerais se conectam para ampliar a participação de meninas e
+                        mulheres na Ciência, Tecnologia, Engenharia e Matemática.
+                    </p>
 
-        <div id="carrossel-editais" class="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory scroll-smooth custom-scrollbar">
-
-            <editais-component
-                edital-id="edital_07_26"
-                title="Bolsistas de Pós-Doutorado Junior (PDJ)"
-                deadline="06/07/2026"
-                pdf-href="edital_07_26.pdf"
-                status="INSCRIÇÕES ENCERRADAS"
-                description="Consulte os requisitos e prazos no documento oficial.">
-            </editais-component>            
-
-            <editais-component
-                edital-id="edital_03_26"
-                title="Bolsista de Apoio à Difusão do Conhecimento"
-                deadline="06/03/2026"
-                pdf-href="edital_03_26.pdf"
-                status="INSCRIÇÕES ENCERRADAS"
-                description="Consulte os requisitos e prazos no documento oficial.">
-            </editais-component>
-
-            <editais-component
-                edital-id="edital_02_26"
-                title="Bolsistas de Apoio Técnico"
-                deadline="23/03/2026"
-                pdf-href="edital_02_26.pdf"
-                status="INSCRIÇÕES ENCERRADAS"
-                description="Consulte os requisitos e prazos no documento oficial.">
-            </editais-component>
-
-            <editais-component
-                edital-id="edital_01_26"
-                title="Bolsistas de Apoio Técnico – Nível Superior (AT-NS)"
-                deadline="20/01/2026"
-                pdf-href="edital_01_26.pdf"
-                status="INSCRIÇÕES ENCERRADAS"
-                description="Consulte os requisitos e prazos no documento oficial.">
-            </editais-component>
-
-            <editais-component
-                edital-id="edital_12_25"
-                title="Bolsistas de Pós-Doutorado Junior (PDJ)"
-                deadline="10/02/2026"
-                pdf-href="edital_12_25.pdf"
-                status="INSCRIÇÕES ENCERRADAS"
-                description="Consulte os requisitos e prazos no documento oficial.">
-            </editais-component>
-
-    </div> </div>
-</section>
-
-<!-- RESULTADOS -->
-<section id="resultados" class="py-20 bg-neutral-50 px-6">
-    <div class="container mx-auto max-w-6xl text-center mb-12">
-        <h2 class="text-5xl font-bold mb-4 text-memc-rosa">Resultados</h2>
-        <p class="text-2xl text-neutral-600">Confira os resultados dos editais.</p>
-    </div>
-
-    <div class="container mx-auto max-w-6xl">
-
-    <div class="flex justify-end gap-4 mb-4">
-            <button id="btn-prev" class="w-12 h-12 rounded-full bg-memc-rosa hover:bg-memc-roxo-medio text-white flex items-center justify-center transition-colors shadow-sm hover:shadow-md">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-            </button>
-            <button id="btn-next" class="w-12 h-12 rounded-full bg-memc-roxo-medio hover:bg-memc-rosa text-white flex items-center justify-center transition-colors shadow-sm hover:shadow-md">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-            </button>
-        </div>
-
-        <div id="carrossel-editais" class="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory scroll-smooth custom-scrollbar">
-            
-            <editais-component
-                edital-id="resultado_03_26"
-                title="Bolsista de Apoio à Difusão do Conhecimento"
-                deadline="06/03/2026"
-                pdf-href="resultado_03_26.pdf"
-                status="RESULTADO"
-                description="Consulte os requisitos e prazos no documento oficial.">
-            </editais-component>
-
-            <editais-component
-                edital-id="resultado_01_26"
-                title="Bolsistas de Apoio Técnico"
-                deadline="23/03/2026"
-                pdf-href="resultado_01_26.pdf"
-                status="RESULTADO"
-                description="Consulte os requisitos e prazos no documento oficial.">
-            </editais-component>
-
-            <editais-component
-                edital-id="resultado_12_25"
-                title="Bolsistas de Pós-Doutorado Junior"
-                deadline="23/03/2026"
-                pdf-href="resultado_12_25.pdf"
-                status="RESULTADO"
-                description="Consulte os requisitos e prazos no documento oficial.">
-            </editais-component>
-
-    </div> </div>
-</section>
-
-    <section id="projetos" class="py-20 bg-neutral-100 px-6">
-        <div class="container mx-auto max-w-6xl text-center">
-            <h2 class="text-4xl font-bold mb-12 text-fuchsia-700">Projetos em Andamento</h2>
-            
-            <div id="grupos-container" class="flex flex-wrap justify-center gap-8 items-stretch">
+                    <p class="text-sm sm:text-base text-neutral-600 leading-relaxed max-w-3xl mx-auto">
+                        Uma rede que aproxima pessoas, projetos e territórios, fortalecendo caminhos para que mais
+                        meninas e mulheres possam chegar, permanecer e transformar a ciência.
+                    </p>
                 </div>
-        </div>-
-    </section>
 
-    <script>
-        // Configuração dos grupos
-        const grupos = [
-            {
-                numero: 1,
-                nome: "Projeto Cientista por um Dia",
-                github: "#"
-            },
-            {
-                numero: 2,
-                nome: "Centro de Ensino Integrado de Química",
-                github: "#"
-            },
-            {
-                numero: 3,
-                nome: "Projeto Semeando Cientistas",
-                github: "#"
-            },
-            {
-                numero: 4,
-                nome: "Projeto Pequenas Cientistas",
-                github: "#"
-            }
-        ];
+                <!-- GRID: MAPA INTERATIVO E PAINEL DE INFORMAÇÕES -->
+                <div class="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-24 md:mb-28 z-0">
 
-        function criarCardGrupo(grupo) {
-            return `
-                <div class="bg-white rounded-lg shadow-xl overflow-hidden transform transition-transform hover:-translate-y-2 flex flex-col justify-between p-6 text-center h-full w-full md:w-64">
-                    <div>
-                        <h3 class="text-2xl font-bold mb-2 text-neutral-800">Grupo ${grupo.numero}</h3>
-                        <p class="text-neutral-500 mb-4 px-2">
-                            ${grupo.nome}
+                    <!-- COLUNA DO MAPA BRASIL COM BORDA DEFINIDA DE DESTAQUE (SEM FLUTUAR) -->
+                    <div
+                        class="lg:col-span-7 w-full h-[450px] md:h-[550px] lg:h-[600px] relative bg-white rounded-3xl overflow-hidden shadow-2xl border-2 border-memc-roxo-medio/40 ring-4 ring-memc-roxo-medio/15 hover:border-memc-rosa/60 transition-all duration-300">
+                        <div id="map" aria-label="Mapa interativo do Brasil mostrando as subsedes da Rede MeMC"
+                            class="w-full h-full absolute inset-0 z-0 bg-[#FAF8FC]"></div>
+                    </div>
+
+                    <!-- COLUNA DO PAINEL LATERAL DE INFORMAÇÕES (ARIA LIVE PARA ACESSIBILIDADE) -->
+                    <div class="lg:col-span-5 w-full flex flex-col justify-center">
+                        <div id="map-info-panel" aria-live="polite" aria-atomic="true"
+                            class="w-full bg-white backdrop-blur-md rounded-3xl p-6 md:p-8 shadow-2xl border-2 border-memc-rosa/40 ring-4 ring-memc-rosa/15 transition-all duration-300 min-h-[420px] flex flex-col justify-center">
+                            <!-- Conteúdo Inicial Genérico (Gerado via JavaScript mapa.js) -->
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- CONTEÚDO EXPLICATIVO DAS SUBSEDES - LAYOUT DE 2 COLUNAS COMPACTO (ALINHADO EM MAX-W-7XL) -->
+                <div
+                    class="max-w-7xl w-full text-left bg-white/90 backdrop-blur-md rounded-3xl p-6 sm:p-8 lg:p-10 shadow-xl border-2 border-neutral-200/80 relative overflow-hidden">
+
+                    <!-- BARRA DE ACENTO EM DEGRADÊ NA PARTE SUPERIOR DO CARD -->
+                    <div
+                        class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-memc-rosa via-memc-roxo-medio via-memc-azul to-memc-verde">
+                    </div>
+
+                    <!-- GRID DE 2 COLUNAS PARA AJUSTAR O CONTEÚDO SEM POLUIÇÃO VERTICAL -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+
+                        <!-- COLUNA ESQUERDA: ARTICULAÇÃO DA REDE -->
+                        <div class="space-y-4 flex flex-col justify-between">
+                            <div class="space-y-3">
+                                <div
+                                    class="inline-flex items-center gap-2 bg-memc-roxo-medio/10 text-memc-roxo-medio text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-memc-roxo-medio/20">
+                                    <i class="fa-solid fa-network-wired text-memc-rosa"></i> Nossa Articulação
+                                    Institucional
+                                </div>
+                                <h2
+                                    class="text-2xl sm:text-3xl lg:text-4xl font-black text-memc-roxo-escuro leading-tight">
+                                    Pessoas, experiências e territórios conectados
+                                </h2>
+
+                                <p class="text-sm sm:text-base text-neutral-700 leading-relaxed font-medium">
+                                    A Rede Meninas e Mulheres Cientistas se constitui a partir da articulação de quatro
+                                    projetos,
+                                    que atuam como subsedes da iniciativa: Cientista por um Dia, Centro de Ensino
+                                    Integrado de
+                                    Química (CEIQ), Semeando Cientistas e Pequenas Cientistas.
+                                </p>
+
+                                <p class="text-sm sm:text-base text-neutral-700 leading-relaxed font-medium">
+                                    Cada subsede reúne instituições, pesquisadoras, pesquisadores e bolsistas em torno
+                                    de um objetivo comum: promover ações
+                                    formativas que contribuam para o ingresso, a formação, a participação e a
+                                    permanência de meninas
+                                    e mulheres nas áreas de Ciência, Tecnologia, Engenharia e Matemática (CTEM).
+                                </p>
+                            </div>
+
+                            <!-- CARTÃO DE DESTAQUE COM BORDA LATERAL DE ACENTO -->
+                            <div
+                                class="bg-gradient-to-r from-memc-rosa/10 via-memc-roxo-medio/5 to-transparent rounded-r-2xl p-4 sm:p-5 border-l-4 border-memc-rosa border-y border-r border-neutral-200/60 shadow-xs">
+                                <p
+                                    class="text-sm sm:text-base text-neutral-800 leading-relaxed font-medium italic flex items-start gap-2">
+                                    <i
+                                        class="fa-solid fa-quote-left text-memc-rosa text-base shrink-0 mt-0.5 opacity-70"></i>
+                                    <span>
+                                        Com trajetórias e formas de atuação próprias, as subsedes desenvolvem atividades
+                                        de ensino,
+                                        pesquisa e extensão que conectam universidade, escola e sociedade. Compartilham
+                                        experiências e
+                                        conhecimentos para ampliar os caminhos de meninas e mulheres na ciência.
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- COLUNA DIREITA: CONCEITO E ORGANIZAÇÃO DAS SUBSEDES -->
+                        <div
+                            class="bg-slate-50/90 rounded-2xl p-5 sm:p-7 border border-neutral-200/90 shadow-sm space-y-4 flex flex-col justify-between">
+                            <div class="space-y-3">
+                                <div class="flex items-center gap-3">
+                                    <span
+                                        class="w-8 h-8 rounded-xl bg-memc-rosa text-white flex items-center justify-center text-sm font-bold shadow-xs shrink-0">
+                                        <i class="fa-solid fa-cubes"></i>
+                                    </span>
+                                    <h3 class="text-xl sm:text-2xl font-bold text-memc-rosa">
+                                        O que são as subsedes
+                                    </h3>
+                                </div>
+
+                                <p class="text-sm sm:text-base text-neutral-800 leading-relaxed font-semibold mb-1">
+                                    A rede se organiza em quatro subsedes:
+                                </p>
+                                <ul class="space-y-2 text-sm sm:text-base text-neutral-700 font-medium">
+                                    <li
+                                        class="flex items-start gap-2.5 bg-white/80 p-2 sm:p-2.5 rounded-xl border border-neutral-200/80 shadow-2xs">
+                                        <span class="w-3 h-3 rounded-full bg-memc-rosa mt-1 shrink-0 shadow-xs"></span>
+                                        <span><strong class="text-neutral-900 font-bold">Cientista por um Dia</strong>
+                                            (Unifesp, Diadema)</span>
+                                    </li>
+                                    <li
+                                        class="flex items-start gap-2.5 bg-white/80 p-2 sm:p-2.5 rounded-xl border border-neutral-200/80 shadow-2xs">
+                                        <span
+                                            class="w-3 h-3 rounded-full bg-memc-roxo-medio mt-1 shrink-0 shadow-xs"></span>
+                                        <span><strong class="text-neutral-900 font-bold">Centro de Ensino Integrado de
+                                                Química - CEIQ</strong> (USP, Ribeirão Preto)</span>
+                                    </li>
+                                    <li
+                                        class="flex items-start gap-2.5 bg-white/80 p-2 sm:p-2.5 rounded-xl border border-neutral-200/80 shadow-2xs">
+                                        <span class="w-3 h-3 rounded-full bg-memc-azul mt-1 shrink-0 shadow-xs"></span>
+                                        <span><strong class="text-neutral-900 font-bold">Semeando Cientistas</strong>
+                                            (UNIFEI, Itajubá)</span>
+                                    </li>
+                                    <li
+                                        class="flex items-start gap-2.5 bg-white/80 p-2 sm:p-2.5 rounded-xl border border-neutral-200/80 shadow-2xs">
+                                        <span class="w-3 h-3 rounded-full bg-memc-verde mt-1 shrink-0 shadow-xs"></span>
+                                        <span><strong class="text-neutral-900 font-bold">Pequenas Cientistas</strong>
+                                            (UFSCar, com ações em Araras, São Carlos e Sorocaba)</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="pt-3 border-t border-neutral-200/70">
+                                <p class="text-sm sm:text-base text-neutral-700 leading-relaxed">
+                                    Cada subsede nasce de um projeto já em desenvolvimento, que dá nome à iniciativa e
+                                    serve como
+                                    ponto de partida para a articulação de novas instituições, pesquisadoras,
+                                    pesquisadores e ações.
+                                    Assim, cada subsede reúne um grupo de trabalho mais amplo, conectado pelos objetivos
+                                    da rede,
+                                    ainda que com formas de atuação próprias.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- BANNER INSTITUCIONAL: A REDE EM NÚMEROS E ODS CONTEMPLADAS -->
+                <div
+                    class="max-w-7xl w-full text-left mt-20 sm:mt-24 lg:mt-28 bg-white/90 backdrop-blur-md rounded-3xl p-6 sm:p-10 lg:p-12 shadow-xl border-2 border-neutral-200/80 relative overflow-hidden">
+
+                    <!-- BARRA DE ACENTO SUPERIOR EM DEGRADÊ -->
+                    <div
+                        class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-memc-roxo-medio via-memc-rosa via-memc-azul to-memc-verde">
+                    </div>
+
+                    <!-- CABEÇALHO DO BANNER -->
+                    <div class="mb-8 border-b border-neutral-200/80 pb-6">
+                        <div
+                            class="inline-flex items-center gap-2 bg-memc-rosa/10 text-memc-rosa text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider mb-3 border border-memc-rosa/20">
+                            <i class="fa-solid fa-chart-line"></i> Impacto & Indicadores
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-memc-roxo-escuro leading-tight">
+                            A Rede em Números
+                        </h2>
+                    </div>
+
+                    <!-- GRID DE INDICADORES (7 CARDS DE NÚMEROS) -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 mb-12">
+
+                        <!-- CARD 1: PESQUISADORES -->
+                        <div
+                            class="bg-gradient-to-br from-white to-neutral-50 p-5 rounded-2xl border border-neutral-200/90 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all group">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-bold uppercase tracking-wider text-neutral-600">Equipe</span>
+                                <div
+                                    class="w-8 h-8 rounded-xl bg-memc-rosa/15 text-memc-rosa flex items-center justify-center text-sm group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-user-graduate"></i>
+                                </div>
+                            </div>
+                            <div class="text-3xl sm:text-4xl font-black text-memc-rosa mb-1">22</div>
+                            <div class="text-xs sm:text-sm font-bold text-neutral-800">Pesquisadores</div>
+                        </div>
+
+                        <!-- CARD 2: INSTITUIÇÕES DE ENSINO -->
+                        <div
+                            class="bg-gradient-to-br from-white to-neutral-50 p-5 rounded-2xl border border-neutral-200/90 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all group">
+                            <div class="flex items-center justify-between mb-2">
+                                <span
+                                    class="text-xs font-bold uppercase tracking-wider text-neutral-600">Parcerias</span>
+                                <div
+                                    class="w-8 h-8 rounded-xl bg-memc-roxo-medio/15 text-memc-roxo-medio flex items-center justify-center text-sm group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-building-columns"></i>
+                                </div>
+                            </div>
+                            <div class="text-3xl sm:text-4xl font-black text-memc-roxo-medio mb-1">20</div>
+                            <div class="text-xs sm:text-sm font-bold text-neutral-800">Instituições de Ensino</div>
+                        </div>
+
+                        <!-- CARD 3: BOLSAS ICJ -->
+                        <div
+                            class="bg-gradient-to-br from-white to-neutral-50 p-5 rounded-2xl border border-neutral-200/90 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all group">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-bold uppercase tracking-wider text-neutral-600">Bolsas</span>
+                                <div
+                                    class="w-8 h-8 rounded-xl bg-memc-azul/15 text-memc-azul flex items-center justify-center text-sm group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-award"></i>
+                                </div>
+                            </div>
+                            <div class="text-3xl sm:text-4xl font-black text-memc-azul mb-1">105</div>
+                            <div class="text-xs sm:text-sm font-bold text-neutral-800">Bolsas ICJ</div>
+                            <div class="text-[11px] text-neutral-600 font-medium">Iniciação Científica Júnior</div>
+                        </div>
+
+                        <!-- CARD 4: BOLSAS AT -->
+                        <div
+                            class="bg-gradient-to-br from-white to-neutral-50 p-5 rounded-2xl border border-neutral-200/90 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all group">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-bold uppercase tracking-wider text-neutral-600">Bolsas</span>
+                                <div
+                                    class="w-8 h-8 rounded-xl bg-memc-verde/15 text-memc-verde flex items-center justify-center text-sm group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-hands-holding-child"></i>
+                                </div>
+                            </div>
+                            <div class="text-3xl sm:text-4xl font-black text-memc-verde mb-1">21</div>
+                            <div class="text-xs sm:text-sm font-bold text-neutral-800">Bolsas AT</div>
+                            <div class="text-[11px] text-neutral-600 font-medium">Apoio Técnico (Educação Básica)</div>
+                        </div>
+
+                        <!-- CARD 5: BOLSAS IC -->
+                        <div
+                            class="bg-gradient-to-br from-white to-neutral-50 p-5 rounded-2xl border border-neutral-200/90 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all group">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-bold uppercase tracking-wider text-neutral-600">Bolsas</span>
+                                <div
+                                    class="w-8 h-8 rounded-xl bg-memc-amarelo/20 text-amber-600 flex items-center justify-center text-sm group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-flask"></i>
+                                </div>
+                            </div>
+                            <div class="text-3xl sm:text-4xl font-black text-amber-600 mb-1">12</div>
+                            <div class="text-xs sm:text-sm font-bold text-neutral-800">Bolsas IC</div>
+                            <div class="text-[11px] text-neutral-600 font-medium">Iniciação Científica</div>
+                        </div>
+
+                        <!-- CARD 6: BOLSAS PÓS-DOUTORADO -->
+                        <div
+                            class="bg-gradient-to-br from-white to-neutral-50 p-5 rounded-2xl border border-neutral-200/90 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all group">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-bold uppercase tracking-wider text-neutral-600">Bolsas</span>
+                                <div
+                                    class="w-8 h-8 rounded-xl bg-memc-rosa/15 text-memc-rosa flex items-center justify-center text-sm group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-microscope"></i>
+                                </div>
+                            </div>
+                            <div class="text-3xl sm:text-4xl font-black text-memc-rosa mb-1">02</div>
+                            <div class="text-xs sm:text-sm font-bold text-neutral-800">Bolsas Pós-Doutorado</div>
+                        </div>
+
+                        <!-- CARD 7: BOLSAS ADC -->
+                        <div
+                            class="bg-gradient-to-br from-white to-neutral-50 p-5 rounded-2xl border border-neutral-200/90 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all group col-span-2 sm:col-span-1">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-bold uppercase tracking-wider text-neutral-600">Bolsas</span>
+                                <div
+                                    class="w-8 h-8 rounded-xl bg-memc-roxo-medio/15 text-memc-roxo-medio flex items-center justify-center text-sm group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-bullhorn"></i>
+                                </div>
+                            </div>
+                            <div class="text-3xl sm:text-4xl font-black text-memc-roxo-medio mb-1">02</div>
+                            <div class="text-xs sm:text-sm font-bold text-neutral-800">Bolsas ADC</div>
+                            <div class="text-[11px] text-neutral-600 font-medium">Apoio à Difusão do Conhecimento</div>
+                        </div>
+
+                    </div>
+
+                    <!-- BLOCO DESTACADO DE IMPACTO: OBJETIVOS DO DESENVOLVIMENTO SUSTENTÁVEL (ODS) -->
+                    <div class="pt-8 border-t border-neutral-200/80">
+                        <div class="flex items-center gap-3 mb-6">
+                            <span
+                                class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-memc-rosa to-memc-roxo-medio text-white flex items-center justify-center text-lg shadow-md shrink-0">
+                                <i class="fa-solid fa-earth-americas"></i>
+                            </span>
+                            <div>
+                                <h3 class="text-xl sm:text-2xl font-black text-memc-roxo-escuro leading-tight">
+                                    Objetivos do Desenvolvimento Sustentável (ODS) Contemplados pelo Projeto
+                                </h3>
+                                <p class="text-xs text-neutral-600 font-medium">
+                                    Compromisso alinhado com a Agenda 2030 das Nações Unidas
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- CARDS ODS DE ALTO IMPACTO VISUAL -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+                            <!-- ODS 4 -->
+                            <div
+                                class="bg-gradient-to-br from-red-50/90 via-white to-rose-50/50 p-5 rounded-2xl border-2 border-red-200/80 hover:border-red-400 hover:shadow-lg transition-all flex flex-col justify-between group">
+                                <div class="flex items-start justify-between mb-3">
+                                    <span
+                                        class="bg-red-600 text-white font-black text-xs px-3 py-1 rounded-full uppercase tracking-wider shadow-xs">
+                                        ODS 4
+                                    </span>
+                                    <div
+                                        class="w-10 h-10 rounded-xl bg-red-600 text-white flex items-center justify-center text-lg shadow-md group-hover:scale-110 transition-transform">
+                                        <i class="fa-solid fa-book-open"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="text-base font-bold text-neutral-900 mb-1">Educação de Qualidade</h4>
+                                    <p class="text-xs text-neutral-600 leading-relaxed font-medium">Garantir a educação
+                                        inclusiva, equitativa e de qualidade na ciência.</p>
+                                </div>
+                            </div>
+
+                            <!-- ODS 5 -->
+                            <div
+                                class="bg-gradient-to-br from-amber-50/90 via-white to-orange-50/50 p-5 rounded-2xl border-2 border-amber-200/80 hover:border-amber-400 hover:shadow-lg transition-all flex flex-col justify-between group">
+                                <div class="flex items-start justify-between mb-3">
+                                    <span
+                                        class="bg-amber-600 text-white font-black text-xs px-3 py-1 rounded-full uppercase tracking-wider shadow-xs">
+                                        ODS 5
+                                    </span>
+                                    <div
+                                        class="w-10 h-10 rounded-xl bg-amber-600 text-white flex items-center justify-center text-lg shadow-md group-hover:scale-110 transition-transform">
+                                        <i class="fa-solid fa-venus"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="text-base font-bold text-neutral-900 mb-1">Igualdade de Gênero</h4>
+                                    <p class="text-xs text-neutral-600 leading-relaxed font-medium">Empoderar meninas e
+                                        mulheres no acesso e permanência na ciência.</p>
+                                </div>
+                            </div>
+
+                            <!-- ODS 8 -->
+                            <div
+                                class="bg-gradient-to-br from-rose-50/90 via-white to-pink-50/50 p-5 rounded-2xl border-2 border-rose-200/80 hover:border-rose-400 hover:shadow-lg transition-all flex flex-col justify-between group">
+                                <div class="flex items-start justify-between mb-3">
+                                    <span
+                                        class="bg-rose-700 text-white font-black text-xs px-3 py-1 rounded-full uppercase tracking-wider shadow-xs">
+                                        ODS 8
+                                    </span>
+                                    <div
+                                        class="w-10 h-10 rounded-xl bg-rose-700 text-white flex items-center justify-center text-lg shadow-md group-hover:scale-110 transition-transform">
+                                        <i class="fa-solid fa-chart-line"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="text-base font-bold text-neutral-900 mb-1">Trabalho Decente</h4>
+                                    <p class="text-xs text-neutral-600 leading-relaxed font-medium">Promover o
+                                        crescimento econômico inclusivo e empregos sustentáveis nas áreas CTEM.</p>
+                                </div>
+                            </div>
+
+                            <!-- ODS 10 -->
+                            <div
+                                class="bg-gradient-to-br from-fuchsia-50/90 via-white to-purple-50/50 p-5 rounded-2xl border-2 border-fuchsia-200/80 hover:border-fuchsia-400 hover:shadow-lg transition-all flex flex-col justify-between group">
+                                <div class="flex items-start justify-between mb-3">
+                                    <span
+                                        class="bg-fuchsia-700 text-white font-black text-xs px-3 py-1 rounded-full uppercase tracking-wider shadow-xs">
+                                        ODS 10
+                                    </span>
+                                    <div
+                                        class="w-10 h-10 rounded-xl bg-fuchsia-700 text-white flex items-center justify-center text-lg shadow-md group-hover:scale-110 transition-transform">
+                                        <i class="fa-solid fa-hands-holding-circle"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="text-base font-bold text-neutral-900 mb-1">Redução das Desigualdades</h4>
+                                    <p class="text-xs text-neutral-600 leading-relaxed font-medium">Reduzir as
+                                        desigualdades de oportunidades e incentivar a inclusão social.</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SEÇÃO SOBRE (ABA DE APRESENTAÇÃO INSTITUCIONAL DA REDE MEMC) -->
+        <section id="sobre"
+            class="aba-conteudo hidden min-h-screen pt-28 pb-16 px-4 sm:px-6 lg:px-8 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-purple-100/50 via-slate-100/80 to-pink-50/40">
+            <div class="max-w-7xl mx-auto w-full flex flex-col items-center text-center">
+                <div class="max-w-4xl mb-12 mt-4">
+                    <div
+                        class="inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm px-4 py-1.5 rounded-full border border-memc-roxo-medio/20 shadow-xs mb-4">
+                        <span class="w-2.5 h-2.5 rounded-full bg-memc-roxo-medio animate-pulse"></span>
+                        <span class="text-xs font-bold uppercase tracking-wider text-memc-roxo-medio">Sobre a
+                            Iniciativa</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-memc-roxo-escuro mb-4 leading-tight">
+                        Construindo caminhos para meninas e mulheres <br>
+                        <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-memc-roxo-medio via-memc-rosa to-memc-azul">nas
+                            Ciências Exatas, Engenharias e Computação</span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-neutral-700 font-semibold leading-relaxed mb-6">
+                        A Rede Meninas e Mulheres Cientistas conecta universidades, escolas públicas e comunidades nos
+                        estados de São Paulo e Minas Gerais.
+                    </p>
+                </div>
+
+                <div
+                    class="bg-white/90 backdrop-blur-md rounded-3xl p-8 lg:p-10 shadow-xl border-2 border-neutral-200/80 max-w-5xl text-left space-y-6">
+                    <h3 class="text-2xl font-bold text-memc-roxo-escuro border-b border-neutral-200 pb-3">Nossos
+                        Objetivos</h3>
+                    <p class="text-base text-neutral-700 leading-relaxed">
+                        Incentivar a vocação científica de estudantes da educação básica, promover a formação continuada
+                        de docentes da rede pública e fortalecer redes de apoio para a permanência e progressão de
+                        mulheres em carreiras científicas e tecnológicas.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO EDITAIS (ABA DEDICADA A EDITAIS, SELEÇÕES E OPORTUNIDADES DA REDE) -->
+        <section id="editais"
+            class="aba-conteudo hidden min-h-screen pt-28 pb-16 px-4 sm:px-6 lg:px-8 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-emerald-50/50 via-slate-100/80 to-purple-50/40">
+            <div class="max-w-7xl mx-auto w-full flex flex-col items-center">
+
+                <!-- CABEÇALHO DA ABA EDITAIS -->
+                <div class="text-center max-w-4xl shrink-0 mb-12 mt-4">
+                    <div
+                        class="inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm px-4 py-1.5 rounded-full border border-memc-verde/30 shadow-xs mb-4">
+                        <span class="w-2.5 h-2.5 rounded-full bg-memc-verde animate-pulse"></span>
+                        <span class="text-xs font-bold uppercase tracking-wider text-memc-verde">Oportunidades &
+                            Chamadas Públicas</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-memc-roxo-escuro mb-4 leading-tight">
+                        Editais e Seleções de Bolsas <br>
+                        <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-memc-verde via-memc-azul to-memc-rosa">da
+                            Rede MeMC</span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-neutral-700 font-semibold mb-3 leading-relaxed">
+                        Confira os editais oficiais de seleção de estudantes, pesquisadoras e bolsistas para atuação nas
+                        quatro subsedes da Rede Meninas e Mulheres Cientistas.
+                    </p>
+
+                    <p class="text-sm text-neutral-500 leading-relaxed max-w-2xl mx-auto">
+                        Iniciativa vinculada à <strong>Chamada CNPq/MCTI/MMulheres nº 31/2023</strong> - Meninas nas
+                        Ciências Exatas, Engenharias e Computação.
+                    </p>
+                </div>
+
+                <!-- GRID DE EDITAIS COM LINKS PARA OS PDFS REAIS DO PROJETO -->
+                <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch mb-16">
+
+                    <!-- EDITAL 07/26 -->
+                    <editais-component edital-id="edital_07_26" title="Bolsistas de Pós-Doutorado Junior (PDJ)"
+                        deadline="06/07/2026" pdf-href="edital_07_26.pdf" status="INSCRIÇÕES ENCERRADAS"
+                        description="Consulte os requisitos e prazos no documento oficial de seleção para Bolsas PDJ nas Subsedes.">
+                    </editais-component>
+
+                    <!-- EDITAL 03/26 -->
+                    <editais-component edital-id="edital_03_26" title="Bolsista de Apoio à Difusão do Conhecimento"
+                        deadline="06/03/2026" pdf-href="edital_03_26.pdf" status="INSCRIÇÕES ENCERRADAS"
+                        description="Consulte os requisitos e prazos no documento oficial de seleção para Apoio à Difusão do Conhecimento.">
+                    </editais-component>
+
+                    <!-- EDITAL 02/26 -->
+                    <editais-component edital-id="edital_02_26" title="Bolsistas de Apoio Técnico" deadline="23/03/2026"
+                        pdf-href="edital_02_26.pdf" status="INSCRIÇÕES ENCERRADAS"
+                        description="Consulte os requisitos e prazos no documento oficial de seleção para Apoio Técnico nas instituições vinculadas.">
+                    </editais-component>
+
+                    <!-- EDITAL 01/26 -->
+                    <editais-component edital-id="edital_01_26"
+                        title="Bolsistas de Apoio Técnico – Nível Superior (AT-NS)" deadline="20/01/2026"
+                        pdf-href="edital_01_26.pdf" status="INSCRIÇÕES ENCERRADAS"
+                        description="Consulte os requisitos e prazos no documento oficial de seleção para Apoio Técnico Nível Superior.">
+                    </editais-component>
+
+                    <!-- EDITAL 12/25 -->
+                    <editais-component edital-id="edital_12_25" title="Bolsistas de Pós-Doutorado Junior (PDJ)"
+                        deadline="10/02/2026" pdf-href="edital_12_25.pdf" status="INSCRIÇÕES ENCERRADAS"
+                        description="Consulte os requisitos e prazos no documento oficial de seleção de Pós-Doutorado Junior.">
+                    </editais-component>
+
+                </div>
+
+                <!-- CARTÃO INFORMATIVO E SUPORTE A DÚVIDAS -->
+                <div
+                    class="max-w-4xl w-full bg-white/90 backdrop-blur-md rounded-3xl p-6 sm:p-8 shadow-xl border-2 border-memc-verde/30 flex flex-col md:flex-row items-center justify-between gap-6 text-left">
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-2 text-memc-verde text-xs font-bold uppercase tracking-wider">
+                            <i class="fa-solid fa-circle-info"></i> Dúvidas sobre o preenchimento ou documentos?
+                        </div>
+                        <h3 class="text-xl font-bold text-memc-roxo-escuro">Precisa de orientações sobre os editais?
+                        </h3>
+                        <p class="text-xs sm:text-sm text-neutral-600 leading-relaxed font-medium">
+                            Entre em contato com a equipe de coordenação da sua subsede de interesse para orientações.
                         </p>
                     </div>
-                    <div class="mt-auto">
-                        <a href="${grupo.github}" ${grupo.github.startsWith('http') ? 'target="_blank" rel="noopener noreferrer"' : ''} class="text-fuchsia-700 hover:text-fuchsia-600 font-medium">Ver no GitHub</a>
-                    </div>
+                    <button type="button" onclick="mudarAba('contatos')"
+                        class="shrink-0 cursor-pointer bg-memc-verde hover:bg-emerald-700 text-white font-bold text-sm px-6 py-3.5 rounded-xl shadow-md hover:shadow-lg transition-all flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-memc-verde">
+                        <i class="fa-solid fa-envelope"></i> Canal de Contatos
+                    </button>
                 </div>
-            `;
-        }
 
-        function renderizarGrupos() {
-            const container = document.getElementById('grupos-container');
-            container.innerHTML = grupos.map(grupo => criarCardGrupo(grupo)).join('');
-        }
+            </div>
+        </section>
 
-        document.addEventListener('DOMContentLoaded', renderizarGrupos);
-    </script>
+        <!-- SEÇÃO RESULTADOS (ABA DEDICADA A RESULTADOS E PUBLICAÇÕES) -->
+        <section id="resultados"
+            class="aba-conteudo hidden min-h-screen pt-28 pb-16 px-4 sm:px-6 lg:px-8 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-50/50 via-slate-100/80 to-purple-50/40">
+            <div class="max-w-7xl mx-auto w-full flex flex-col items-center text-center">
+                <div class="max-w-4xl mb-12 mt-4">
+                    <div
+                        class="inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm px-4 py-1.5 rounded-full border border-memc-azul/30 shadow-xs mb-4">
+                        <span class="w-2.5 h-2.5 rounded-full bg-memc-azul animate-pulse"></span>
+                        <span class="text-xs font-bold uppercase tracking-wider text-memc-azul">Resultados dos
+                            Editais</span>
+                    </div>
 
-<!-- CONTATOS -->
-<section id="contatos" class="py-20 bg-white px-6">
-    <div class="container mx-auto max-w-4xl text-center">
-        <h2 class="text-4xl font-bold mb-4 text-memc-roxo-medio">Entre em Contato</h2>
-        <p class="text-xl text-neutral-600 mb-12">Tem alguma dúvida ou quer saber mais sobre o projeto? Fale conosco.</p>
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-memc-roxo-escuro mb-4 leading-tight">
+                        Resultados Oficiais das Seleções <br>
+                        <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-memc-azul via-memc-roxo-medio to-memc-rosa">da
+                            Rede MeMC</span>
+                    </h1>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            
-        <contatos-component
-            contato-id="contato_email"
-            title="E-mail"
-            info="projetomemc.unifei@gmail.com"
-            link-href="mailto:projetomemc.unifei@gmail.com"
-            icon-class="fa-solid fa-envelope">
-        </contatos-component>
+                    <p class="text-base sm:text-lg text-neutral-700 font-semibold leading-relaxed">
+                        Consulte os documentos oficiais de homologação e resultados das seleções publicadas.
+                    </p>
+                </div>
 
-            <contatos-component
-                contato-id="contato_instagram"
-                title="Instagram"
-                info="@tecendoredesspmg"
-                link-href="https://www.instagram.com/tecendoredesspmg/"
-                icon-class="fa-brands fa-instagram">
-            </contatos-component>
+                <!-- GRID DE RESULTADOS REAIS COM LINKS PDF -->
+                <div
+                    class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch mb-16 max-w-6xl text-left">
 
-            <contatos-component
-                contato-id="contato_youtube"
-                title="YouTube"
-                info="Canal tecendoredesspmg"
-                link-href="https://www.youtube.com/@tecendoredesspmg"
-                icon-class="fa-brands fa-youtube">
-            </contatos-component>
+                    <!-- RESULTADO 03/26 -->
+                    <editais-component edital-id="resultado_03_26" title="Bolsista de Apoio à Difusão do Conhecimento"
+                        deadline="06/03/2026" pdf-href="resultado_03_26.pdf" status="RESULTADO"
+                        description="Resultado final homologado para a vaga de Apoio à Difusão do Conhecimento.">
+                    </editais-component>
 
-        </div>
-    </div>
-</section>
+                    <!-- RESULTADO 01/26 -->
+                    <editais-component edital-id="resultado_01_26"
+                        title="Bolsistas de Apoio Técnico – Nível Superior (AT-NS)" deadline="23/03/2026"
+                        pdf-href="resultado_01_26.pdf" status="RESULTADO"
+                        description="Resultado final homologado para a vaga de Apoio Técnico Nível Superior.">
+                    </editais-component>
 
-<!-- RODAPÉ -->
-    <footer class="bg-neutral-100 py-8 text-center">
-        <div class="container mx-auto px-6">
-            <p class="text-neutral-600">
-                Feito com ❤️ por Meninas e Mulheres Cientistas 2025
+                    <!-- RESULTADO 12/25 -->
+                    <editais-component edital-id="resultado_12_25" title="Bolsistas de Pós-Doutorado Junior (PDJ)"
+                        deadline="23/03/2026" pdf-href="resultado_12_25.pdf" status="RESULTADO"
+                        description="Resultado final homologado para as vagas de Pós-Doutorado Junior.">
+                    </editais-component>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO PROJETOS (ABA DEDICADA AOS PROJETOS DAS SUBSEDES) -->
+        <section id="projetos"
+            class="aba-conteudo hidden min-h-screen pt-28 pb-16 px-4 sm:px-6 lg:px-8 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-50/50 via-slate-100/80 to-purple-50/40">
+            <div class="max-w-7xl mx-auto w-full flex flex-col items-center text-center">
+                <div class="max-w-4xl mb-12 mt-4">
+                    <div
+                        class="inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm px-4 py-1.5 rounded-full border border-memc-amarelo/40 shadow-xs mb-4">
+                        <span class="w-2.5 h-2.5 rounded-full bg-memc-amarelo animate-pulse"></span>
+                        <span class="text-xs font-bold uppercase tracking-wider text-amber-800">Projetos
+                            Integrados</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-memc-roxo-escuro mb-4 leading-tight">
+                        Conheça os Projetos <br>
+                        <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-memc-rosa to-memc-roxo-medio">das
+                            4 Subsedes</span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-neutral-700 font-semibold leading-relaxed">
+                        Cientista por um Dia, Centro de Ensino Integrado de Química (CEIQ), Semeando Cientistas e
+                        Pequenas Cientistas.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO CONTATOS (ABA DEDICADA A CANAIS DE ATENDIMENTO E REDES SOCIAIS) -->
+        <section id="contatos"
+            class="aba-conteudo hidden min-h-screen pt-28 pb-16 px-4 sm:px-6 lg:px-8 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-pink-50/50 via-slate-100/80 to-purple-50/40">
+            <div class="max-w-7xl mx-auto w-full flex flex-col items-center text-center">
+                <div class="max-w-4xl mb-12 mt-4">
+                    <div
+                        class="inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm px-4 py-1.5 rounded-full border border-memc-rosa/30 shadow-xs mb-4">
+                        <span class="w-2.5 h-2.5 rounded-full bg-memc-rosa animate-pulse"></span>
+                        <span class="text-xs font-bold uppercase tracking-wider text-memc-rosa">Fale Conosco</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-memc-roxo-escuro mb-4 leading-tight">
+                        Canais de Comunicação <br>
+                        <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-memc-rosa via-memc-roxo-medio to-memc-azul">da
+                            Rede MeMC</span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-neutral-700 font-semibold leading-relaxed">
+                        Entre em contato com a Sede Geral ou com as equipes de coordenação das subsedes em SP e MG.
+                    </p>
+                </div>
+
+                <!-- GRID DE CONTATOS (E-MAIL INSTITUCIONAL E INSTAGRAM OFICIAL) -->
+                <div class="w-full grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 items-stretch max-w-2xl mx-auto mb-12">
+                    <contatos-component contato-id="contato-email" title="E-mail Institucional"
+                        info="contato@redememc.org" link-href="mailto:contato@redememc.org"
+                        icon-class="fa-solid fa-envelope">
+                    </contatos-component>
+
+                    <contatos-component contato-id="contato-instagram" title="Instagram Oficial" info="@redememc"
+                        link-href="https://instagram.com" icon-class="fa-brands fa-instagram">
+                    </contatos-component>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ INSTITUCIONAL FIXADO -->
+    <footer class="bg-neutral-900 text-neutral-300 py-6 px-4 sm:px-6 lg:px-8 border-t border-neutral-800 relative z-20">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+
+            <!-- INFORMÁTICO DA CHAMADA PÚBLICA -->
+            <p
+                class="text-xs sm:text-sm font-medium text-neutral-300 max-w-2xl text-center md:text-left leading-relaxed">
+                Chamada CNPq/MCTI/MMulheres nº 31/2023 Meninas nas Ciências Exatas, Engenharias e Computação
             </p>
-        </div>
+
+            <!-- ESPAÇOS DE LOGOS INSTITUCIONAIS (CNPq | UFSCar | UNESP | USP | UFABC | UNIFEI) -->
+            <div class="flex items-center justify-center flex-wrap gap-2.5 sm:gap-3">
+
+                <!-- CNPq -->
+                <div>
+                    <a href="https://www.gov.br/cnpq/pt-br" target="_blank">
+                        <img src="img/logos_universidades/CNPQ/logo-cnpq-preto.jpg" alt="CNPQ"
+                            class="h-8 w-auto object-contain">
+                    </a>
+                </div>
+
+                <!-- UFSCar -->
+                <div>
+                    <a href="https://www.ufscar.br/" target="_blank">
+                        <img src="img/logos_universidades/UFSCAR/UFSCar-sigla-branco.svg" alt="UFSCAR"
+                            class="h-4 w-auto object-contain">
+                    </a>
+                </div>
+
+                <!-- UNESP -->
+                <div>
+                    <a href="https://www2.unesp.br/" target="_blank">
+                        <img src="img/logos_universidades/UNESP/logo-unesp.jpg" alt="UNESP"
+                            class="h-8 w-auto object-contain">
+                    </a>
+                </div>
+
+                <!-- USP -->
+                <div>
+                    <a href="https://www5.usp.br/" target="_blank">
+                        <img src="img/logos_universidades/USP/logo-usp-branco.png" alt="USP"
+                            class="h-6 w-auto object-contain">
+                    </a>
+                </div>
+
+                <!-- UFABC -->
+                <div>
+                    <a href="https://www.ufabc.edu.br/" target="_blank">
+                        <img src="img/logos_universidades/UFABC/logo-ufabc-abaixo.png" alt="UFABC"
+                            class="h-10 w-auto object-contain">
+                    </a>
+                </div>
+
+                <!-- UNIFEI -->
+                <div>
+                    <a href="https://unifei.edu.br/" target="_blank">
+                        <img src="img/logos_universidades/UNIFEI/simbolo_RGB.png" alt="UNIFEI"
+                            class="h-9 w-auto object-contain">
+                    </a>
+                </div>
+
+            </div>
     </footer>
 
-<script>
-    const carrossel = document.getElementById('carrossel-editais');
-    const btnNext = document.getElementById('btn-next');
-    const btnPrev = document.getElementById('btn-prev');
+    <!-- SCRIPT DE GERENCIAMENTO DE NAVEGAÇÃO E ACESSIBILIDADE -->
+    <script>
+        /**
+         * Alterna a visibilidade das abas principais da aplicação, destaca o link ativo no cabeçalho e rola suavemente para o topo.
+         * @param {string} idAbaDesejada - O ID da seção HTML a ser exibida.
+         */
+        function mudarAba(idAbaDesejada) {
+            const todasAsSecoes = document.querySelectorAll('.aba-conteudo');
 
-    const tamanhoDoPulo = 364; 
+            // Ocultar todas as seções
+            todasAsSecoes.forEach(secao => {
+                secao.classList.add('hidden');
+            });
 
-    btnNext.addEventListener('click', () => {
-        carrossel.scrollBy({ left: tamanhoDoPulo, behavior: 'smooth' });
-    });
+            // Exibir a seção selecionada
+            const secaoAtiva = document.getElementById(idAbaDesejada);
+            if (secaoAtiva) {
+                secaoAtiva.classList.remove('hidden');
+            }
 
-    btnPrev.addEventListener('click', () => {
-        carrossel.scrollBy({ left: -tamanhoDoPulo, behavior: 'smooth' });
-    });
-</script>    
+            // Atualizar estado ativo da navegação desktop
+            document.querySelectorAll('[data-aba]').forEach(btn => {
+                const isCurrent = btn.getAttribute('data-aba') === idAbaDesejada;
+                if (isCurrent) {
+                    btn.classList.add('bg-neutral-100', 'text-memc-rosa', 'font-extrabold');
+                } else {
+                    btn.classList.remove('bg-neutral-100', 'text-memc-rosa', 'font-extrabold');
+                }
+            });
+
+            // Atualizar estado ativo da navegação mobile
+            document.querySelectorAll('[data-aba-mobile]').forEach(btn => {
+                const isCurrent = btn.getAttribute('data-aba-mobile') === idAbaDesejada;
+                if (isCurrent) {
+                    btn.classList.add('bg-memc-rosa/15', 'text-memc-rosa', 'font-extrabold');
+                } else {
+                    btn.classList.remove('bg-memc-rosa/15', 'text-memc-rosa', 'font-extrabold');
+                }
+            });
+
+            // Fechar menu mobile se estiver aberto
+            const menuMobile = document.getElementById('menu-mobile');
+            const btnMenuMobile = document.getElementById('btn-menu-mobile');
+            if (menuMobile && !menuMobile.classList.contains('hidden')) {
+                menuMobile.classList.add('hidden');
+                if (btnMenuMobile) {
+                    btnMenuMobile.setAttribute('aria-expanded', 'false');
+                    btnMenuMobile.innerHTML = '<i class="fa-solid fa-bars"></i>';
+                }
+            }
+
+            // Rolar a página para o topo de forma suave
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Lógica do Botão Hambúrguer para Dispositivos Móveis
+        document.addEventListener('DOMContentLoaded', () => {
+            const btnMenuMobile = document.getElementById('btn-menu-mobile');
+            const menuMobile = document.getElementById('menu-mobile');
+
+            if (btnMenuMobile && menuMobile) {
+                btnMenuMobile.addEventListener('click', () => {
+                    const estaAberto = !menuMobile.classList.contains('hidden');
+                    menuMobile.classList.toggle('hidden');
+                    btnMenuMobile.setAttribute('aria-expanded', !estaAberto);
+                    btnMenuMobile.innerHTML = !estaAberto
+                        ? '<i class="fa-solid fa-xmark"></i>'
+                        : '<i class="fa-solid fa-bars"></i>';
+                });
+            }
+
+            // Ativar visualmente a aba 'inicio' no carregamento
+            mudarAba('inicio');
+        });
+    </script>
+
 </body>
+
 </html>
-
-

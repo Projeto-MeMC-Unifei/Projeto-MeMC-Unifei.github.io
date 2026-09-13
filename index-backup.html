@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/png" href="img/logo-memc-m.png">
+
+    <title>Projeto Meninas e Mulheres Cientistas</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+            extend: {
+                fontFamily: {
+                    sans: ['Inter', 'sans-serif'],
+                },
+                colors: {
+                    memc: {
+                        'roxo-escuro': '#23073A',
+                        'roxo-medio': '#58288E',
+                        'rosa': '#E1267A',
+                        'azul': '#2F75E3',
+                        'amarelo': '#FAC03E',
+                        'verde': '#29A962',
+                        'cinza-claro': '#A3A3A3',
+                        'cinza-escuro': '#737373',
+                    }
+                }
+            }
+        }
+    }
+    </script>
+
+    <script src="components/editais.js"></script>
+    <script src="components/contatos.js"></script>
+
+    
+<style>
+    .custom-scrollbar {
+        scrollbar-color: #E1267A #f5f5f5;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar {
+        height: 8px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+        background: #f5f5f5;
+        border-radius: 10px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #E1267A;
+        border-radius: 10px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: #58288E;
+    }
+</style>
+
+</head>
+
+<body class="bg-neutral-50 text-neutral-800 font-sans antialiased">
+
+    <header class="bg-neutral-50/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-10 shadow-lg">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            
+        <a href="#" class="inline-block transition-transform hover:scale-105">
+            <img src="img/logo-colorido2.png" alt="Logo Projeto Meninas e Mulheres Cientistas" class="h-16 w-auto object-contain">
+        </a>
+            
+            <div class="space-x-4 md:space-x-6">
+                <a href="index.html" class="text-neutral-700 hover:text-memc-rosa transition-colors font-semibold">Início</a>
+                <a href="sobre.html" class="text-neutral-700 hover:text-memc-roxo-medio transition-colors font-semibold">Sobre</a>
+                <a href="editais.html" class="text-neutral-700 hover:text-memc-verde transition-colors font-semibold">Editais</a>
+                <a href="resultados.html" class="text-neutral-700 hover:text-memc-azul transition-colors font-semibold">Resultados</a>
+                <a href="projetos.html" class="text-neutral-700 hover:text-memc-amarelo transition-colors font-semibold">Projetos</a>
+                <a href="contatos.html" class="text-neutral-700 hover:text-memc-rosa transition-colors font-semibold">Contatos</a>
+            </div>
+        </nav>
+    </header>
+
+    <section id="inicio" class="h-screen flex items-center justify-center text-center bg-gradient-to-b from-neutral-50 to-neutral-100 px-6 pt-32">
+        <div class="max-w-6xl mx-auto w-full">
+            <a>
+                <img src="img/logo-memc.png" alt="Logo Projeto Meninas e Mulheres Cientistas" class="h-100 w-auto object-contain">
+            </a>
+            <div class="space-x-4">
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre" class="py-20 bg-white px-6">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h2 class="text-4xl font-bold mb-8 text-fuchsia-700">Sobre Nós</h2>
+            <p class="text-lg text-neutral-700 leading-relaxed mb-4">
+                O presente projeto tem por objetivo central promover ações formativas voltadas às meninas e mulheres para estímulo ao ingresso, formação, ampliação à participação e permanência deste público no campo científico das CTEM (Ciências, Tecnologias, Engenharias, Matemática e programas interdisciplinares abrangendo essas áreas). Nesse sentido, fundamentamos nossas atividades a partir da formação de uma rede colaborativa entre 16 pesquisadores paulistas e mineiros centrada no desenvolvimento de 4 Projetos de Pesquisa, Ensino e Extensão já em desenvolvimento: i) Projeto Cientista por um Dia (Grupo 1); Centro de Ensino Integrado de Química (Grupo 2); Projeto Semeando Cientistas (Grupo 3); Projeto Pequenas Cientistas (Grupo 4). Os aportes teóricos e metodológicos possuem duas premissas fundamentais: a primeira que se refere à indissociabilidade da tríade ensino-pesquisa-extensão e a segunda mais estreita ao conceito de Natureza da Ciência que pode se desdobrar em duas interfaces: i) a historiografia da ciência e ii) a abordagem CTSA (Ciência, Tecnologia, Sociedade e Ambiente. Como resultados esperado, destacamos: i) O fortalecimento de atividades de pesquisa, ensino e extensão com a finalidade de estimular o ingresso, a manutenção e o desenvolvimento de mulheres e meninas em cursos de graduação e nas carreiras profissionais na área de CTEM ii) Ampliar os estudos ligados à Natureza da Ciência, tematizando questões relacionadas à justiça social e aos direitos humanos tanto na interface da Historiografia da Ciência, quanto na abordagem CTSA.
+            </p>
+        </div>
+    </section>
+
+<!-- EDITAIS -->
+<section id="editais" class="py-20 bg-neutral-50 px-6">
+    <div class="container mx-auto max-w-6xl text-center mb-12">
+        <h2 class="text-5xl font-bold mb-4 text-memc-rosa">Editais e Chamadas</h2>
+        <p class="text-2xl text-neutral-600">Confira as oportunidades para participação no projeto.</p>
+    </div>
+
+    <div class="container mx-auto max-w-6xl">
+
+    <div class="flex justify-end gap-4 mb-4">
+            <button id="btn-prev" class="w-12 h-12 rounded-full bg-memc-rosa hover:bg-memc-roxo-medio text-white flex items-center justify-center transition-colors shadow-sm hover:shadow-md">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            </button>
+            <button id="btn-next" class="w-12 h-12 rounded-full bg-memc-roxo-medio hover:bg-memc-rosa text-white flex items-center justify-center transition-colors shadow-sm hover:shadow-md">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </button>
+        </div>
+
+        <div id="carrossel-editais" class="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory scroll-smooth custom-scrollbar">
+
+            <editais-component
+                edital-id="edital_07_26"
+                title="Bolsistas de Pós-Doutorado Junior (PDJ)"
+                deadline="06/07/2026"
+                pdf-href="edital_07_26.pdf"
+                status="INSCRIÇÕES ENCERRADAS"
+                description="Consulte os requisitos e prazos no documento oficial.">
+            </editais-component>            
+
+            <editais-component
+                edital-id="edital_03_26"
+                title="Bolsista de Apoio à Difusão do Conhecimento"
+                deadline="06/03/2026"
+                pdf-href="edital_03_26.pdf"
+                status="INSCRIÇÕES ENCERRADAS"
+                description="Consulte os requisitos e prazos no documento oficial.">
+            </editais-component>
+
+            <editais-component
+                edital-id="edital_02_26"
+                title="Bolsistas de Apoio Técnico"
+                deadline="23/03/2026"
+                pdf-href="edital_02_26.pdf"
+                status="INSCRIÇÕES ENCERRADAS"
+                description="Consulte os requisitos e prazos no documento oficial.">
+            </editais-component>
+
+            <editais-component
+                edital-id="edital_01_26"
+                title="Bolsistas de Apoio Técnico – Nível Superior (AT-NS)"
+                deadline="20/01/2026"
+                pdf-href="edital_01_26.pdf"
+                status="INSCRIÇÕES ENCERRADAS"
+                description="Consulte os requisitos e prazos no documento oficial.">
+            </editais-component>
+
+            <editais-component
+                edital-id="edital_12_25"
+                title="Bolsistas de Pós-Doutorado Junior (PDJ)"
+                deadline="10/02/2026"
+                pdf-href="edital_12_25.pdf"
+                status="INSCRIÇÕES ENCERRADAS"
+                description="Consulte os requisitos e prazos no documento oficial.">
+            </editais-component>
+
+    </div> </div>
+</section>
+
+<!-- RESULTADOS -->
+<section id="resultados" class="py-20 bg-neutral-50 px-6">
+    <div class="container mx-auto max-w-6xl text-center mb-12">
+        <h2 class="text-5xl font-bold mb-4 text-memc-rosa">Resultados</h2>
+        <p class="text-2xl text-neutral-600">Confira os resultados dos editais.</p>
+    </div>
+
+    <div class="container mx-auto max-w-6xl">
+
+    <div class="flex justify-end gap-4 mb-4">
+            <button id="btn-prev" class="w-12 h-12 rounded-full bg-memc-rosa hover:bg-memc-roxo-medio text-white flex items-center justify-center transition-colors shadow-sm hover:shadow-md">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            </button>
+            <button id="btn-next" class="w-12 h-12 rounded-full bg-memc-roxo-medio hover:bg-memc-rosa text-white flex items-center justify-center transition-colors shadow-sm hover:shadow-md">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </button>
+        </div>
+
+        <div id="carrossel-editais" class="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory scroll-smooth custom-scrollbar">
+            
+            <editais-component
+                edital-id="resultado_03_26"
+                title="Bolsista de Apoio à Difusão do Conhecimento"
+                deadline="06/03/2026"
+                pdf-href="resultado_03_26.pdf"
+                status="RESULTADO"
+                description="Consulte os requisitos e prazos no documento oficial.">
+            </editais-component>
+
+            <editais-component
+                edital-id="resultado_01_26"
+                title="Bolsistas de Apoio Técnico"
+                deadline="23/03/2026"
+                pdf-href="resultado_01_26.pdf"
+                status="RESULTADO"
+                description="Consulte os requisitos e prazos no documento oficial.">
+            </editais-component>
+
+            <editais-component
+                edital-id="resultado_12_25"
+                title="Bolsistas de Pós-Doutorado Junior"
+                deadline="23/03/2026"
+                pdf-href="resultado_12_25.pdf"
+                status="RESULTADO"
+                description="Consulte os requisitos e prazos no documento oficial.">
+            </editais-component>
+
+    </div> </div>
+</section>
+
+    <section id="projetos" class="py-20 bg-neutral-100 px-6">
+        <div class="container mx-auto max-w-6xl text-center">
+            <h2 class="text-4xl font-bold mb-12 text-fuchsia-700">Projetos em Andamento</h2>
+            
+            <div id="grupos-container" class="flex flex-wrap justify-center gap-8 items-stretch">
+                </div>
+        </div>-
+    </section>
+
+    <script>
+        // Configuração dos grupos
+        const grupos = [
+            {
+                numero: 1,
+                nome: "Projeto Cientista por um Dia",
+                github: "#"
+            },
+            {
+                numero: 2,
+                nome: "Centro de Ensino Integrado de Química",
+                github: "#"
+            },
+            {
+                numero: 3,
+                nome: "Projeto Semeando Cientistas",
+                github: "#"
+            },
+            {
+                numero: 4,
+                nome: "Projeto Pequenas Cientistas",
+                github: "#"
+            }
+        ];
+
+        function criarCardGrupo(grupo) {
+            return `
+                <div class="bg-white rounded-lg shadow-xl overflow-hidden transform transition-transform hover:-translate-y-2 flex flex-col justify-between p-6 text-center h-full w-full md:w-64">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-2 text-neutral-800">Grupo ${grupo.numero}</h3>
+                        <p class="text-neutral-500 mb-4 px-2">
+                            ${grupo.nome}
+                        </p>
+                    </div>
+                    <div class="mt-auto">
+                        <a href="${grupo.github}" ${grupo.github.startsWith('http') ? 'target="_blank" rel="noopener noreferrer"' : ''} class="text-fuchsia-700 hover:text-fuchsia-600 font-medium">Ver no GitHub</a>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderizarGrupos() {
+            const container = document.getElementById('grupos-container');
+            container.innerHTML = grupos.map(grupo => criarCardGrupo(grupo)).join('');
+        }
+
+        document.addEventListener('DOMContentLoaded', renderizarGrupos);
+    </script>
+
+<!-- CONTATOS -->
+<section id="contatos" class="py-20 bg-white px-6">
+    <div class="container mx-auto max-w-4xl text-center">
+        <h2 class="text-4xl font-bold mb-4 text-memc-roxo-medio">Entre em Contato</h2>
+        <p class="text-xl text-neutral-600 mb-12">Tem alguma dúvida ou quer saber mais sobre o projeto? Fale conosco.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+        <contatos-component
+            contato-id="contato_email"
+            title="E-mail"
+            info="projetomemc.unifei@gmail.com"
+            link-href="mailto:projetomemc.unifei@gmail.com"
+            icon-class="fa-solid fa-envelope">
+        </contatos-component>
+
+            <contatos-component
+                contato-id="contato_instagram"
+                title="Instagram"
+                info="@tecendoredesspmg"
+                link-href="https://www.instagram.com/tecendoredesspmg/"
+                icon-class="fa-brands fa-instagram">
+            </contatos-component>
+
+            <contatos-component
+                contato-id="contato_youtube"
+                title="YouTube"
+                info="Canal tecendoredesspmg"
+                link-href="https://www.youtube.com/@tecendoredesspmg"
+                icon-class="fa-brands fa-youtube">
+            </contatos-component>
+
+        </div>
+    </div>
+</section>
+
+<!-- RODAPÉ -->
+    <footer class="bg-neutral-100 py-8 text-center">
+        <div class="container mx-auto px-6">
+            <p class="text-neutral-600">
+                Feito com ❤️ por Meninas e Mulheres Cientistas 2025
+            </p>
+        </div>
+    </footer>
+
+<script>
+    const carrossel = document.getElementById('carrossel-editais');
+    const btnNext = document.getElementById('btn-next');
+    const btnPrev = document.getElementById('btn-prev');
+
+    const tamanhoDoPulo = 364; 
+
+    btnNext.addEventListener('click', () => {
+        carrossel.scrollBy({ left: tamanhoDoPulo, behavior: 'smooth' });
+    });
+
+    btnPrev.addEventListener('click', () => {
+        carrossel.scrollBy({ left: -tamanhoDoPulo, behavior: 'smooth' });
+    });
+</script>    
+</body>
+</html>
+
+
