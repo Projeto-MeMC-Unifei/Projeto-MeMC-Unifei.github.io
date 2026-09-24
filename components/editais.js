@@ -15,6 +15,8 @@ class Editais extends HTMLElement {
     }
 
     connectedCallback() {
+        // Assegura que o componente se comporte como um elemento de bloco de altura total no grid
+        this.classList.add('block', 'h-full', 'w-full');
         this.render();
     }
 
@@ -50,6 +52,9 @@ class Editais extends HTMLElement {
             cor_botao = 'bg-memc-verde hover:opacity-90 text-white';
             texto_botao = 'Baixar Edital';
             borda_cartao = 'border-memc-rosa';
+            display_tag = 'inline-block';
+            classes_tag_espaçamento = 'px-4 py-1.5 rounded-full mb-4';
+            texto_tag = status.toUpperCase();
         }
         else if (status.toUpperCase() === 'RESULTADO') {
             cor_botao = 'bg-memc-verde hover:opacity-90 text-white';
@@ -80,12 +85,14 @@ class Editais extends HTMLElement {
         }
 
         this.innerHTML = `
-            <article class="bg-white p-6 rounded-2xl shadow-sm border-t-[6px] ${borda_cartao} border-x border-b border-neutral-200/80 snap-center shrink-0 w-[340px] flex flex-col h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-left">
+            <article class="bg-white p-6 rounded-2xl shadow-sm border-t-[6px] ${borda_cartao} border-x border-b border-neutral-200/80 w-full flex flex-col h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-left">
                 
                 <div class="flex-1">
-                    <span class="${display_tag} ${classes_tag_espaçamento} text-xs font-bold ${cor_tag_bg} ${cor_tag_texto} shadow-xs">
-                        ${texto_tag}
-                    </span>
+                    ${display_tag !== 'hidden' ? `
+                        <span class="${display_tag} ${classes_tag_espaçamento} text-xs font-bold ${cor_tag_bg} ${cor_tag_texto} shadow-xs">
+                            ${texto_tag}
+                        </span>
+                    ` : ''}
                     
                     <h3 class="text-2xl font-bold text-memc-roxo-escuro mb-4 leading-tight">${title}</h3>
                     <p class="text-sm text-neutral-600 mb-6 leading-relaxed">${description}</p>
