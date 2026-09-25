@@ -29,6 +29,13 @@
                             'verde': '#29A962',
                             'cinza-claro': '#A3A3A3',
                             'cinza-escuro': '#737373',
+                        },
+
+                        instituicoes: {
+                            'subsede1': '#b4a7d6',
+                            'subsede2': '#d5a6bd',
+                            'subsede3': '#f9cb9c',
+                            'subsede4': '#ffe599',
                         }
                     }
                 }
@@ -38,13 +45,17 @@
 
     <script src="components/editais.js"></script>
     <script src="components/contatos.js"></script>
+    <script src="components/publicacoes.js"></script>
 
-    <!-- Leaflet CSS & JS -->
+    <!-- Leaflet CSS & JS (Comentados - Mapa antigo mantido em comentário) -->
+    <!-- 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    <script src="components/mapa.js"></script>
+    <script src="components/mapa.js"></script> 
+    -->
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
 
@@ -97,7 +108,7 @@
                                 <span class="w-2.5 h-2.5 rounded-full bg-memc-roxo-medio shrink-0"></span>
                                 <div>
                                     <div class="font-bold">Subsede 1</div>
-                                    <div class="text-[11px] text-neutral-500 font-medium">Unifesp • Diadema</div>
+                                    <div class="text-[11px] text-neutral-500 font-medium">UNIFESP</div>
                                 </div>
                             </button>
 
@@ -106,7 +117,7 @@
                                 <span class="w-2.5 h-2.5 rounded-full bg-memc-verde shrink-0"></span>
                                 <div>
                                     <div class="font-bold">Subsede 2</div>
-                                    <div class="text-[11px] text-neutral-500 font-medium">USP • Ribeirão Preto</div>
+                                    <div class="text-[11px] text-neutral-500 font-medium">USP</div>
                                 </div>
                             </button>
 
@@ -115,7 +126,7 @@
                                 <span class="w-2.5 h-2.5 rounded-full bg-memc-azul shrink-0"></span>
                                 <div>
                                     <div class="font-bold">Subsede 3</div>
-                                    <div class="text-[11px] text-neutral-500 font-medium">UNIFEI • Itajubá</div>
+                                    <div class="text-[11px] text-neutral-500 font-medium">UNIFEI</div>
                                 </div>
                             </button>
 
@@ -124,8 +135,7 @@
                                 <span class="w-2.5 h-2.5 rounded-full bg-memc-amarelo shrink-0"></span>
                                 <div>
                                     <div class="font-bold">Subsede 4</div>
-                                    <div class="text-[11px] text-neutral-500 font-medium">UFSCar • Araras / São Carlos /
-                                        Sorocaba</div>
+                                    <div class="text-[11px] text-neutral-500 font-medium">UFSCar</div>
                                 </div>
                             </button>
                         </div>
@@ -191,27 +201,27 @@
 
         <!-- SEÇÃO INÍCIO (HOMEPAGE & MAPA DO BRASIL) -->
         <section id="inicio"
-            class="aba-conteudo block min-h-screen pt-28 pb-16 px-4 sm:px-6 lg:px-8 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-purple-100/60 via-slate-100/80 to-pink-50/40">
+            class="aba-conteudo block min-h-screen pt-28 pb-16 px-4 sm:px-6 lg:px-8 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-purple-100/60 via-slate-100/80 to-green-50/40">
             <div class="max-w-7xl mx-auto w-full flex flex-col items-center">
 
                 <!-- CABEÇALHO DA SEÇÃO INÍCIO -->
                 <div class="text-center max-w-4xl shrink-0 mb-10 mt-4">
-                    <div
-                        class="inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm px-4 py-1.5 rounded-full border border-memc-roxo-medio/20 shadow-xs mb-4">
-                        <span class="w-2.5 h-2.5 rounded-full bg-memc-rosa animate-pulse"></span>
-                        <span class="text-xs font-bold uppercase tracking-wider text-memc-roxo-medio">Rede São Paulo &
-                            Minas Gerais</span>
-                    </div>
 
                     <h1
                         class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-memc-roxo-escuro mb-4 leading-tight">
                         Tecendo redes, <br>
                         <span
-                            class="text-transparent bg-clip-text bg-gradient-to-r from-memc-rosa via-memc-roxo-medio to-memc-azul">aproximando
-                            caminhos</span>
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-memc-rosa via-memc-roxo-medio to-memc-azul">
+                            aproximando caminhos
+                        </span>
                     </h1>
 
-                    <p class="text-sm sm:text-base text-neutral-600 leading-relaxed max-w-3xl mx-auto">
+                    <p class="text-base sm:text-lg text-neutral-700 font-semibold leading-relaxed max-w-5xl mx-auto">
+                        Instituições de São Paulo e Minas Gerais se conectam para ampliar a participação de meninas e
+                        mulheres na Ciência, Tecnologia, Engenharia e Matemática
+                    </p> <br>
+
+                    <p class="text-sm sm:text-base text-neutral-600 leading-relaxed max-w-5xl mx-auto">
                         Uma rede que aproxima pessoas, projetos e territórios, fortalecendo caminhos para que mais
                         meninas e mulheres possam chegar, permanecer e transformar a ciência.
                     </p>
@@ -220,24 +230,69 @@
                 <!-- GRID: MAPA INTERATIVO E PAINEL DE INFORMAÇÕES -->
                 <div class="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-24 md:mb-28 z-0">
 
-                    <!-- COLUNA DO MAPA BRASIL COM BORDA DEFINIDA DE DESTAQUE (SEM FLUTUAR) -->
+                    <!-- COLUNA DO MAPA GOOGLE MY MAPS (RESPONSIVO COM BORDA DE DESTAQUE) -->
                     <div
                         class="lg:col-span-7 w-full h-[450px] md:h-[550px] lg:h-[600px] relative bg-white rounded-3xl overflow-hidden shadow-2xl border-2 border-memc-roxo-medio/40 ring-4 ring-memc-roxo-medio/15 hover:border-memc-rosa/60 transition-all duration-300">
-                        <div id="map" aria-label="Mapa interativo do Brasil mostrando as subsedes da Rede MeMC"
-                            class="w-full h-full absolute inset-0 z-0 bg-[#FAF8FC]"></div>
+                        <iframe
+                            src="https://www.google.com/maps/d/embed?mid=1a7yY7vZM93bbm4sK1GTVxG5G3n_rSgw&ehbc=2E312F"
+                            class="w-full h-full border-0 rounded-3xl"
+                            title="Mapa Interativo da Rede MeMC - Google My Maps" allowfullscreen></iframe>
                     </div>
 
-                    <!-- COLUNA DO PAINEL LATERAL DE INFORMAÇÕES (ARIA LIVE PARA ACESSIBILIDADE) -->
+                    <!-- COLUNA DO PAINEL LATERAL DE INFORMAÇÕES -->
                     <div class="lg:col-span-5 w-full flex flex-col justify-center">
                         <div id="map-info-panel" aria-live="polite" aria-atomic="true"
                             class="w-full bg-white backdrop-blur-md rounded-3xl p-6 md:p-8 shadow-2xl border-2 border-memc-rosa/40 ring-4 ring-memc-rosa/15 transition-all duration-300 min-h-[420px] flex flex-col justify-center">
-                            <!-- Conteúdo Inicial Genérico (Gerado via JavaScript mapa.js) -->
+                            <div class="space-y-4">
+                                <div class="flex items-center gap-2">
+                                    <span
+                                        class="bg-memc-rosa/15 text-memc-rosa text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-memc-rosa/30">
+                                        Rede MeMC
+                                    </span>
+                                    <span
+                                        class="bg-memc-roxo-medio/15 text-memc-roxo-medio text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                                        SP & MG
+                                    </span>
+                                </div>
+
+                                <h3 class="text-2xl md:text-3xl font-extrabold text-memc-roxo-medio leading-tight">
+                                    Mapeamento da Rede
+                                </h3>
+
+                                <p class="text-base text-neutral-700 leading-relaxed">
+                                    A Rede Meninas e Mulheres Cientistas é formada por 20 instituições parceiras
+                                    articuladas em quatro subsedes principais. Conectamos universidades, escolas
+                                    públicas e comunidades para ampliar a participação de meninas e mulheres nas
+                                    ciências (CTEM).
+                                </p>
+
+                                <div class="grid grid-cols-2 gap-3 my-4">
+                                    <div class="bg-neutral-100/90 p-3.5 rounded-xl border border-neutral-200 shadow-sm">
+                                        <div class="text-2xl font-black text-memc-rosa mb-1">20</div>
+                                        <div class="text-xs font-semibold text-neutral-700">Instituições Conectadas
+                                        </div>
+                                    </div>
+                                    <div class="bg-neutral-100/90 p-3.5 rounded-xl border border-neutral-200 shadow-sm">
+                                        <div class="text-2xl font-black text-memc-roxo-medio mb-1">4</div>
+                                        <div class="text-xs font-semibold text-neutral-700">Subsedes de Pesquisa</div>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="bg-memc-rosa/10 rounded-xl p-4 border border-memc-rosa/30 text-sm text-neutral-800 space-y-2">
+                                    <p class="flex items-center gap-2 font-medium">
+                                        <i class="fa-solid fa-location-dot text-memc-rosa"></i>
+                                        <span>Navegue pelo mapa interativo para explorar os locais e subsedes da
+                                            rede.</span>
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                 </div>
 
-                <!-- CONTEÚDO EXPLICATIVO DAS SUBSEDES - LAYOUT DE 2 COLUNAS COMPACTO (ALINHADO EM MAX-W-7XL) -->
+                <!-- CONTEÚDO EXPLICATIVO DAS SUBSEDES - TEXTO CORRIDO -->
                 <div
                     class="max-w-7xl w-full text-left bg-white/90 backdrop-blur-md rounded-3xl p-6 sm:p-8 lg:p-10 shadow-xl border-2 border-neutral-200/80 relative overflow-hidden">
 
@@ -246,118 +301,115 @@
                         class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-memc-rosa via-memc-roxo-medio via-memc-azul to-memc-verde">
                     </div>
 
-                    <!-- GRID DE 2 COLUNAS PARA AJUSTAR O CONTEÚDO SEM POLUIÇÃO VERTICAL -->
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-
-                        <!-- COLUNA ESQUERDA: ARTICULAÇÃO DA REDE -->
-                        <div class="space-y-4 flex flex-col justify-between">
-                            <div class="space-y-3">
-                                <div
-                                    class="inline-flex items-center gap-2 bg-memc-roxo-medio/10 text-memc-roxo-medio text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-memc-roxo-medio/20">
-                                    <i class="fa-solid fa-network-wired text-memc-rosa"></i> Nossa Articulação
-                                    Institucional
-                                </div>
-                                <h2
-                                    class="text-2xl sm:text-3xl lg:text-4xl font-black text-memc-roxo-escuro leading-tight">
-                                    Pessoas, experiências e territórios conectados
-                                </h2>
-
-                                <p class="text-sm sm:text-base text-neutral-700 leading-relaxed font-medium">
-                                    A Rede Meninas e Mulheres Cientistas se constitui a partir da articulação de quatro
-                                    projetos,
-                                    que atuam como subsedes da iniciativa: Cientista por um Dia, Centro de Ensino
-                                    Integrado de
-                                    Química (CEIQ), Semeando Cientistas e Pequenas Cientistas.
-                                </p>
-
-                                <p class="text-sm sm:text-base text-neutral-700 leading-relaxed font-medium">
-                                    Cada subsede reúne instituições, pesquisadoras, pesquisadores e bolsistas em torno
-                                    de um objetivo comum: promover ações
-                                    formativas que contribuam para o ingresso, a formação, a participação e a
-                                    permanência de meninas
-                                    e mulheres nas áreas de Ciência, Tecnologia, Engenharia e Matemática (CTEM).
-                                </p>
-                            </div>
-
-                            <!-- CARTÃO DE DESTAQUE COM BORDA LATERAL DE ACENTO -->
+                    <!-- FLUXO DE TEXTO CORRIDO -->
+                    <div class="space-y-6">
+                        <!-- CABEÇALHO -->
+                        <div class="space-y-3">
                             <div
-                                class="bg-gradient-to-r from-memc-rosa/10 via-memc-roxo-medio/5 to-transparent rounded-r-2xl p-4 sm:p-5 border-l-4 border-memc-rosa border-y border-r border-neutral-200/60 shadow-xs">
-                                <p
-                                    class="text-sm sm:text-base text-neutral-800 leading-relaxed font-medium italic flex items-start gap-2">
-                                    <i
-                                        class="fa-solid fa-quote-left text-memc-rosa text-base shrink-0 mt-0.5 opacity-70"></i>
-                                    <span>
-                                        Com trajetórias e formas de atuação próprias, as subsedes desenvolvem atividades
-                                        de ensino,
-                                        pesquisa e extensão que conectam universidade, escola e sociedade. Compartilham
-                                        experiências e
-                                        conhecimentos para ampliar os caminhos de meninas e mulheres na ciência.
-                                    </span>
-                                </p>
+                                class="inline-flex items-center gap-2 bg-memc-roxo-medio/10 text-memc-roxo-medio text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-memc-roxo-medio/20">
+                                <i class="fa-solid fa-network-wired text-memc-rosa"></i> Nossa Articulação
+                                Institucional
                             </div>
+                            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-memc-roxo-escuro leading-tight">
+                                Pessoas, experiências e territórios conectados
+                            </h2>
                         </div>
 
-                        <!-- COLUNA DIREITA: CONCEITO E ORGANIZAÇÃO DAS SUBSEDES -->
+                        <!-- PARÁGRAFOS CORRIDOS DA ARTICULAÇÃO -->
+                        <div class="space-y-4 text-sm sm:text-base text-neutral-700 leading-relaxed font-medium">
+                            <p>
+                                A Rede Meninas e Mulheres Cientistas se constitui a partir da articulação de
+                                quatro projetos,
+                                que atuam como subsedes da iniciativa: <strong>Cientista por um Dia</strong>,
+                                <strong>Centro de Ensino Integrado de Química (CEIQ)</strong>,
+                                <strong>Semeando Cientistas</strong> e <strong>Pequenas Cientistas</strong>.
+                            </p>
+
+                            <p>
+                                Cada subsede reúne instituições, pesquisadoras, pesquisadores e bolsistas em
+                                torno de um objetivo comum:
+                                promover ações formativas que contribuam para o ingresso, a formação, a
+                                participação e a permanência de meninas
+                                e mulheres nas áreas de Ciência, Tecnologia, Engenharia e Matemática (CTEM).
+                            </p>
+
+                            <p>
+                                Cada subsede nasce de um projeto já em desenvolvimento, que dá nome à iniciativa
+                                e serve como ponto de partida para a articulação de novas instituições,
+                                pesquisadoras, pesquisadores e ações. Assim, cada subsede reúne um grupo de
+                                trabalho mais amplo, conectado pelos objetivos da rede, ainda que com formas de
+                                atuação próprias.
+                            </p>
+                        </div>
+
+                        <!-- CARTÃO DE DESTAQUE COM CITAÇÃO INTEGRADA NO FLUXO -->
                         <div
-                            class="bg-slate-50/90 rounded-2xl p-5 sm:p-7 border border-neutral-200/90 shadow-sm space-y-4 flex flex-col justify-between">
-                            <div class="space-y-3">
-                                <div class="flex items-center gap-3">
-                                    <span
-                                        class="w-8 h-8 rounded-xl bg-memc-rosa text-white flex items-center justify-center text-sm font-bold shadow-xs shrink-0">
-                                        <i class="fa-solid fa-cubes"></i>
-                                    </span>
-                                    <h3 class="text-xl sm:text-2xl font-bold text-memc-rosa">
-                                        O que são as subsedes
-                                    </h3>
+                            class="bg-gradient-to-r from-memc-rosa/10 via-memc-roxo-medio/5 to-transparent rounded-r-2xl p-4 sm:p-5 border-l-4 border-memc-rosa border-y border-r border-neutral-200/60 shadow-xs my-4">
+                            <p
+                                class="text-sm sm:text-base text-neutral-800 leading-relaxed font-medium italic flex items-start gap-2">
+                                <i
+                                    class="fa-solid fa-quote-left text-memc-rosa text-base shrink-0 mt-0.5 opacity-70"></i>
+                                <span>
+                                    Com trajetórias e formas de atuação próprias, as subsedes desenvolvem
+                                    atividades de ensino, pesquisa e extensão que conectam universidade, escola
+                                    e sociedade, compartilhando experiências e conhecimentos para ampliar os
+                                    caminhos de meninas e mulheres na ciência.
+                                </span>
+                            </p>
+                        </div>
+
+                        <!-- SUBSEDES EM LISTA FLUIDA -->
+                        <div class="space-y-4 pt-4 border-t border-neutral-200/70">
+                            <h3 class="text-xl sm:text-2xl font-bold text-memc-roxo-escuro flex items-center gap-2">
+                                <i class="fa-solid fa-cubes text-memc-rosa"></i>
+                                A rede se organiza nas quatro subsedes:
+                            </h3>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                                <div
+                                    class="bg-white/80 p-3.5 sm:p-4 rounded-xl border border-neutral-200/80 shadow-xs flex flex-col justify-between">
+                                    <div class="flex items-center gap-2 mb-1.5">
+                                        <span class="w-3 h-3 rounded-full bg-memc-rosa shrink-0"></span>
+                                        <span class="font-bold text-neutral-900 text-sm sm:text-base">Cientista
+                                            por um Dia</span>
+                                    </div>
+                                    <span class="text-xs text-neutral-500 font-medium">Unifesp • Diadema</span>
                                 </div>
 
-                                <p class="text-sm sm:text-base text-neutral-800 leading-relaxed font-semibold mb-1">
-                                    A rede se organiza em quatro subsedes:
-                                </p>
-                                <ul class="space-y-2 text-sm sm:text-base text-neutral-700 font-medium">
-                                    <li
-                                        class="flex items-start gap-2.5 bg-white/80 p-2 sm:p-2.5 rounded-xl border border-neutral-200/80 shadow-2xs">
-                                        <span class="w-3 h-3 rounded-full bg-memc-rosa mt-1 shrink-0 shadow-xs"></span>
-                                        <span><strong class="text-neutral-900 font-bold">Cientista por um Dia</strong>
-                                            (Unifesp, Diadema)</span>
-                                    </li>
-                                    <li
-                                        class="flex items-start gap-2.5 bg-white/80 p-2 sm:p-2.5 rounded-xl border border-neutral-200/80 shadow-2xs">
-                                        <span
-                                            class="w-3 h-3 rounded-full bg-memc-roxo-medio mt-1 shrink-0 shadow-xs"></span>
-                                        <span><strong class="text-neutral-900 font-bold">Centro de Ensino Integrado de
-                                                Química - CEIQ</strong> (USP, Ribeirão Preto)</span>
-                                    </li>
-                                    <li
-                                        class="flex items-start gap-2.5 bg-white/80 p-2 sm:p-2.5 rounded-xl border border-neutral-200/80 shadow-2xs">
-                                        <span class="w-3 h-3 rounded-full bg-memc-azul mt-1 shrink-0 shadow-xs"></span>
-                                        <span><strong class="text-neutral-900 font-bold">Semeando Cientistas</strong>
-                                            (UNIFEI, Itajubá)</span>
-                                    </li>
-                                    <li
-                                        class="flex items-start gap-2.5 bg-white/80 p-2 sm:p-2.5 rounded-xl border border-neutral-200/80 shadow-2xs">
-                                        <span class="w-3 h-3 rounded-full bg-memc-verde mt-1 shrink-0 shadow-xs"></span>
-                                        <span><strong class="text-neutral-900 font-bold">Pequenas Cientistas</strong>
-                                            (UFSCar, com ações em Araras, São Carlos e Sorocaba)</span>
-                                    </li>
-                                </ul>
-                            </div>
+                                <div
+                                    class="bg-white/80 p-3.5 sm:p-4 rounded-xl border border-neutral-200/80 shadow-xs flex flex-col justify-between">
+                                    <div class="flex items-center gap-2 mb-1.5">
+                                        <span class="w-3 h-3 rounded-full bg-memc-roxo-medio shrink-0"></span>
+                                        <span class="font-bold text-neutral-900 text-sm sm:text-base">CEIQ</span>
+                                    </div>
+                                    <span class="text-xs text-neutral-500 font-medium">USP • Ribeirão
+                                        Preto</span>
+                                </div>
 
-                            <div class="pt-3 border-t border-neutral-200/70">
-                                <p class="text-sm sm:text-base text-neutral-700 leading-relaxed">
-                                    Cada subsede nasce de um projeto já em desenvolvimento, que dá nome à iniciativa e
-                                    serve como
-                                    ponto de partida para a articulação de novas instituições, pesquisadoras,
-                                    pesquisadores e ações.
-                                    Assim, cada subsede reúne um grupo de trabalho mais amplo, conectado pelos objetivos
-                                    da rede,
-                                    ainda que com formas de atuação próprias.
-                                </p>
+                                <div
+                                    class="bg-white/80 p-3.5 sm:p-4 rounded-xl border border-neutral-200/80 shadow-xs flex flex-col justify-between">
+                                    <div class="flex items-center gap-2 mb-1.5">
+                                        <span class="w-3 h-3 rounded-full bg-memc-azul shrink-0"></span>
+                                        <span class="font-bold text-neutral-900 text-sm sm:text-base">Semeando
+                                            Cientistas</span>
+                                    </div>
+                                    <span class="text-xs text-neutral-500 font-medium">UNIFEI • Itajubá</span>
+                                </div>
+
+                                <div
+                                    class="bg-white/80 p-3.5 sm:p-4 rounded-xl border border-neutral-200/80 shadow-xs flex flex-col justify-between">
+                                    <div class="flex items-center gap-2 mb-1.5">
+                                        <span class="w-3 h-3 rounded-full bg-memc-verde shrink-0"></span>
+                                        <span class="font-bold text-neutral-900 text-sm sm:text-base">Pequenas
+                                            Cientistas</span>
+                                    </div>
+                                    <span class="text-xs text-neutral-500 font-medium">UFSCar • Araras, São
+                                        Carlos e Sorocaba</span>
+                                </div>
                             </div>
                         </div>
 
                     </div>
-
                 </div>
 
                 <!-- BANNER INSTITUCIONAL: A REDE EM NÚMEROS E ODS CONTEMPLADAS -->
@@ -409,7 +461,8 @@
                                 </div>
                             </div>
                             <div class="text-3xl sm:text-4xl font-black text-memc-roxo-medio mb-1">20</div>
-                            <div class="text-xs sm:text-sm font-bold text-neutral-800">Instituições de Ensino</div>
+                            <div class="text-xs sm:text-sm font-bold text-neutral-800">Instituições de Ensino
+                            </div>
                         </div>
 
                         <!-- CARD 3: BOLSAS ICJ -->
@@ -424,7 +477,8 @@
                             </div>
                             <div class="text-3xl sm:text-4xl font-black text-memc-azul mb-1">105</div>
                             <div class="text-xs sm:text-sm font-bold text-neutral-800">Bolsas ICJ</div>
-                            <div class="text-[11px] text-neutral-600 font-medium">Iniciação Científica Júnior</div>
+                            <div class="text-[11px] text-neutral-600 font-medium">Iniciação Científica Júnior
+                            </div>
                         </div>
 
                         <!-- CARD 4: BOLSAS AT -->
@@ -439,7 +493,8 @@
                             </div>
                             <div class="text-3xl sm:text-4xl font-black text-memc-verde mb-1">21</div>
                             <div class="text-xs sm:text-sm font-bold text-neutral-800">Bolsas AT</div>
-                            <div class="text-[11px] text-neutral-600 font-medium">Apoio Técnico (Educação Básica)</div>
+                            <div class="text-[11px] text-neutral-600 font-medium">Apoio Técnico (Educação
+                                Básica)</div>
                         </div>
 
                         <!-- CARD 5: BOLSAS IC -->
@@ -468,7 +523,8 @@
                                 </div>
                             </div>
                             <div class="text-3xl sm:text-4xl font-black text-memc-rosa mb-1">02</div>
-                            <div class="text-xs sm:text-sm font-bold text-neutral-800">Bolsas Pós-Doutorado</div>
+                            <div class="text-xs sm:text-sm font-bold text-neutral-800">Bolsas Pós-Doutorado
+                            </div>
                         </div>
 
                         <!-- CARD 7: BOLSAS ADC -->
@@ -483,7 +539,8 @@
                             </div>
                             <div class="text-3xl sm:text-4xl font-black text-memc-roxo-medio mb-1">02</div>
                             <div class="text-xs sm:text-sm font-bold text-neutral-800">Bolsas ADC</div>
-                            <div class="text-[11px] text-neutral-600 font-medium">Apoio à Difusão do Conhecimento</div>
+                            <div class="text-[11px] text-neutral-600 font-medium">Apoio à Difusão do
+                                Conhecimento</div>
                         </div>
 
                     </div>
@@ -522,8 +579,10 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <h4 class="text-base font-bold text-neutral-900 mb-1">Educação de Qualidade</h4>
-                                    <p class="text-xs text-neutral-600 leading-relaxed font-medium">Garantir a educação
+                                    <h4 class="text-base font-bold text-neutral-900 mb-1">Educação de Qualidade
+                                    </h4>
+                                    <p class="text-xs text-neutral-600 leading-relaxed font-medium">Garantir a
+                                        educação
                                         inclusiva, equitativa e de qualidade na ciência.</p>
                                 </div>
                             </div>
@@ -542,8 +601,10 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <h4 class="text-base font-bold text-neutral-900 mb-1">Igualdade de Gênero</h4>
-                                    <p class="text-xs text-neutral-600 leading-relaxed font-medium">Empoderar meninas e
+                                    <h4 class="text-base font-bold text-neutral-900 mb-1">Igualdade de Gênero
+                                    </h4>
+                                    <p class="text-xs text-neutral-600 leading-relaxed font-medium">Empoderar
+                                        meninas e
                                         mulheres no acesso e permanência na ciência.</p>
                                 </div>
                             </div>
@@ -564,7 +625,8 @@
                                 <div>
                                     <h4 class="text-base font-bold text-neutral-900 mb-1">Trabalho Decente</h4>
                                     <p class="text-xs text-neutral-600 leading-relaxed font-medium">Promover o
-                                        crescimento econômico inclusivo e empregos sustentáveis nas áreas CTEM.</p>
+                                        crescimento econômico inclusivo e empregos sustentáveis nas áreas CTEM.
+                                    </p>
                                 </div>
                             </div>
 
@@ -582,7 +644,8 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <h4 class="text-base font-bold text-neutral-900 mb-1">Redução das Desigualdades</h4>
+                                    <h4 class="text-base font-bold text-neutral-900 mb-1">Redução das
+                                        Desigualdades</h4>
                                     <p class="text-xs text-neutral-600 leading-relaxed font-medium">Reduzir as
                                         desigualdades de oportunidades e incentivar a inclusão social.</p>
                                 </div>
@@ -837,82 +900,30 @@
         <section id="publicacoes"
             class="aba-conteudo hidden min-h-screen pt-28 pb-16 px-4 sm:px-6 lg:px-8 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-pink-100/50 via-slate-100/80 to-purple-50/40">
             <div class="max-w-7xl mx-auto w-full flex flex-col items-center text-center">
-                <div class="max-w-4xl mb-12 mt-4">
-                    <div
-                        class="inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm px-4 py-1.5 rounded-full border border-memc-rosa/30 shadow-xs mb-4">
-                        <span class="w-2.5 h-2.5 rounded-full bg-memc-rosa animate-pulse"></span>
-                        <span class="text-xs font-bold uppercase tracking-wider text-memc-rosa">Difusão & Produção
-                            Acadêmica</span>
-                    </div>
 
+                <div class="max-w-4xl mb-12 mt-4">
                     <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-memc-roxo-escuro mb-4 leading-tight">
-                        Publicações e Materiais <br>
                         <span
-                            class="text-transparent bg-clip-text bg-gradient-to-r from-memc-rosa via-memc-roxo-medio to-memc-azul">da
-                            Rede MeMC</span>
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-memc-rosa via-memc-roxo-medio to-memc-azul">
+                            Publicações
+                        </span>
                     </h1>
 
-                    <p class="text-base sm:text-lg text-neutral-700 font-semibold leading-relaxed max-w-3xl mx-auto">
-                        Artigos acadêmicos, e-books, guias didáticos e materiais de divulgação produzidos pelas
-                        pesquisadoras e bolsistas da Rede.
+                    <p class="text-base sm:text-lg text-neutral-700 font-semibold leading-relaxed max-w-4xl mx-auto">
+                        O conhecimento produzido a partir das experiências da rede também circula por diferentes espaços
+                        e formatos.
+                    </p> <br>
+
+                    <p class="text-sm sm:text-base text-neutral-600 leading-relaxed max-w-4xl mx-auto">
+                        Nesta seção, reunimos artigos, ensaios e outras publicações de integrantes do projetos
+                        que dialogam com temas relacionados à ciência, educação, gênero e à participação de meninas e
+                        mulheres nas áreas de CTEM.
                     </p>
                 </div>
 
-                <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl text-left">
-                    <div
-                        class="bg-white p-6 rounded-3xl border border-neutral-200 shadow-md flex flex-col justify-between">
-                        <div>
-                            <span
-                                class="text-xs font-bold text-memc-rosa bg-memc-rosa/10 px-3 py-1 rounded-full uppercase">Artigo
-                                Científico</span>
-                            <h3 class="text-lg font-bold text-neutral-800 mt-3 mb-2">Equidade de Gênero nas Ciências
-                                Exatas</h3>
-                            <p class="text-xs text-neutral-600 leading-relaxed font-medium">Estudo comparativo sobre o
-                                impacto de programas de extensão no ingresso de meninas em cursos de CTEM.</p>
-                        </div>
-                        <div
-                            class="mt-4 pt-3 border-t border-neutral-100 flex justify-between items-center text-xs text-neutral-500">
-                            <span>Rede MeMC • 2025</span>
-                            <span class="font-bold text-memc-rosa"><i class="fa-solid fa-file-pdf"></i> PDF</span>
-                        </div>
-                    </div>
-
-                    <div
-                        class="bg-white p-6 rounded-3xl border border-neutral-200 shadow-md flex flex-col justify-between">
-                        <div>
-                            <span
-                                class="text-xs font-bold text-memc-roxo-medio bg-memc-roxo-medio/10 px-3 py-1 rounded-full uppercase">Guia
-                                Pedagógico</span>
-                            <h3 class="text-lg font-bold text-neutral-800 mt-3 mb-2">Oficinas Práticas de Química e
-                                Física</h3>
-                            <p class="text-xs text-neutral-600 leading-relaxed font-medium">Roteiro metodológico para
-                                professores da rede pública aplicarem experimentos acessíveis em sala de aula.</p>
-                        </div>
-                        <div
-                            class="mt-4 pt-3 border-t border-neutral-100 flex justify-between items-center text-xs text-neutral-500">
-                            <span>Rede MeMC • 2024</span>
-                            <span class="font-bold text-memc-roxo-medio"><i class="fa-solid fa-file-pdf"></i> PDF</span>
-                        </div>
-                    </div>
-
-                    <div
-                        class="bg-white p-6 rounded-3xl border border-neutral-200 shadow-md flex flex-col justify-between">
-                        <div>
-                            <span
-                                class="text-xs font-bold text-memc-azul bg-memc-azul/10 px-3 py-1 rounded-full uppercase">Relatório
-                                Técnico</span>
-                            <h3 class="text-lg font-bold text-neutral-800 mt-3 mb-2">Indicadores de Permanência na
-                                Ciência</h3>
-                            <p class="text-xs text-neutral-600 leading-relaxed font-medium">Relatório de acompanhamento
-                                do impacto das bolsas ICJ e Apoio Técnico no desempenho acadêmico.</p>
-                        </div>
-                        <div
-                            class="mt-4 pt-3 border-t border-neutral-100 flex justify-between items-center text-xs text-neutral-500">
-                            <span>Rede MeMC • 2025</span>
-                            <span class="font-bold text-memc-azul"><i class="fa-solid fa-file-pdf"></i> PDF</span>
-                        </div>
-                    </div>
+                <div id="lista-publicacoes" class="w-full grid grid-cols-1 gap-6 max-w-5xl text-left mx-auto">
                 </div>
+
             </div>
         </section>
 
@@ -940,44 +951,6 @@
                         projetos e bolsas da Rede.
                     </p>
                 </div>
-
-                <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl text-left">
-                    <div class="bg-white p-8 rounded-3xl border-2 border-memc-roxo-medio/20 shadow-xl relative">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div
-                                class="w-14 h-14 rounded-2xl bg-memc-rosa text-white font-black flex items-center justify-center text-xl shadow-md">
-                                <i class="fa-solid fa-user-graduate"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-bold text-neutral-900">Ana Clara Silva</h3>
-                                <p class="text-xs text-memc-roxo-medio font-semibold">Ex-Bolsista ICJ • Unifesp Diadema
-                                </p>
-                            </div>
-                        </div>
-                        <p class="text-sm text-neutral-700 leading-relaxed italic">
-                            "Participar do projeto Cientista por um Dia mudou completamente a minha percepção sobre a
-                            universidade. Hoje sou aluna de Engenharia Química e incentivo outras meninas a seguirem o
-                            mesmo caminho."
-                        </p>
-                    </div>
-
-                    <div class="bg-white p-8 rounded-3xl border-2 border-memc-verde/20 shadow-xl relative">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div
-                                class="w-14 h-14 rounded-2xl bg-memc-verde text-white font-black flex items-center justify-center text-xl shadow-md">
-                                <i class="fa-solid fa-microscope"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-bold text-neutral-900">Mariana Oliveira</h3>
-                                <p class="text-xs text-memc-verde font-semibold">Ex-Bolsista AT • UNIFEI Itajubá</p>
-                            </div>
-                        </div>
-                        <p class="text-sm text-neutral-700 leading-relaxed italic">
-                            "A mentoria que recebi durante o projeto me deu a confiança necessária para submeter meu
-                            trabalho em congressos científicos nacionais e ingressar na pós-graduação."
-                        </p>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -990,18 +963,21 @@
                 <div class="text-center max-w-4xl shrink-0 mb-12 mt-4">
 
                     <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-memc-roxo-escuro mb-4 leading-tight">
-                        Editais e Seleções
+                        <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-memc-roxo-medio via-memc-rosa to-memc-azul">
+                            Editais e Seleções
+                        </span>
                     </h1>
 
-                    <p class="text-base sm:text-lg text-neutral-700 font-semibold mb-3 leading-relaxed">
+                    <p class="text-base sm:text-lg text-neutral-700 font-semibold mb-4 leading-relaxed">
                         Aqui estão disponíveis as chamadas para bolsas e outras oportunidades de participação
                         vinculadas à Rede Meninas e Mulheres Cientistas, além dos respectivos resultados.
                     </p>
 
-                    <p class="text-base sm:text-lg text-neutral-700 font-semibold mb-2 leading-relaxed">
+                    <p class="text-sm sm:text-base text-neutral-600 leading-relaxed max-w-4xl mx-auto">
                         Consulte os editais, critérios de seleção, prazos e resultados das chamadas realizadas pelas
                         diferentes subsedes da rede.
-                    </p>
+                    </p> <br>
 
                     <p class="text-sm text-neutral-500 leading-relaxed max-w-2xl mx-auto">
                         Iniciativa vinculada à <strong>Chamada CNPq/MCTI/MMulheres nº 31/2023</strong> - Meninas nas
@@ -1137,7 +1113,7 @@
                         </span>
                     </h1>
 
-                    <p class="text-base sm:text-lg text-neutral-700 font-semibold leading-relaxed max-w-3xl mx-auto">
+                    <p class="text-base sm:text-lg text-neutral-700 font-semibold leading-relaxed max-w-4xl mx-auto">
                         Quer saber mais sobre o projeto, suas ações e a rede de instituições que fazem parte dessa
                         iniciativa?
                     </p>

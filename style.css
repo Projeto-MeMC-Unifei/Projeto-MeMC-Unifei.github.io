@@ -1,0 +1,69 @@
+/* css/style.css */
+
+.custom-scrollbar {
+    scrollbar-color: #E1267A #f5f5f5;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #f5f5f5;
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #E1267A;
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #58288E;
+}
+
+/* Leaflet Overrides e Mapa Transparente */
+#map,
+.leaflet-container {
+    background: transparent !important;
+    font-family: 'Inter', sans-serif;
+}
+
+.leaflet-popup-content-wrapper {
+    padding: 0 !important;
+    border-radius: 0.75rem !important;
+    overflow: hidden !important;
+    border: none !important;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1) !important;
+    background: transparent !important;
+}
+
+.leaflet-popup-content {
+    margin: 0 !important;
+    width: 280px !important;
+}
+
+.leaflet-popup-tip-container {
+    display: none !important;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+    color: #58288E !important;
+    top: 8px !important;
+    right: 8px !important;
+    background: white !important;
+    border-radius: 50% !important;
+    width: 24px !important;
+    height: 24px !important;
+    line-height: 24px !important;
+    text-align: center !important;
+    border: 1px solid #e5e5e5 !important;
+    z-index: 50;
+    transition: all 0.2s;
+}
+
+.leaflet-container a.leaflet-popup-close-button:hover {
+    background: #E1267A !important;
+    color: white !important;
+    border-color: #E1267A !important;
+}
