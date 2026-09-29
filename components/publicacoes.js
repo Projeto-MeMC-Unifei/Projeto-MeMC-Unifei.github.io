@@ -1,12 +1,3 @@
-// components/publicacoes.js
-
-/**
- * Mapeamento reutilizável de cores por tipo de publicação utilizando a paleta da Rede MeMC.
- * Segue o padrão de projeto Strategy (Lookup Map):
- * - Artigo: Tag e Botão em Azul MeMC (bg-memc-azul) com hover Roxo Médio
- * - Ensaio: Tag e Botão em Roxo Médio MeMC (bg-memc-roxo-medio) com hover Rosa
- * - Padrão / Outros: Tag e Botão em Rosa MeMC (bg-memc-rosa) com hover Roxo Médio
- */
 const CORES_TIPO_PUBLICACAO = {
     'ARTIGO': {
         tag: 'text-memc-azul bg-memc-azul/10',
