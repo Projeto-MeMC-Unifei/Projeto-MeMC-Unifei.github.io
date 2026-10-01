@@ -6,10 +6,12 @@
 /**
  * @typedef {Object} SubsedeItem
  * @property {string} id - Identificador exclusivo do elemento no DOM
+ * @property {string} idSecao - ID da seção HTML que será exibida ao clicar
  * @property {string} instituicao - Sigla da instituição em destaque
  * @property {string} nome - Nome do projeto da subsede
  * @property {string} cidade - Cidade / campus de atuação
  * @property {string} bgTopo - Classe CSS para o fundo do cabeçalho colorido do card
+ * @property {string} bordaCor - Classe CSS para a cor da borda
  * @property {string} bgBadge - Classe CSS para a tag/badge da instituição
  * @property {string} bgIcone - Classe CSS para o container circular do ícone
  * @property {string} svgIcone - Marcação SVG do ícone temático
@@ -23,42 +25,50 @@
 const SUBSEDES_DATA = [
     {
         id: 'card-subsede-unifesp',
+        idSecao: 'subsede1',
         instituicao: 'UNIFESP',
         nome: 'Cientista por um Dia',
         cidade: 'Diadema',
-        bgTopo: 'bg-purple-100',
-        bgBadge: 'bg-purple-200/80 text-purple-900',
+        bgTopo: 'bg-gradient-to-br from-[#b4a7d6]/30 via-white to-[#b4a7d6]/10',
+        bordaCor: 'border-[#b4a7d6] hover:border-purple-400',
+        bgBadge: 'bg-purple-600',
         bgIcone: 'bg-purple-600',
         svgIcone: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18h8"/><path d="M3 22h18"/><path d="M14 22a7 7 0 1 0 0-14h-1"/><path d="M9 14h2"/><path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"/><path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"/></svg>'
     },
     {
         id: 'card-subsede-usp',
+        idSecao: 'subsede2',
         instituicao: 'USP',
         nome: 'Centro de Ensino Integrado de Química - CEIQ',
         cidade: 'Ribeirão Preto',
-        bgTopo: 'bg-pink-100',
-        bgBadge: 'bg-pink-200/80 text-pink-900',
-        bgIcone: 'bg-pink-700',
+        bgTopo: 'bg-gradient-to-br from-[#d5a6bd]/30 via-white to-[#d5a6bd]/10',
+        bordaCor: 'border-[#d5a6bd] hover:border-pink-400',
+        bgBadge: 'bg-pink-600',
+        bgIcone: 'bg-pink-600',
         svgIcone: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.31"/><path d="M14 9.3V2"/><path d="M8.5 2h7"/><path d="M14 9.3a6.5 6.5 0 1 1-4 0"/><path d="M5.52 16h12.96"/></svg>'
     },
     {
         id: 'card-subsede-unifei',
+        idSecao: 'subsede3',
         instituicao: 'UNIFEI',
         nome: 'Semeando Cientistas',
         cidade: 'Itajubá',
-        bgTopo: 'bg-orange-100',
-        bgBadge: 'bg-orange-200/80 text-orange-900',
-        bgIcone: 'bg-orange-700',
+        bgTopo: 'bg-gradient-to-br from-[#f9cb9c]/30 via-white to-[#f9cb9c]/10',
+        bordaCor: 'border-[#f9cb9c] hover:border-orange-400',
+        bgBadge: 'bg-orange-500',
+        bgIcone: 'bg-orange-500',
         svgIcone: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>'
     },
     {
         id: 'card-subsede-ufscar',
+        idSecao: 'subsede4',
         instituicao: 'UFSCar',
         nome: 'Pequenas Cientistas',
         cidade: 'São Carlos',
-        bgTopo: 'bg-yellow-100',
-        bgBadge: 'bg-yellow-200/80 text-yellow-900',
-        bgIcone: 'bg-yellow-600',
+        bgTopo: 'bg-gradient-to-br from-[#ffe599]/30 via-white to-[#ffe599]/10',
+        bordaCor: 'border-[#ffe599] hover:border-yellow-400',
+        bgBadge: 'bg-yellow-500',
+        bgIcone: 'bg-yellow-500',
         svgIcone: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>'
     }
 ];
@@ -71,21 +81,53 @@ const SUBSEDES_DATA = [
  */
 function criarCardSubsedeHTML(subsede) {
     return `
-        <article class="bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-slate-100 flex flex-col overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.08)]">
-            <!-- Topo Colorido -->
-            <div class="${subsede.bgTopo} p-5 flex justify-between items-start">
-                <span class="${subsede.bgBadge} font-bold text-xs py-1.5 px-3 rounded-md uppercase tracking-wide">${subsede.instituicao}</span>
-                <div class="w-10 h-10 rounded-full ${subsede.bgIcone} flex items-center justify-center text-white shadow-sm shrink-0">
+        <a href="#${subsede.idSecao}" onclick="abrirAbaCard(event, '${subsede.idSecao}')" class="${subsede.bgTopo} border-2 ${subsede.bordaCor} p-5 rounded-2xl hover:shadow-lg transition-all flex flex-col justify-between group h-full cursor-pointer block text-left">
+            
+            <div class="flex items-start justify-between mb-8">
+                <!-- Tag Superior -->
+                <span class="${subsede.bgBadge} text-white font-black text-xs px-4 py-1.5 rounded-full uppercase tracking-wider shadow-sm">
+                    ${subsede.instituicao}
+                </span>
+                
+                <!-- Ícone -->
+                <div class="w-10 h-10 rounded-xl ${subsede.bgIcone} text-white flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
                     ${subsede.svgIcone}
                 </div>
             </div>
-            <!-- Corpo de Texto -->
-            <div class="p-6 flex flex-col flex-grow">
-                <h3 class="text-xl font-bold text-slate-900 leading-tight mb-4">${subsede.nome}</h3>
-                <p class="text-slate-600 text-sm mt-auto">${subsede.cidade}</p>
+            
+            <!-- Conteúdo de Texto -->
+            <div>
+                <h4 class="text-base font-bold text-neutral-900 mb-2">${subsede.nome}</h4>
+                <p class="text-xs text-neutral-600 leading-relaxed font-medium">${subsede.cidade}</p>
             </div>
-        </article>
+            
+        </a>
     `;
+}
+
+/**
+ * Função responsável por trocar as abas ativas e rolar até o conteúdo
+ */
+function abrirAbaCard(event, idDaSecao) {
+    event.preventDefault();
+
+    // Esconde todas as outras abas
+    const todasAsAbas = document.querySelectorAll('.aba-conteudo');
+    todasAsAbas.forEach(aba => {
+        aba.classList.add('hidden');
+    });
+
+    // Encontra a seção correspondente e remove o 'hidden' para ela aparecer
+    const abaDestino = document.getElementById(idDaSecao);
+    if (abaDestino) {
+        abaDestino.classList.remove('hidden');
+
+        // Rola a página suavemente até o topo da seção
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
 }
 
 /**
