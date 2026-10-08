@@ -29,6 +29,13 @@ function obterCoresTipo(tipo) {
 
 const publicacoes = [
     {
+        tipo: "Artigo",
+        dataLocal: "Setembro 2026",
+        titulo: "Preconceitos e questões de gênero na Ciência: Impactos para as estudantes do Ensino Médio",
+        autores: "Beatriz Lisboa Pereira, Anny Beatriz Virginio e Elaine Gomes Matheus Furlan",
+        link: "https://epf.unesp.br/pepe/index.php/pepe/article/view/144"
+    },
+    {
         tipo: "Ensaio",
         dataLocal: "Agosto 2026",
         titulo: "Quando ensinar Ciências também significa construir pertencimento - Professora, a gente pode estar aqui?",
@@ -38,10 +45,10 @@ const publicacoes = [
     {
         tipo: "Artigo",
         dataLocal: "Novembro 2025",
-        titulo: "Entre o Apagamento Histórico e os Desafios Atuais: A Participação de Mulheres nas Ciências Exatas, Engenharias e Computação",
+        titulo: "Entre o apagamento histórico e os desafios atuais: A participação de mulheres nas Ciências Exatas, Engenharias e Computação",
         autores: "Elisa Maria Costa Silva e Luciane Fernandes Goes",
         link: "https://educacaopublica.cecierj.edu.br/divulgacao-cientifica/index.php/educacaopublica/article/view/362/233"
-    }
+    },
 ];
 
 function renderizarPublicacoes() {

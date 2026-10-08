@@ -29,10 +29,10 @@ const SUBSEDES_DATA = [
         instituicao: 'UNIFESP',
         nome: 'Cientista por um Dia',
         cidade: 'Diadema',
-        bgTopo: 'bg-gradient-to-br from-[#b4a7d6]/30 via-white to-[#b4a7d6]/10',
-        bordaCor: 'border-[#b4a7d6] hover:border-purple-400',
-        bgBadge: 'bg-purple-600',
-        bgIcone: 'bg-purple-600',
+        bgTopo: 'bg-gradient-to-br from-instituicoes-subsede1/35 via-white to-instituicoes-subsede1/15',
+        bordaCor: 'border-instituicoes-subsede1 hover:border-instituicoes-subsede1/80',
+        bgBadge: 'bg-instituicoes-subsede1 text-neutral-900',
+        bgIcone: 'bg-instituicoes-subsede1 text-neutral-900',
         svgIcone: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18h8"/><path d="M3 22h18"/><path d="M14 22a7 7 0 1 0 0-14h-1"/><path d="M9 14h2"/><path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"/><path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"/></svg>'
     },
     {
@@ -41,10 +41,10 @@ const SUBSEDES_DATA = [
         instituicao: 'USP',
         nome: 'Centro de Ensino Integrado de Química - CEIQ',
         cidade: 'Ribeirão Preto',
-        bgTopo: 'bg-gradient-to-br from-[#d5a6bd]/30 via-white to-[#d5a6bd]/10',
-        bordaCor: 'border-[#d5a6bd] hover:border-pink-400',
-        bgBadge: 'bg-pink-600',
-        bgIcone: 'bg-pink-600',
+        bgTopo: 'bg-gradient-to-br from-instituicoes-subsede2/35 via-white to-instituicoes-subsede2/15',
+        bordaCor: 'border-instituicoes-subsede2 hover:border-instituicoes-subsede2/80',
+        bgBadge: 'bg-instituicoes-subsede2 text-neutral-900',
+        bgIcone: 'bg-instituicoes-subsede2 text-neutral-900',
         svgIcone: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.31"/><path d="M14 9.3V2"/><path d="M8.5 2h7"/><path d="M14 9.3a6.5 6.5 0 1 1-4 0"/><path d="M5.52 16h12.96"/></svg>'
     },
     {
@@ -53,10 +53,10 @@ const SUBSEDES_DATA = [
         instituicao: 'UNIFEI',
         nome: 'Semeando Cientistas',
         cidade: 'Itajubá',
-        bgTopo: 'bg-gradient-to-br from-[#f9cb9c]/30 via-white to-[#f9cb9c]/10',
-        bordaCor: 'border-[#f9cb9c] hover:border-orange-400',
-        bgBadge: 'bg-orange-500',
-        bgIcone: 'bg-orange-500',
+        bgTopo: 'bg-gradient-to-br from-instituicoes-subsede3/35 via-white to-instituicoes-subsede3/15',
+        bordaCor: 'border-instituicoes-subsede3 hover:border-instituicoes-subsede3/80',
+        bgBadge: 'bg-instituicoes-subsede3 text-neutral-900',
+        bgIcone: 'bg-instituicoes-subsede3 text-neutral-900',
         svgIcone: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>'
     },
     {
@@ -65,10 +65,10 @@ const SUBSEDES_DATA = [
         instituicao: 'UFSCar',
         nome: 'Pequenas Cientistas',
         cidade: 'São Carlos',
-        bgTopo: 'bg-gradient-to-br from-[#ffe599]/30 via-white to-[#ffe599]/10',
-        bordaCor: 'border-[#ffe599] hover:border-yellow-400',
-        bgBadge: 'bg-yellow-500',
-        bgIcone: 'bg-yellow-500',
+        bgTopo: 'bg-gradient-to-br from-instituicoes-subsede4/35 via-white to-instituicoes-subsede4/15',
+        bordaCor: 'border-instituicoes-subsede4 hover:border-instituicoes-subsede4/80',
+        bgBadge: 'bg-instituicoes-subsede4 text-neutral-900',
+        bgIcone: 'bg-instituicoes-subsede4 text-neutral-900',
         svgIcone: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>'
     }
 ];
@@ -85,12 +85,12 @@ function criarCardSubsedeHTML(subsede) {
             
             <div class="flex items-start justify-between mb-8">
                 <!-- Tag Superior -->
-                <span class="${subsede.bgBadge} text-white font-black text-xs px-4 py-1.5 rounded-full uppercase tracking-wider shadow-sm">
+                <span class="${subsede.bgBadge} font-black text-xs px-4 py-1.5 rounded-full uppercase tracking-wider shadow-xs">
                     ${subsede.instituicao}
                 </span>
                 
                 <!-- Ícone -->
-                <div class="w-10 h-10 rounded-xl ${subsede.bgIcone} text-white flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
+                <div class="w-10 h-10 rounded-xl ${subsede.bgIcone} flex items-center justify-center shadow-xs group-hover:scale-110 transition-transform">
                     ${subsede.svgIcone}
                 </div>
             </div>

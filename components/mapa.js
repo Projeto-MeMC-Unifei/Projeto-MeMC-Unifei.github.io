@@ -15,12 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     L.control.zoom({ position: 'bottomright' }).addTo(map);
 
-    // Paleta oficial MeMC por Subsede (Restrita ao tailwind.config)
+    // Paleta oficial das Subsedes (Mapeada diretamente de colors:instituicoes)
     const coresSubsedes = {
-        "SUBSEDE 1": "#E1267A", // Rosa MeMC (UNIFESP Diadema)
-        "SUBSEDE 2": "#58288E", // Roxo Médio MeMC (USP Ribeirão Preto)
-        "SUBSEDE 3": "#2F75E3", // Azul MeMC (UNIFEI Itajubá)
-        "SUBSEDE 4": "#29A962"  // Verde MeMC (UFSCar São Carlos)
+        "SUBSEDE 1": "#b4a7d6", // Lilás / Roxo suave pastel (UNIFESP Diadema / IFSP)
+        "SUBSEDE 2": "#d5a6bd", // Rosa queimado / Mauve suave pastel (USP Ribeirão Preto)
+        "SUBSEDE 3": "#f9cb9c", // Pêssego / Laranja suave pastel (UNIFEI Itajubá / Itabira)
+        "SUBSEDE 4": "#ffe599"  // Amarelo suave pastel (UFSCar São Carlos)
     };
 
     // 2. Renderização do Painel Lateral e Redefinição do Zoom ao Voltar
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="space-y-4 animate-fade-in">
                 <div class="flex items-center justify-between gap-2 flex-wrap">
                     <div class="flex items-center gap-2">
-                        <span class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider text-white border shadow-xs" style="background-color: ${corSubsede}">
+                        <span class="text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider text-neutral-900 border border-neutral-300 shadow-xs" style="background-color: ${corSubsede}">
                             ${inst.grupo}
                         </span>
                         ${isPolo
@@ -208,14 +208,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     onclick="selecionarInstituicaoDirect('${inst.titulo.replace(/'/g, "\\'")}')"
                     class="w-full text-left p-3 rounded-xl bg-white hover:bg-neutral-100 border border-neutral-200/80 hover:border-memc-rosa transition-all flex items-center justify-between group shadow-xs cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-memc-rosa">
                 <div class="flex items-center gap-2.5 pr-2">
-                    <span class="w-4 h-4 rounded-full shrink-0 flex items-center justify-center text-[9px] text-white font-bold shadow-xs" style="background-color: ${inst.cor}">
+                    <span class="w-4 h-4 rounded-full shrink-0 flex items-center justify-center text-[9px] text-neutral-900 font-black shadow-xs" style="background-color: ${inst.cor}">
                         ${inst.isPolo ? '✪' : '📍'}
                     </span>
                     <span class="text-sm font-bold text-neutral-800 group-hover:text-memc-rosa transition-colors">
                         ${inst.titulo}
                     </span>
                 </div>
-                <span class="text-[10px] font-bold px-2 py-0.5 rounded-full text-white shrink-0 shadow-xs" style="background-color: ${inst.cor}">
+                <span class="text-[10px] font-black px-2 py-0.5 rounded-full text-neutral-900 shrink-0 shadow-xs border border-neutral-300" style="background-color: ${inst.cor}">
                     ${inst.grupo}
                 </span>
             </button>
@@ -352,7 +352,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "imagem": "img/logos_universidades/UNIFESP/logo-unifesp.png",
             "grupo": "SUBSEDE 1",
             "isPolo": true,
-            "cor": "#E1267A"
+            "cor": "#b4a7d6"
         },
         {
             "titulo": "UFABC",
@@ -362,7 +362,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "imagem": "img/logos_universidades/UNIFEI/logo-unifei-meio.png",
             "grupo": "SUBSEDE 1",
             "isPolo": false,
-            "cor": "#E1267A"
+            "cor": "#b4a7d6"
         },
         {
             "titulo": "CeLin IFSP Sertãozinho",
@@ -371,7 +371,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "resumo": "Centro de Línguas e unidade do Instituto Federal de São Paulo focada em ensino técnico e superior tecnológico.",
             "grupo": "SUBSEDE 1",
             "isPolo": false,
-            "cor": "#E1267A"
+            "cor": "#b4a7d6"
         },
         {
             "titulo": "Ee Paulo Luiz Valerio",
@@ -380,7 +380,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "resumo": "Instituição pública de ensino estadual focada nos anos finais do ensino fundamental e médio.",
             "grupo": "SUBSEDE 1",
             "isPolo": false,
-            "cor": "#E1267A"
+            "cor": "#b4a7d6"
         },
         {
             "titulo": "E.E Barão de Jundiaí",
@@ -389,7 +389,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "resumo": "Tradicional escola estadual da rede pública paulista localizada no centro de Jundiaí.",
             "grupo": "SUBSEDE 1",
             "isPolo": false,
-            "cor": "#E1267A"
+            "cor": "#b4a7d6"
         },
         {
             "titulo": "E. E. PEI Dr. Antônio Furlan Júnior",
@@ -398,7 +398,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "resumo": "Escola Estadual pertencente ao Programa de Ensino Integral (PEI).",
             "grupo": "SUBSEDE 1",
             "isPolo": false,
-            "cor": "#E1267A"
+            "cor": "#b4a7d6"
         },
 
         // SUBSEDE 2 (Roxo Médio #58288E) - 4 Instituições
@@ -411,7 +411,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "imagem": "img/logos_universidades/USP/logo-usp.jpg",
             "grupo": "SUBSEDE 2",
             "isPolo": true,
-            "cor": "#58288E"
+            "cor": "#d5a6bd"
         },
         {
             "titulo": "Escola Estadual Eugenia Vilhena de Morais",
@@ -420,7 +420,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "resumo": "Instituição estadual de ensino de Ribeirão Preto, oferecendo educação básica à comunidade.",
             "grupo": "SUBSEDE 2",
             "isPolo": false,
-            "cor": "#58288E"
+            "cor": "#d5a6bd"
         },
         {
             "titulo": "EMEF Antônio Palocci - CAIC",
@@ -429,7 +429,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "resumo": "Escola Municipal de Ensino Fundamental inserida no contexto dos Centros de Atenção Integral à Criança.",
             "grupo": "SUBSEDE 2",
             "isPolo": false,
-            "cor": "#58288E"
+            "cor": "#d5a6bd"
         },
         {
             "titulo": "E.E Bairro Francisco Castilho",
@@ -438,7 +438,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "resumo": "Escola pública estadual localizada no município de Cravinhos, vizinha a Ribeirão Preto.",
             "grupo": "SUBSEDE 2",
             "isPolo": false,
-            "cor": "#58288E"
+            "cor": "#d5a6bd"
         },
 
         // SUBSEDE 3 (Azul #2F75E3) - 5 Instituições
@@ -451,7 +451,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "imagem": "img/logos_universidades/UNIFEI/logo-unifei-meio.png",
             "grupo": "SUBSEDE 3",
             "isPolo": true,
-            "cor": "#2F75E3"
+            "cor": "#f9cb9c"
         },
         {
             "titulo": "Universidade Federal de Itajubá - UNIFEI - Campus Itabira",
@@ -461,7 +461,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "imagem": "img/logos_universidades/UNIFEI/logo-unifei-meio.png",
             "grupo": "SUBSEDE 3",
             "isPolo": false,
-            "cor": "#2F75E3"
+            "cor": "#f9cb9c"
         },
         {
             "titulo": "Escola Estadual Major João Pereira",
@@ -470,7 +470,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "resumo": "Instituição de ensino estadual localizada no município de Itajubá.",
             "grupo": "SUBSEDE 3",
             "isPolo": false,
-            "cor": "#2F75E3"
+            "cor": "#f9cb9c"
         },
         {
             "titulo": "Escola Estadual Wenceslau Braz",
@@ -479,7 +479,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "resumo": "Escola estadual pública parceira das ações de difusão científica em Itajubá.",
             "grupo": "SUBSEDE 3",
             "isPolo": false,
-            "cor": "#2F75E3"
+            "cor": "#f9cb9c"
         },
         {
             "titulo": "EE Antônio Eufrásio De Toledo",
@@ -488,7 +488,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "resumo": "Tradicional escola da rede pública estadual mineira no município de Paraisópolis.",
             "grupo": "SUBSEDE 3",
             "isPolo": false,
-            "cor": "#2F75E3"
+            "cor": "#f9cb9c"
         },
 
         // SUBSEDE 4 (Verde #29A962) - 5 Instituições
@@ -501,7 +501,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "imagem": "img/logos_universidades/UFSCAR/UFSCar-sigla-preto.svg",
             "grupo": "SUBSEDE 4",
             "isPolo": true,
-            "cor": "#29A962"
+            "cor": "#ffe599"
         },
         {
             "titulo": "UFSCar - Campus Araras",
@@ -511,7 +511,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "imagem": "img/logos_universidades/UFSCAR/UFSCar-sigla-preto.svg",
             "grupo": "SUBSEDE 4",
             "isPolo": false,
-            "cor": "#29A962"
+            "cor": "#ffe599"
         },
         {
             "titulo": "UFSCar - Campus Sorocaba",
@@ -521,7 +521,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "imagem": "img/logos_universidades/UFSCAR/UFSCar-sigla-preto.svg",
             "grupo": "SUBSEDE 4",
             "isPolo": false,
-            "cor": "#29A962"
+            "cor": "#ffe599"
         },
         {
             "titulo": "Unesp - Faculdade de Ciências e Tecnologia (Campus Presidente Prudente)",
@@ -531,7 +531,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "imagem": "img/logos_universidades/UNESP/logo-unesp2.svg",
             "grupo": "SUBSEDE 4",
             "isPolo": true,
-            "cor": "#29A962"
+            "cor": "#ffe599"
         },
         {
             "titulo": "Instituto Federal de Educação, Ciência e Tecnologia (IFSP Campus Tupã)",
@@ -541,7 +541,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "imagem": "img/logos_universidades/IFSP/logo-ifsp-tapua.png",
             "grupo": "SUBSEDE 4",
             "isPolo": false,
-            "cor": "#29A962"
+            "cor": "#ffe599"
         }
     ];
 
