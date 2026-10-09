@@ -232,7 +232,7 @@ const EGRESSAS_DATA = [
         modalidade: 'AT',
         modalidadeExtenso: 'Bolsista de Apoio Técnico',
         orientacao: 'Glaucia Maria da Silva Degrève',
-        lattes: 'http://lattes.cnpq.br/4379100169421892',
+        lattes: '',
         iniciais: 'MG'
     },
     {

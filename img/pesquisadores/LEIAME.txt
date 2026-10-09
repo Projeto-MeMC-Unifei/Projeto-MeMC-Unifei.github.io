@@ -1,23 +1,5 @@
-Pasta reservada para as fotos dos pesquisadores da Rede MeMC.
-
-Arquivos esperados para a Subsede 1:
-- ana-maria-santos-gouw.jpg (ou .png)
-- helga-gabriela-aleme.jpg
-- simone-alves-assis-martorano.jpg
-- solange-wagner-locatelli.jpg
-- thiago-antunes-souza.jpg
-- luciane-fernandes-goes.jpg
-
 Arquivos esperados para a Subsede 2:
-- daniela-goncalves-abreu-favacho.jpg
 - glaucia-maria-silva-degreve.jpg
-- joana-jesus-andrade.jpg
 
 Arquivos esperados para a Subsede 3:
-- milady-renata-apolinario-silva.jpg
-- maria-elizabete-villela-santiago.jpg
-- ana-paula-paiva-pereira.jpg
 - silmara-cristina-baldissera-kabayama.jpg
-- fischer-jonatas-ferreira.jpg
-- eduardo-jabbur-machado.jpg
-- gustavo-henrique-magalhaes-gomes.jpg
