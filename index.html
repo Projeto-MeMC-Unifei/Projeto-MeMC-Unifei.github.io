@@ -7,7 +7,7 @@
 
     <link rel="icon" type="image/png" href="img/logo-m.png">
 
-    <title>Projeto Meninas e Mulheres Cientistas</title>
+    <title>Rede Meninas e Mulheres Cientistas</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -52,6 +52,7 @@
     <script src="components/publicacoes.js"></script>
     <script src="components/subsedes.js"></script>
     <script src="components/egressas.js"></script>
+    <script src="components/pesquisadores.js"></script>
 
     <!-- Leaflet CSS & JS (Comentados - Mapa antigo mantido em comentário) -->
     <!-- 
@@ -79,7 +80,7 @@
             <!-- LOGOTIPO INSTITUCIONAL COM RETORNO AO INÍCIO -->
             <button type="button" onclick="mudarAba('inicio')" aria-label="Ir para a página inicial da Rede MeMC"
                 class="cursor-pointer inline-flex items-center shrink-0 transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-memc-rosa rounded-xl p-1">
-                <img src="img/logo_projeto/logo-colorido2.png" alt="Logo do Projeto Meninas e Mulheres Cientistas"
+                <img src="img/logo_projeto/logo-colorido2.png" alt="Logo da Rede Meninas e Mulheres Cientistas"
                     class="h-10 sm:h-12 md:h-14 w-auto object-contain">
             </button>
 
@@ -319,11 +320,6 @@
 
                         <!-- 1. CABEÇALHO DA SEÇÃO COM TAG E TÍTULO PRINCIPAL -->
                         <header class="space-y-3">
-                            <div
-                                class="inline-flex items-center gap-2 bg-memc-roxo-medio/10 text-memc-roxo-medio text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-memc-roxo-medio/20">
-                                <i class="fa-solid fa-network-wired text-memc-roxo-medio" aria-hidden="true"></i>
-                                NOSSA ARTICULAÇÃO INSTITUCIONAL
-                            </div>
                             <h2 id="titulo-articulacao"
                                 class="text-2xl sm:text-3xl lg:text-4xl font-black text-memc-roxo-escuro leading-tight font-sans">
                                 Pessoas, experiências e territórios conectados
@@ -511,10 +507,6 @@
 
                     <!-- CABEÇALHO DO BANNER -->
                     <div class="mb-8 border-b border-neutral-200/80 pb-6">
-                        <div
-                            class="inline-flex items-center gap-2 bg-memc-rosa/10 text-memc-rosa text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider mb-3 border border-memc-rosa/20">
-                            <i class="fa-solid fa-chart-line"></i> Impacto & Indicadores
-                        </div>
                         <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-memc-roxo-escuro leading-tight">
                             A Rede em Números
                         </h2>
@@ -780,10 +772,11 @@
                     </p>
 
                     <!-- Cartões rápidos de metadados institucionais (Origem, Sede, Coordenação) -->
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 text-left">
+                    <div class="flex flex-col md:flex-row justify-center gap-6 mt-8 text-left">
+
                         <!-- Card 1: Projeto de Origem e Articulação -->
                         <div
-                            class="bg-white/90 backdrop-blur-sm p-4 sm:p-5 rounded-2xl border border-instituicoes-subsede1/40 shadow-xs hover:shadow-md transition-all">
+                            class="w-full md:w-[350px] bg-white/90 backdrop-blur-sm p-4 sm:p-5 rounded-2xl border border-instituicoes-subsede1/40 shadow-xs hover:shadow-md transition-all">
                             <div
                                 class="w-10 h-10 rounded-xl bg-instituicoes-subsede1/30 text-neutral-900 flex items-center justify-center text-lg mb-3">
                                 <i class="fa-solid fa-diagram-project" aria-hidden="true"></i>
@@ -792,13 +785,11 @@
                                 Articulador</span>
                             <strong class="text-sm font-bold text-memc-roxo-escuro block mt-0.5">Cientista por um
                                 dia</strong>
-                            <span class="text-xs text-neutral-600 block mt-1">Projeto pioneiro em atividade desde
-                                2017</span>
                         </div>
 
                         <!-- Card 2: Instituição-Sede -->
                         <div
-                            class="bg-white/90 backdrop-blur-sm p-4 sm:p-5 rounded-2xl border border-instituicoes-subsede1/40 shadow-xs hover:shadow-md transition-all">
+                            class="w-full md:w-[350px] bg-white/90 backdrop-blur-sm p-4 sm:p-5 rounded-2xl border border-instituicoes-subsede1/40 shadow-xs hover:shadow-md transition-all">
                             <div
                                 class="w-10 h-10 rounded-xl bg-instituicoes-subsede1/30 text-neutral-900 flex items-center justify-center text-lg mb-3">
                                 <i class="fa-solid fa-building-columns" aria-hidden="true"></i>
@@ -809,22 +800,6 @@
                             <span class="text-xs text-neutral-600 block mt-1">Campus Diadema - São Paulo</span>
                         </div>
 
-                        <!-- Card 3: Coordenação Geral -->
-                        <div
-                            class="bg-white/90 backdrop-blur-sm p-4 sm:p-5 rounded-2xl border border-instituicoes-subsede1/40 shadow-xs hover:shadow-md transition-all">
-                            <div
-                                class="w-10 h-10 rounded-xl bg-instituicoes-subsede1/30 text-neutral-900 flex items-center justify-center text-lg mb-3">
-                                <i class="fa-solid fa-user-graduate" aria-hidden="true"></i>
-                            </div>
-                            <span
-                                class="text-[11px] font-bold uppercase tracking-wider text-neutral-500 block">Coordenação
-                                Geral</span>
-                            <strong class="text-sm font-bold text-memc-roxo-escuro block mt-0.5">Profa. Dra. Helga
-                                Gabriela Aleme
-                                <br>
-                                Profa. Dra. Luciane Fernandes Goes
-                            </strong>
-                        </div>
                     </div>
                 </header>
 
@@ -838,10 +813,6 @@
                             <i class="fa-solid fa-flask text-purple-800" aria-hidden="true"></i>
                             Apresentação
                         </h2>
-                        <span
-                            class="inline-flex items-center gap-1.5 text-xs font-bold text-purple-800 bg-purple-100 px-3 py-1 rounded-full">
-                            <i class="fa-regular fa-calendar-check" aria-hidden="true"></i> Desde 2017 • Rede MeMC 2025
-                        </span>
                     </div>
 
                     <div class="space-y-4 text-sm sm:text-base text-neutral-700 leading-relaxed font-medium">
@@ -921,11 +892,6 @@
                 <section class="max-w-5xl w-full mb-16 text-center"
                     aria-label="Ações articuladas da subsede por instituição">
                     <div class="mb-8 text-center">
-                        <div
-                            class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-memc-roxo-medio mb-1">
-                            <i class="fa-solid fa-cubes-stacked" aria-hidden="true"></i>
-                            Articulação em Rede
-                        </div>
                         <h2 class="text-2xl sm:text-3xl font-extrabold text-memc-roxo-escuro">
                             Ações da Subsede
                         </h2>
@@ -947,11 +913,6 @@
                             class="bg-white/95 backdrop-blur-md rounded-3xl p-6 sm:p-7 shadow-lg border-2 border-purple-200/80 hover:border-purple-800 transition-all flex flex-col justify-between group">
                             <div>
                                 <div class="flex items-start justify-between gap-4 mb-4">
-                                    <span
-                                        class="inline-flex items-center gap-1 text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-full bg-memc-roxo-medio text-white shadow-xs">
-                                        <i class="fa-solid fa-star text-[10px]" aria-hidden="true"></i> Sede
-                                        Articuladora
-                                    </span>
                                     <img src="img/logos_universidades/UNIFESP/logo-unifesp.png" alt="Logo UNIFESP"
                                         class="h-8 sm:h-9 w-auto object-contain opacity-90 group-hover:opacity-100 transition-opacity">
                                 </div>
@@ -978,11 +939,6 @@
                                     </p>
                                 </div>
                             </div>
-                            <div
-                                class="mt-5 pt-3 border-t border-neutral-100 flex items-center gap-2 text-xs font-bold text-neutral-700">
-                                <i class="fa-solid fa-microscope text-memc-roxo-medio" aria-hidden="true"></i>
-                                <span>Vivência laboratorial e formação de licenciandas</span>
-                            </div>
                         </article>
 
                         <!-- FRENTE 2: USP (São Paulo) & E.E. Barão de Jundiaí -->
@@ -990,10 +946,6 @@
                             class="bg-white/95 backdrop-blur-md rounded-3xl p-6 sm:p-7 shadow-lg border-2 border-emerald-200/80 hover:border-memc-verde transition-all flex flex-col justify-between group">
                             <div>
                                 <div class="flex items-start justify-between gap-4 mb-4">
-                                    <span
-                                        class="inline-flex items-center gap-1 text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-full bg-memc-verde text-white shadow-xs">
-                                        Parceria Integrada
-                                    </span>
                                     <img src="img/logos_universidades/USP/logo-usp.jpg" alt="Logo USP"
                                         class="h-8 sm:h-9 w-auto object-contain opacity-90 group-hover:opacity-100 transition-opacity rounded">
                                 </div>
@@ -1017,11 +969,6 @@
                                     </p>
                                 </div>
                             </div>
-                            <div
-                                class="mt-5 pt-3 border-t border-neutral-100 flex items-center gap-2 text-xs font-semibold text-memc-verde">
-                                <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
-                                <span>Orientação no Fundamental &amp; Formação docente</span>
-                            </div>
                         </article>
 
                         <!-- FRENTE 3: IFSP (Sertãozinho) & E.E.PEI Dr. Antônio Furlan Júnior -->
@@ -1029,10 +976,6 @@
                             class="bg-white/95 backdrop-blur-md rounded-3xl p-6 sm:p-7 shadow-lg border-2 border-blue-200/80 hover:border-blue-600 transition-all flex flex-col justify-between group">
                             <div>
                                 <div class="flex items-start justify-between gap-4 mb-4">
-                                    <span
-                                        class="inline-flex items-center gap-1 text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-full bg-memc-azul text-white shadow-xs">
-                                        Parceria Integrada
-                                    </span>
                                     <img src="img/logos_universidades/IFSP/logo-ifsp-tapua.png" alt="Logo IFSP"
                                         class="h-10 sm:h-11 w-auto object-contain opacity-90 group-hover:opacity-100 transition-opacity">
                                 </div>
@@ -1058,11 +1001,6 @@
                                     </p>
                                 </div>
                             </div>
-                            <div
-                                class="mt-5 pt-3 border-t border-neutral-100 flex items-center gap-2 text-xs font-semibold text-memc-azul">
-                                <i class="fa-solid fa-bullhorn" aria-hidden="true"></i>
-                                <span>Divulgação científica escolar &amp; Visitas ao IFSP</span>
-                            </div>
                         </article>
 
                         <!-- FRENTE 4: E.E. Paulo Luiz Valério (Piracicaba-SP) -->
@@ -1070,10 +1008,6 @@
                             class="bg-white/95 backdrop-blur-md rounded-3xl p-6 sm:p-7 shadow-lg border-2 border-pink-200/80 hover:border-memc-rosa transition-all flex flex-col justify-between group">
                             <div>
                                 <div class="flex items-start justify-between gap-4 mb-4">
-                                    <span
-                                        class="inline-flex items-center gap-1 text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-full bg-memc-rosa text-white shadow-xs">
-                                        Iniciação Científica Jr.
-                                    </span>
                                     <div
                                         class="w-8 h-8 rounded-lg bg-pink-100 text-memc-rosa flex items-center justify-center font-bold text-sm">
                                         <i class="fa-solid fa-school" aria-hidden="true"></i>
@@ -1106,11 +1040,6 @@
                                     </p>
                                 </div>
                             </div>
-                            <div
-                                class="mt-5 pt-3 border-t border-neutral-100 flex items-center gap-2 text-xs font-semibold text-memc-rosa">
-                                <i class="fa-solid fa-laptop-code" aria-hidden="true"></i>
-                                <span>Iniciação Científica Júnior de 12 meses</span>
-                            </div>
                         </article>
 
                         <!-- FRENTE 5: UFABC (Universidade Federal do ABC) - SPAN FULL NA GRADE -->
@@ -1118,10 +1047,6 @@
                             class="md:col-span-2 bg-white/95 backdrop-blur-md rounded-3xl p-6 sm:p-7 shadow-lg border-2 border-amber-200/80 hover:border-amber-400 transition-all flex flex-col justify-between group">
                             <div>
                                 <div class="flex items-start justify-between gap-4 mb-4">
-                                    <span
-                                        class="inline-flex items-center gap-1 text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-full bg-amber-500 text-white shadow-xs">
-                                        Pós-Doutorado &amp; Pesquisa Docente
-                                    </span>
                                     <img src="img/logos_universidades/UFABC/logo-ufabc-principal.svg" alt="Logo UFABC"
                                         class="h-10 sm:h-11 w-auto object-contain opacity-90 group-hover:opacity-100 transition-opacity">
                                 </div>
@@ -1142,11 +1067,6 @@
                                     </p>
                                 </div>
                             </div>
-                            <div
-                                class="mt-5 pt-3 border-t border-neutral-100 flex items-center gap-2 text-xs font-semibold text-amber-700">
-                                <i class="fa-solid fa-book-bookmark" aria-hidden="true"></i>
-                                <span>Pesquisa em formação de professores e ensino de Ciências</span>
-                            </div>
                         </article>
                     </div>
                 </section>
@@ -1154,247 +1074,13 @@
                 <!-- 4. BLOCO: PESQUISADORES CONECTADOS (CARDS COM FOTO, LATTES E ORCID) -->
                 <section class="max-w-5xl w-full text-center" aria-label="Pesquisadores conectados à Subsede 1">
                     <div class="mb-8 text-center sm:text-center">
-                        <div
-                            class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-memc-roxo-medio mb-1">
-                            <i class="fa-solid fa-users" aria-hidden="true"></i>
-                            Equipe Acadêmica
-                        </div>
                         <h2 class="text-2xl sm:text-3xl font-extrabold text-memc-roxo-escuro">
                             Pesquisadores Conectados
                         </h2>
                     </div>
 
-                    <!-- Grade de 6 Pesquisadores (3 Colunas em desktop, 2 em tablet, 1 em mobile) -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-                        <!-- Pesquisadora 1: Profa. Dra. Ana Maria Santos Gouw -->
-                        <div
-                            class="bg-white/95 backdrop-blur-md rounded-3xl p-6 shadow-md border-2 border-neutral-200/90 hover:border-memc-roxo-medio hover:shadow-xl transition-all flex flex-col items-center text-center group">
-                            <!-- Container do Avatar com suporte a Imagem ou Fallback de Iniciais -->
-                            <div
-                                class="relative w-24 h-24 mb-4 rounded-full p-1 bg-gradient-to-tr from-memc-roxo-medio to-memc-rosa shadow-sm">
-                                <img src="img/pesquisadores/subsede1/ana-maria-santos-gouw.jpeg"
-                                    alt="Foto Profa. Dra. Ana Maria Santos Gouw"
-                                    class="w-full h-full object-cover rounded-full"
-                                    onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden')">
-                                <div
-                                    class="w-full h-full rounded-full bg-purple-100 text-memc-roxo-medio flex items-center justify-center font-bold text-xl shadow-inner hidden">
-                                    <span>AG</span>
-                                </div>
-                            </div>
-                            <h3 class="text-base font-bold text-memc-roxo-escuro leading-snug">
-                                Profa. Dra. Ana Maria Santos Gouw
-                            </h3>
-                            <span class="text-xs text-neutral-500 font-medium mt-1 mb-5">
-                                Pesquisadora Conectada
-                            </span>
-                            <!-- Links Lattes e ORCID -->
-                            <div class="w-full space-y-2 mt-auto pt-3 border-t border-neutral-100">
-                                <a href="http://lattes.cnpq.br/3359786303402164" target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-bold text-neutral-700 bg-neutral-100 hover:bg-memc-azul hover:text-white rounded-xl transition-all">
-                                    <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
-                                    <span>Currículo Lattes</span>
-                                </a>
-                                <a href="https://orcid.org/0000-0002-1245-4304" target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-600 hover:text-white rounded-xl transition-all border border-emerald-200/60">
-                                    <i class="fa-brands fa-orcid text-emerald-600 group-hover:text-emerald-600"
-                                        aria-hidden="true"></i>
-                                    <span>ORCID Oficial</span>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Pesquisadora 2: Profa. Dra. Helga Gabriela Aleme (Coordenação Geral) -->
-                        <div
-                            class="bg-white/95 backdrop-blur-md rounded-3xl p-6 shadow-md border-2 border-memc-roxo-medio/40 hover:border-memc-roxo-medio hover:shadow-xl transition-all flex flex-col items-center text-center relative group">
-                            <span
-                                class="absolute top-4 right-4 bg-memc-roxo-medio text-white text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full tracking-wider shadow-xs">
-                                Coordenação
-                            </span>
-                            <div
-                                class="relative w-24 h-24 mb-4 rounded-full p-1 bg-gradient-to-tr from-memc-roxo-medio to-memc-rosa shadow-sm">
-                                <img src="img/pesquisadores/subsede1/helga-gabriela-aleme.jpg"
-                                    alt="Foto Profa. Dra. Helga Gabriela Aleme"
-                                    class="w-full h-full object-cover rounded-full"
-                                    onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden')">
-                                <div
-                                    class="w-full h-full rounded-full bg-purple-100 text-memc-roxo-medio flex items-center justify-center font-bold text-xl shadow-inner hidden">
-                                    <span>HA</span>
-                                </div>
-                            </div>
-                            <h3 class="text-base font-bold text-memc-roxo-escuro leading-snug">
-                                Profa. Dra. Helga Gabriela Aleme
-                            </h3>
-                            <span class="text-xs text-memc-roxo-medio font-semibold mt-1 mb-5">
-                                Coordenação Geral da Subsede 1
-                            </span>
-                            <div class="w-full space-y-2 mt-auto pt-3 border-t border-neutral-100">
-                                <a href="http://lattes.cnpq.br/3534671658166290" target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-bold text-neutral-700 bg-neutral-100 hover:bg-memc-azul hover:text-white rounded-xl transition-all">
-                                    <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
-                                    <span>Currículo Lattes</span>
-                                </a>
-                                <a href="https://orcid.org/0000-0001-8679-1541" target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-600 hover:text-white rounded-xl transition-all border border-emerald-200/60">
-                                    <i class="fa-brands fa-orcid text-emerald-600" aria-hidden="true"></i>
-                                    <span>ORCID Oficial</span>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Pesquisadora 3: Profa. Dra. Simone Alves de Assis Martorano -->
-                        <div
-                            class="bg-white/95 backdrop-blur-md rounded-3xl p-6 shadow-md border-2 border-neutral-200/90 hover:border-memc-roxo-medio hover:shadow-xl transition-all flex flex-col items-center text-center group">
-                            <div
-                                class="relative w-24 h-24 mb-4 rounded-full p-1 bg-gradient-to-tr from-memc-roxo-medio to-memc-rosa shadow-sm">
-                                <img src="img/pesquisadores/subsede1/simone-alves-assis-martorano.jpg"
-                                    alt="Foto Profa. Dra. Simone Alves de Assis Martorano"
-                                    class="w-full h-full object-cover rounded-full"
-                                    onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden')">
-                                <div
-                                    class="w-full h-full rounded-full bg-purple-100 text-memc-roxo-medio flex items-center justify-center font-bold text-xl shadow-inner hidden">
-                                    <span>SM</span>
-                                </div>
-                            </div>
-                            <h3 class="text-base font-bold text-memc-roxo-escuro leading-snug">
-                                Profa. Dra. Simone Alves de Assis Martorano
-                            </h3>
-                            <span class="text-xs text-neutral-500 font-medium mt-1 mb-5">
-                                Pesquisadora Conectada
-                            </span>
-                            <div class="w-full space-y-2 mt-auto pt-3 border-t border-neutral-100">
-                                <a href="http://lattes.cnpq.br/3872820602594598" target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-bold text-neutral-700 bg-neutral-100 hover:bg-memc-azul hover:text-white rounded-xl transition-all">
-                                    <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
-                                    <span>Currículo Lattes</span>
-                                </a>
-                                <a href="https://orcid.org/0000-0002-7115-0933" target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-600 hover:text-white rounded-xl transition-all border border-emerald-200/60">
-                                    <i class="fa-brands fa-orcid text-emerald-600" aria-hidden="true"></i>
-                                    <span>ORCID Oficial</span>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Pesquisadora 4: Profa. Dra. Solange Wagner Locatelli -->
-                        <div
-                            class="bg-white/95 backdrop-blur-md rounded-3xl p-6 shadow-md border-2 border-neutral-200/90 hover:border-memc-roxo-medio hover:shadow-xl transition-all flex flex-col items-center text-center group">
-                            <div
-                                class="relative w-24 h-24 mb-4 rounded-full p-1 bg-gradient-to-tr from-memc-roxo-medio to-memc-rosa shadow-sm">
-                                <img src="img/pesquisadores/subsede1/solange-wagner-locatelli.webp"
-                                    alt="Foto Profa. Dra. Solange Wagner Locatelli"
-                                    class="w-full h-full object-cover rounded-full"
-                                    onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden')">
-                                <div
-                                    class="w-full h-full rounded-full bg-purple-100 text-memc-roxo-medio flex items-center justify-center font-bold text-xl shadow-inner hidden">
-                                    <span>SL</span>
-                                </div>
-                            </div>
-                            <h3 class="text-base font-bold text-memc-roxo-escuro leading-snug">
-                                Profa. Dra. Solange Wagner Locatelli
-                            </h3>
-                            <span class="text-xs text-neutral-500 font-medium mt-1 mb-5">
-                                Pesquisadora Conectada • UFABC
-                            </span>
-                            <div class="w-full space-y-2 mt-auto pt-3 border-t border-neutral-100">
-                                <a href="http://lattes.cnpq.br/8962640200169519" target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-bold text-neutral-700 bg-neutral-100 hover:bg-memc-azul hover:text-white rounded-xl transition-all">
-                                    <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
-                                    <span>Currículo Lattes</span>
-                                </a>
-                                <a href="https://orcid.org/0000-0002-7639-6772" target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-600 hover:text-white rounded-xl transition-all border border-emerald-200/60">
-                                    <i class="fa-brands fa-orcid text-emerald-600" aria-hidden="true"></i>
-                                    <span>ORCID Oficial</span>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Pesquisador 5: Prof. Dr. Thiago Antunes Souza -->
-                        <div
-                            class="bg-white/95 backdrop-blur-md rounded-3xl p-6 shadow-md border-2 border-neutral-200/90 hover:border-memc-roxo-medio hover:shadow-xl transition-all flex flex-col items-center text-center group">
-                            <div
-                                class="relative w-24 h-24 mb-4 rounded-full p-1 bg-gradient-to-tr from-memc-roxo-medio to-memc-rosa shadow-sm">
-                                <img src="img/pesquisadores/subsede1/thiago-antunes-souza.jpg"
-                                    alt="Foto Prof. Dr. Thiago Antunes Souza"
-                                    class="w-full h-full object-cover rounded-full"
-                                    onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden')">
-                                <div
-                                    class="w-full h-full rounded-full bg-purple-100 text-memc-roxo-medio flex items-center justify-center font-bold text-xl shadow-inner hidden">
-                                    <span>TS</span>
-                                </div>
-                            </div>
-                            <h3 class="text-base font-bold text-memc-roxo-escuro leading-snug">
-                                Prof. Dr. Thiago Antunes Souza
-                            </h3>
-                            <span class="text-xs text-neutral-500 font-medium mt-1 mb-5">
-                                Pesquisador Conectado • Piracicaba
-                            </span>
-                            <div class="w-full space-y-2 mt-auto pt-3 border-t border-neutral-100">
-                                <a href="http://lattes.cnpq.br/2333371957286724" target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-bold text-neutral-700 bg-neutral-100 hover:bg-memc-azul hover:text-white rounded-xl transition-all">
-                                    <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
-                                    <span>Currículo Lattes</span>
-                                </a>
-                                <a href="https://orcid.org/0000-0002-5881-8855" target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-600 hover:text-white rounded-xl transition-all border border-emerald-200/60">
-                                    <i class="fa-brands fa-orcid text-emerald-600" aria-hidden="true"></i>
-                                    <span>ORCID Oficial</span>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Pesquisadora 6: Profa. Dra. Luciane Fernandes Goes (Coordenação Geral) -->
-                        <div
-                            class="bg-white/95 backdrop-blur-md rounded-3xl p-6 shadow-md border-2 border-memc-roxo-medio/40 hover:border-memc-roxo-medio hover:shadow-xl transition-all flex flex-col items-center text-center relative group">
-                            <span
-                                class="absolute top-4 right-4 bg-memc-roxo-medio text-white text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full tracking-wider shadow-xs">
-                                Coordenação
-                            </span>
-                            <div
-                                class="relative w-24 h-24 mb-4 rounded-full p-1 bg-gradient-to-tr from-memc-roxo-medio to-memc-rosa shadow-sm">
-                                <img src="img/pesquisadores/subsede1/luciane-fernandes-goes.jpeg"
-                                    alt="Foto Profa. Dra. Luciane Fernandes Goes"
-                                    class="w-full h-full object-cover rounded-full"
-                                    onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden')">
-                                <div
-                                    class="w-full h-full rounded-full bg-purple-100 text-memc-roxo-medio flex items-center justify-center font-bold text-xl shadow-inner hidden">
-                                    <span>LG</span>
-                                </div>
-                            </div>
-                            <h3 class="text-base font-bold text-memc-roxo-escuro leading-snug">
-                                Profa. Dra. Luciane Fernandes Goes
-                            </h3>
-                            <span class="text-xs text-memc-roxo-medio font-semibold mt-1 mb-5">
-                                Coordenação Geral da Subsede 1
-                            </span>
-                            <div class="w-full space-y-2 mt-auto pt-3 border-t border-neutral-100">
-                                <a href="http://lattes.cnpq.br/0448594654044672" target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-bold text-neutral-700 bg-neutral-100 hover:bg-memc-azul hover:text-white rounded-xl transition-all">
-                                    <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
-                                    <span>Currículo Lattes</span>
-                                </a>
-                                <a href="https://orcid.org/0000-0002-4334-786X" target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-600 hover:text-white rounded-xl transition-all border border-emerald-200/60">
-                                    <i class="fa-brands fa-orcid text-emerald-600" aria-hidden="true"></i>
-                                    <span>ORCID Oficial</span>
-                                </a>
-                            </div>
-                        </div>
-
-                    </div>
+                    <!-- Grade de Pesquisadores Conectados (Renderizada via components/pesquisadores.js) -->
+                    <div id="pesquisadores-subsede1" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
                 </section>
 
             </div>
@@ -1435,49 +1121,32 @@
                     </p>
 
                     <!-- Cartões rápidos de metadados institucionais (Origem, Sede, Coordenação) -->
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 text-left">
+                    <div class="flex flex-col md:flex-row justify-center gap-6 mt-8 text-left">
+
                         <!-- Card 1: Projeto de Origem e Articulação -->
                         <div
-                            class="bg-white/90 backdrop-blur-sm p-4 sm:p-5 rounded-2xl border border-instituicoes-subsede2/40 shadow-xs hover:shadow-md transition-all">
+                            class="w-full md:w-[350px] bg-white/90 backdrop-blur-sm p-4 sm:p-5 rounded-2xl border border-instituicoes-subsede2/40 shadow-xs hover:shadow-md transition-all">
                             <div
                                 class="w-10 h-10 rounded-xl bg-instituicoes-subsede2/30 text-neutral-900 flex items-center justify-center text-lg mb-3">
-                                <i class="fa-solid fa-atom" aria-hidden="true"></i>
+                                <i class="fa-solid fa-diagram-project" aria-hidden="true"></i>
                             </div>
                             <span class="text-[11px] font-bold uppercase tracking-wider text-neutral-500 block">Projeto
                                 Articulador</span>
-                            <strong class="text-sm font-bold text-memc-roxo-escuro block mt-0.5">CEIQ</strong>
-                            <span class="text-xs text-neutral-600 block mt-1">33 anos de história e compromisso
-                                social</span>
+                            <strong class="text-sm font-bold text-memc-roxo-escuro block mt-0.5">Centro Integrado de
+                                Ensino de Química</strong>
                         </div>
 
                         <!-- Card 2: Instituição-Sede -->
                         <div
-                            class="bg-white/90 backdrop-blur-sm p-4 sm:p-5 rounded-2xl border-instituicoes-subsede2/40 shadow-xs hover:shadow-md transition-all">
+                            class="w-full md:w-[350px] bg-white/90 backdrop-blur-sm p-4 sm:p-5 rounded-2xl border border-instituicoes-subsede2/40 shadow-xs hover:shadow-md transition-all">
                             <div
                                 class="w-10 h-10 rounded-xl bg-instituicoes-subsede2/30 text-neutral-900 flex items-center justify-center text-lg mb-3">
                                 <i class="fa-solid fa-building-columns" aria-hidden="true"></i>
                             </div>
                             <span
                                 class="text-[11px] font-bold uppercase tracking-wider text-neutral-500 block">Instituição-Sede</span>
-                            <strong class="text-sm font-bold text-memc-roxo-escuro block mt-0.5">USP Ribeirão
-                                Preto</strong>
-                            <span class="text-xs text-neutral-600 block mt-1">Depto. de Química • FFCLRP-USP</span>
-                        </div>
-
-                        <!-- Card 3: Coordenação Geral -->
-                        <div
-                            class="bg-white/90 backdrop-blur-sm p-4 sm:p-5 rounded-2xl border-instituicoes-subsede2/40 shadow-xs hover:shadow-md transition-all">
-                            <div
-                                class="w-10 h-10 rounded-xl bg-instituicoes-subsede2/30 text-neutral-900 flex items-center justify-center text-lg mb-3">
-                                <i class="fa-solid fa-user-graduate" aria-hidden="true"></i>
-                            </div>
-                            <span
-                                class="text-[11px] font-bold uppercase tracking-wider text-neutral-500 block">Coordenação
-                                Geral</span>
-                            <strong class="text-sm font-bold text-memc-roxo-escuro block mt-0.5">Profa. Dra. Glaucia
-                                Maria da Silva Degrève</strong>
-                            <span class="text-xs text-neutral-600 block mt-0.5 font-medium">Depto. de Química •
-                                FFCLRP/USP</span>
+                            <strong class="text-sm font-bold text-memc-roxo-escuro block mt-0.5">USP</strong>
+                            <span class="text-xs text-neutral-600 block mt-1">Campus Ribeirão Preto - São Paulo</span>
                         </div>
                     </div>
                 </header>
@@ -1491,10 +1160,6 @@
                             <i class="fa-solid fa-flask-vial text-memc-rosa" aria-hidden="true"></i>
                             Apresentação
                         </h2>
-                        <span
-                            class="inline-flex items-center gap-1.5 text-xs font-bold text-memc-rosa bg-instituicoes-subsede2/30 border border-instituicoes-subsede2/40 px-3 py-1 rounded-full">
-                            <i class="fa-solid fa-award" aria-hidden="true"></i> 33 Anos de Atuação • FFCLRP-USP
-                        </span>
                     </div>
 
                     <div class="space-y-4 text-sm sm:text-base text-neutral-700 leading-relaxed font-medium">
@@ -1615,155 +1280,16 @@
                     </div>
                 </section>
 
-                <!-- BLOCO DE DESTAQUE: INFORMAÇÕES - PROF JOANA -->
-                <div
-                    class="bg-white/95 backdrop-blur-md rounded-3xl p-6 sm:p-8 lg:p-10 shadow-xl border-2 border-neutral-200/90 max-w-5xl w-full mx-auto mt-6 mb-12">
-                    <h3
-                        class="text-xs sm:text-sm font-bold uppercase tracking-wider text-memc-rosa flex items-center gap-2 mb-4">
-                        <i class="fa-solid fa-chalkboard-user text-memc-rosa" aria-hidden="true"></i>
-                        <span>INFORMAÇÕES - PROF JOANA:</span>
-                    </h3>
-                    <p class="text-xs sm:text-sm text-neutral-700 font-medium leading-relaxed">
-                        Atividade principal (registro e acompanhamento das atividades em sala de aula em formato
-                        de portfólio | recurso de registro permanente) | Reuniões semanais de formação na escola
-                        - presencial - reuniões de estudo com temática adolescência | Visitas
-                        orientadas/didáticas na Universidade (USP/RP) com atividades de laboratório, visitas -
-                        IMERSÃO, VISITA EM PROFUNDIDADE | COMO RESULTADO: Alunas estão desenvolvendo um jogo de
-                        tabuleiro que tem como proposta apresentar as possibilidades de ingresso na universidade
-                    </p>
-                </div>
-
                 <!-- 4. BLOCO: PESQUISADORAS CONECTADAS (CARDS COM FOTO, LATTES E ORCID) -->
                 <section class="max-w-5xl w-full text-center" aria-label="Pesquisadoras conectadas à Subsede 2">
                     <div class="mb-8 text-center sm:text-center">
-                        <div
-                            class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-memc-rosa mb-1">
-                            <i class="fa-solid fa-users" aria-hidden="true"></i>
-                            Equipe Acadêmica
-                        </div>
                         <h2 class="text-2xl sm:text-3xl font-extrabold text-memc-roxo-escuro">
                             Pesquisadoras Conectadas
                         </h2>
                     </div>
 
-                    <!-- Grade de 3 Pesquisadoras (3 Colunas em desktop, 1 em mobile) -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-                        <!-- Pesquisadora 1: Profa. Dra. Daniela Gonçalves de Abreu Favacho -->
-                        <div
-                            class="bg-white/95 backdrop-blur-md rounded-3xl p-6 shadow-md border-2 border-pink-200/80 hover:border-memc-rosa transition-all flex flex-col items-center text-center group">
-                            <!-- Container do Avatar com suporte a Imagem ou Fallback de Iniciais -->
-                            <div
-                                class="relative w-24 h-24 mb-4 rounded-full p-1 bg-gradient-to-tr from-memc-roxo-medio to-memc-rosa shadow-sm">
-                                <img src="img/pesquisadores/subsede2/daniela-goncalves-abreu-favacho.png"
-                                    alt="Foto Profa. Dra. Daniela Gonçalves de Abreu Favacho"
-                                    class="w-full h-full object-cover rounded-full"
-                                    onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden')">
-                                <div
-                                    class="w-full h-full rounded-full bg-purple-100 text-memc-roxo-medio flex items-center justify-center font-bold text-xl shadow-inner hidden">
-                                    <span>AG</span>
-                                </div>
-                            </div>
-                            <h3 class="text-base font-bold text-memc-roxo-escuro leading-snug">
-                                Profa. Dra. Daniela Gonçalves de Abreu Favacho
-                            </h3>
-                            <span class="text-xs text-neutral-500 font-medium mt-1 mb-5">
-                                Docente • FFCLRP-USP
-                            </span>
-                            <!-- Links Lattes e ORCID -->
-                            <div class="w-full space-y-2 mt-auto pt-3 border-t border-neutral-100">
-                                <a href="http://lattes.cnpq.br/1341833254376796" target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-bold text-neutral-700 bg-neutral-100 hover:bg-memc-azul hover:text-white rounded-xl transition-all">
-                                    <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
-                                    <span>Currículo Lattes</span>
-                                </a>
-                                <a href="https://orcid.org/0000-0003-1533-4647" target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-600 hover:text-white rounded-xl transition-all border border-emerald-200/60">
-                                    <i class="fa-brands fa-orcid text-emerald-600 group-hover:text-emerald-600"
-                                        aria-hidden="true"></i>
-                                    <span>ORCID Oficial</span>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Pesquisadora 2: Profa. Dra. Glaucia Maria da Silva Degrève (Coordenação Geral) -->
-                        <div
-                            class="bg-white/95 backdrop-blur-md rounded-3xl p-6 shadow-md border-2 border-pink-200/80 hover:border-memc-rosa transition-all flex flex-col items-center text-center relative group">
-                            <span
-                                class="absolute top-4 right-4 bg-memc-rosa text-white text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full tracking-wider shadow-xs">
-                                Coordenação
-                            </span>
-                            <div
-                                class="relative w-24 h-24 mb-4 rounded-full p-1 bg-gradient-to-tr from-memc-roxo-medio to-memc-rosa shadow-sm">
-                                <img src="img/pesquisadores/glaucia-maria-silva-degreve.jpg"
-                                    alt="Foto Profa. Dra. Glaucia Maria da Silva Degrève"
-                                    class="w-full h-full object-cover rounded-full"
-                                    onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden')">
-                                <div
-                                    class="w-full h-full rounded-full bg-purple-100 text-memc-roxo-medio flex items-center justify-center font-bold text-xl shadow-inner hidden">
-                                    <span>GM</span>
-                                </div>
-                            </div>
-                            <h3 class="text-base font-bold text-memc-roxo-escuro leading-snug">
-                                Profa. Dra. Glaucia Maria da Silva Degrève
-                            </h3>
-                            <span class="text-xs text-memc-rosa font-semibold mt-1 mb-5">
-                                Coordenação Geral da Subsede 2
-                            </span>
-                            <div class="w-full space-y-2 mt-auto pt-3 border-t border-neutral-100">
-                                <a href="http://lattes.cnpq.br/8092801988782660" target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-bold text-neutral-700 bg-neutral-100 hover:bg-memc-azul hover:text-white rounded-xl transition-all">
-                                    <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
-                                    <span>Currículo Lattes</span>
-                                </a>
-                                <a href="https://orcid.org/0000-0003-3613-3502" target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-600 hover:text-white rounded-xl transition-all border border-emerald-200/60">
-                                    <i class="fa-brands fa-orcid text-emerald-600" aria-hidden="true"></i>
-                                    <span>ORCID Oficial</span>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Pesquisadora 3: Profa. Dra. Joana de Jesus de Andrade -->
-                        <div
-                            class="bg-white/95 backdrop-blur-md rounded-3xl p-6 shadow-md border-2 border-pink-200/80 hover:border-memc-rosa transition-all flex flex-col items-center text-center group">
-                            <div
-                                class="relative w-24 h-24 mb-4 rounded-full p-1 bg-gradient-to-tr from-memc-roxo-medio to-memc-rosa shadow-sm">
-                                <img src="img/pesquisadores/subsede2/joana-jesus-andrade.png"
-                                    alt="Foto Profa. Dra. Joana de Jesus de Andrade"
-                                    class="w-full h-full object-cover rounded-full"
-                                    onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden')">
-                                <div
-                                    class="w-full h-full rounded-full bg-purple-100 text-memc-roxo-medio flex items-center justify-center font-bold text-xl shadow-inner hidden">
-                                    <span>JJ</span>
-                                </div>
-                            </div>
-                            <h3 class="text-base font-bold text-memc-roxo-escuro leading-snug">
-                                Profa. Dra. Joana de Jesus de Andrade
-                            </h3>
-                            <span class="text-xs text-neutral-500 font-medium mt-1 mb-5">
-                                Docente • FFCLRP-USP
-                            </span>
-                            <div class="w-full space-y-2 mt-auto pt-3 border-t border-neutral-100">
-                                <a href="http://lattes.cnpq.br/1479952244350737" target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-bold text-neutral-700 bg-neutral-100 hover:bg-memc-azul hover:text-white rounded-xl transition-all">
-                                    <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
-                                    <span>Currículo Lattes</span>
-                                </a>
-                                <a href="https://orcid.org/0000-0002-6161-2209" target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-600 hover:text-white rounded-xl transition-all border border-emerald-200/60">
-                                    <i class="fa-brands fa-orcid text-emerald-600" aria-hidden="true"></i>
-                                    <span>ORCID Oficial</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- Grade de Pesquisadoras Conectadas (Renderizada via components/pesquisadores.js) -->
+                    <div id="pesquisadores-subsede2" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
                 </section>
             </div>
         </section>
@@ -1801,24 +1327,24 @@
                     </p>
 
                     <!-- Cartões rápidos de metadados institucionais (Origem, Sede, Coordenação) -->
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 text-left">
+                    <div class="flex flex-col md:flex-row justify-center gap-6 mt-8 text-left">
+
                         <!-- Card 1: Projeto de Origem e Articulação -->
                         <div
-                            class="bg-white/90 backdrop-blur-sm p-4 sm:p-5 rounded-2xl border border-instituicoes-subsede3/40 shadow-xs hover:shadow-md transition-all">
+                            class="w-full md:w-[350px] bg-white/90 backdrop-blur-sm p-4 sm:p-5 rounded-2xl border border-instituicoes-subsede3/40 shadow-xs hover:shadow-md transition-all">
                             <div
                                 class="w-10 h-10 rounded-xl bg-instituicoes-subsede3/30 text-neutral-900 flex items-center justify-center text-lg mb-3">
-                                <i class="fa-solid fa-seedling" aria-hidden="true"></i>
+                                <i class="fa-solid fa-diagram-project" aria-hidden="true"></i>
                             </div>
                             <span class="text-[11px] font-bold uppercase tracking-wider text-neutral-500 block">Projeto
                                 Articulador</span>
                             <strong class="text-sm font-bold text-memc-roxo-escuro block mt-0.5">Semeando
                                 Cientistas</strong>
-                            <span class="text-xs text-neutral-600 block mt-1">Estímulo vocacional em CTEM</span>
                         </div>
 
                         <!-- Card 2: Instituição-Sede -->
                         <div
-                            class="bg-white/90 backdrop-blur-sm p-4 sm:p-5 rounded-2xl border border-instituicoes-subsede3/40 shadow-xs hover:shadow-md transition-all">
+                            class="w-full md:w-[350px] bg-white/90 backdrop-blur-sm p-4 sm:p-5 rounded-2xl border border-instituicoes-subsede3/40 shadow-xs hover:shadow-md transition-all">
                             <div
                                 class="w-10 h-10 rounded-xl bg-instituicoes-subsede3/30 text-neutral-900 flex items-center justify-center text-lg mb-3">
                                 <i class="fa-solid fa-building-columns" aria-hidden="true"></i>
@@ -1826,23 +1352,7 @@
                             <span
                                 class="text-[11px] font-bold uppercase tracking-wider text-neutral-500 block">Instituição-Sede</span>
                             <strong class="text-sm font-bold text-memc-roxo-escuro block mt-0.5">UNIFEI</strong>
-                            <span class="text-xs text-neutral-600 block mt-1">Campus Itajubá - MG</span>
-                        </div>
-
-                        <!-- Card 3: Coordenação Geral -->
-                        <div
-                            class="bg-white/90 backdrop-blur-sm p-4 sm:p-5 rounded-2xl border border-instituicoes-subsede3/40 shadow-xs hover:shadow-md transition-all">
-                            <div
-                                class="w-10 h-10 rounded-xl bg-instituicoes-subsede3/30 text-neutral-900 flex items-center justify-center text-lg mb-3">
-                                <i class="fa-solid fa-user-graduate" aria-hidden="true"></i>
-                            </div>
-                            <span
-                                class="text-[11px] font-bold uppercase tracking-wider text-neutral-500 block">Coordenação
-                                Geral</span>
-                            <strong class="text-sm font-bold text-memc-roxo-escuro block mt-0.5">Profa. Dra. Milady
-                                Renata Apolinário da Silva</strong>
-                            <span class="text-xs text-neutral-600 block mt-0.5 font-medium">Universidade Federal de
-                                Itajubá</span>
+                            <span class="text-xs text-neutral-600 block mt-1">Campus Itajubá - Minas Gerais</span>
                         </div>
                     </div>
                 </header>
@@ -1857,11 +1367,6 @@
                             <i class="fa-solid fa-seedling text-memc-laranja" aria-hidden="true"></i>
                             Apresentação
                         </h2>
-                        <span
-                            class="inline-flex items-center gap-1.5 text-xs font-bold text-neutral-800 bg-instituicoes-subsede3/30 border border-instituicoes-subsede3/40 px-3 py-1 rounded-full">
-                            <i class="fa-solid fa-network-wired" aria-hidden="true"></i> UNIFEI Itajubá &amp; Itabira •
-                            Rede MeMC
-                        </span>
                     </div>
 
                     <!-- Grade Responsiva de Ações da Subsede 3 -->
@@ -1961,270 +1466,13 @@
                 <!-- 3. BLOCO: PESQUISADORES CONECTADOS (CARDS COM FOTO, LATTES E ORCID) -->
                 <section class="max-w-5xl w-full text-center" aria-label="Pesquisadores conectados à Subsede 3">
                     <div class="mb-8 text-center sm:text-center">
-                        <div
-                            class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-memc-laranja mb-1">
-                            <i class="fa-solid fa-users" aria-hidden="true"></i>
-                            Equipe Acadêmica
-                        </div>
                         <h2 class="text-2xl sm:text-3xl font-extrabold text-memc-roxo-escuro">
                             Pesquisadores Conectados
                         </h2>
                     </div>
 
-                    <!-- Grade de 7 Pesquisadores (Grade Responsiva) -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-                        <!-- Pesquisadora 1: Profa. Dra. Milady Renata Apolinário da Silva (Coordenação Geral) -->
-                        <div
-                            class="bg-white/95 backdrop-blur-md rounded-3xl p-6 shadow-md border-2 border-instituicoes-subsede3 hover:border-memc-laranja hover:shadow-xl transition-all flex flex-col items-center text-center relative group">
-                            <span
-                                class="absolute top-4 right-4 bg-memc-laranja text-white text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full tracking-wider shadow-xs">
-                                Coordenação
-                            </span>
-                            <div
-                                class="relative w-24 h-24 mb-4 rounded-full p-1 bg-gradient-to-tr from-memc-roxo-medio to-memc-rosa shadow-sm">
-                                <img src="img/pesquisadores/subsede3/milady-renata-apolinario-silva.jpeg"
-                                    alt="Foto Profa. Dra. Milady Renata Apolinário da Silva"
-                                    class="w-full h-full object-cover rounded-full"
-                                    onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden')">
-                                <div
-                                    class="w-full h-full rounded-full bg-instituicoes-subsede3/30 text-neutral-900 flex items-center justify-center font-bold text-xl shadow-inner hidden">
-                                    <span>MS</span>
-                                </div>
-                            </div>
-                            <h3 class="text-base font-bold text-neutral-900 leading-snug">
-                                Profa. Dra. Milady Renata Apolinário da Silva
-                            </h3>
-                            <span class="text-xs text-memc-laranja font-semibold mt-1 mb-5">
-                                Coordenação Geral da Subsede 3 • UNIFEI
-                            </span>
-                            <div class="w-full space-y-2 mt-auto pt-3 border-t border-neutral-100">
-                                <a href="http://lattes.cnpq.br/8292109678587891" target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-bold text-neutral-700 bg-neutral-100 hover:bg-memc-azul hover:text-white rounded-xl transition-all">
-                                    <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
-                                    <span>Currículo Lattes</span>
-                                </a>
-                                <a href="https://orcid.org/0000-0002-0496-2085" target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-600 hover:text-white rounded-xl transition-all border border-emerald-200/60">
-                                    <i class="fa-brands fa-orcid text-emerald-600 group-hover:text-emerald-600"
-                                        aria-hidden="true"></i>
-                                    <span>ORCID Oficial</span>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Pesquisadora 2: Profa. Dra. Maria Elizabete Villela Santiago -->
-                        <div
-                            class="bg-white/95 backdrop-blur-md rounded-3xl p-6 shadow-md border-2 border-neutral-200/90 hover:border-memc-laranja hover:shadow-xl transition-all flex flex-col items-center text-center group">
-                            <div
-                                class="relative w-24 h-24 mb-4 rounded-full p-1 bg-gradient-to-tr from-memc-roxo-medio to-memc-rosa shadow-sm">
-                                <img src="img/pesquisadores/subsede3/maria-elizabete-villela-santiago.jpeg"
-                                    alt="Foto Profa. Dra. Maria Elizabete Villela Santiago"
-                                    class="w-full h-full object-cover rounded-full"
-                                    onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden')">
-                                <div
-                                    class="w-full h-full rounded-full bg-instituicoes-subsede3/30 text-neutral-900 flex items-center justify-center font-bold text-xl shadow-inner hidden">
-                                    <span>ES</span>
-                                </div>
-                            </div>
-                            <h3 class="text-base font-bold text-neutral-900 leading-snug">
-                                Profa. Dra. Maria Elizabete Villela Santiago
-                            </h3>
-                            <span class="text-xs text-neutral-500 font-medium mt-1 mb-5">
-                                Pesquisadora Conectada • UNIFEI
-                            </span>
-                            <div class="w-full space-y-2 mt-auto pt-3 border-t border-neutral-100">
-                                <a href="http://lattes.cnpq.br/5436944715497709" target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-bold text-neutral-700 bg-neutral-100 hover:bg-memc-azul hover:text-white rounded-xl transition-all">
-                                    <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
-                                    <span>Currículo Lattes</span>
-                                </a>
-                                <a href="https://orcid.org/0000-0001-7404-2914" target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-600 hover:text-white rounded-xl transition-all border border-emerald-200/60">
-                                    <i class="fa-brands fa-orcid text-emerald-600" aria-hidden="true"></i>
-                                    <span>ORCID Oficial</span>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Pesquisadora 3: Profa. Dra. Ana Paula de Paiva Pereira -->
-                        <div
-                            class="bg-white/95 backdrop-blur-md rounded-3xl p-6 shadow-md border-2 border-neutral-200/90 hover:border-memc-laranja hover:shadow-xl transition-all flex flex-col items-center text-center group">
-                            <div
-                                class="relative w-24 h-24 mb-4 rounded-full p-1 bg-gradient-to-tr from-memc-roxo-medio to-memc-rosa shadow-sm">
-                                <img src="img/pesquisadores/subsede3/ana-paula-paiva-pereira.png"
-                                    alt="Foto Profa. Dra. Ana Paula de Paiva Pereira"
-                                    class="w-full h-full object-cover rounded-full"
-                                    onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden')">
-                                <div
-                                    class="w-full h-full rounded-full bg-instituicoes-subsede3/30 text-neutral-900 flex items-center justify-center font-bold text-xl shadow-inner hidden">
-                                    <span>AP</span>
-                                </div>
-                            </div>
-                            <h3 class="text-base font-bold text-neutral-900 leading-snug">
-                                Profa. Dra. Ana Paula de Paiva Pereira
-                            </h3>
-                            <span class="text-xs text-neutral-500 font-medium mt-1 mb-5">
-                                Pesquisadora Conectada • UNIFEI
-                            </span>
-                            <div class="w-full space-y-2 mt-auto pt-3 border-t border-neutral-100">
-                                <a href="http://lattes.cnpq.br/5199859493258720" target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-bold text-neutral-700 bg-neutral-100 hover:bg-memc-azul hover:text-white rounded-xl transition-all">
-                                    <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
-                                    <span>Currículo Lattes</span>
-                                </a>
-                                <a href="https://orcid.org/0000-0001-7433-4319" target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-600 hover:text-white rounded-xl transition-all border border-emerald-200/60">
-                                    <i class="fa-brands fa-orcid text-emerald-600" aria-hidden="true"></i>
-                                    <span>ORCID Oficial</span>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Pesquisadora 4: Profa. Dra. Silmara Cristina Baldissera Kabayama -->
-                        <div
-                            class="bg-white/95 backdrop-blur-md rounded-3xl p-6 shadow-md border-2 border-neutral-200/90 hover:border-memc-laranja hover:shadow-xl transition-all flex flex-col items-center text-center group">
-                            <div
-                                class="relative w-24 h-24 mb-4 rounded-full p-1 bg-gradient-to-tr from-memc-roxo-medio to-memc-rosa shadow-sm">
-                                <img src="img/pesquisadores/subsede3/silmara-cristina-baldissera-kabayama.jpeg"
-                                    alt="Foto Profa. Dra. Silmara Cristina Baldissera Kabayama"
-                                    class="w-full h-full object-cover rounded-full"
-                                    onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden')">
-                                <div
-                                    class="w-full h-full rounded-full bg-purple-100 text-memc-roxo-medio flex items-center justify-center font-bold text-xl shadow-inner">
-                                    <span>SC</span>
-                                </div>
-                            </div>
-                            <h3 class="text-base font-bold text-neutral-900 leading-snug">
-                                Profa. Dra. Silmara Cristina Baldissera Kabayama
-                            </h3>
-                            <span class="text-xs text-neutral-500 font-medium mt-1 mb-5">
-                                Pesquisadora Conectada • UNIFEI
-                            </span>
-                            <div class="w-full space-y-2 mt-auto pt-3 border-t border-neutral-100">
-                                <a href="http://lattes.cnpq.br/9340276749435306" target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-bold text-neutral-700 bg-neutral-100 hover:bg-memc-azul hover:text-white rounded-xl transition-all">
-                                    <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
-                                    <span>Currículo Lattes</span>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Pesquisador 5: Prof. Dr. Fischer Jônatas Ferreira -->
-                        <div
-                            class="bg-white/95 backdrop-blur-md rounded-3xl p-6 shadow-md border-2 border-neutral-200/90 hover:border-memc-laranja hover:shadow-xl transition-all flex flex-col items-center text-center group">
-                            <div
-                                class="relative w-24 h-24 mb-4 rounded-full p-1 bg-gradient-to-tr from-memc-roxo-medio to-memc-rosa shadow-sm">
-                                <img src="img/pesquisadores/subsede3/fischer-jonatas-ferreira.jpg"
-                                    alt="Foto Prof. Dr. Fischer Jônatas Ferreira"
-                                    class="w-full h-full object-cover rounded-full"
-                                    onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden')">
-                                <div
-                                    class="w-full h-full rounded-full bg-instituicoes-subsede3/30 text-neutral-900 flex items-center justify-center font-bold text-xl shadow-inner hidden">
-                                    <span>FF</span>
-                                </div>
-                            </div>
-                            <h3 class="text-base font-bold text-neutral-900leading-snug">
-                                Prof. Dr. Fischer Jônatas Ferreira
-                            </h3>
-                            <span class="text-xs text-neutral-500 font-medium mt-1 mb-5">
-                                Pesquisador Conectado • UNIFEI
-                            </span>
-                            <div class="w-full space-y-2 mt-auto pt-3 border-t border-neutral-100">
-                                <a href="https://lattes.cnpq.br/1412888913678183" target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-bold text-neutral-700 bg-neutral-100 hover:bg-memc-azul hover:text-white rounded-xl transition-all">
-                                    <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
-                                    <span>Currículo Lattes</span>
-                                </a>
-                                <a href="https://orcid.org/0000-0002-3643-8720" target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-600 hover:text-white rounded-xl transition-all border border-emerald-200/60">
-                                    <i class="fa-brands fa-orcid text-emerald-600" aria-hidden="true"></i>
-                                    <span>ORCID Oficial</span>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Pesquisador 6: Eduardo Jabbur Machado -->
-                        <div
-                            class="bg-white/95 backdrop-blur-md rounded-3xl p-6 shadow-md border-2 border-neutral-200/90 hover:border-memc-laranja hover:shadow-xl transition-all flex flex-col items-center text-center group">
-                            <div
-                                class="relative w-24 h-24 mb-4 rounded-full p-1 bg-gradient-to-tr from-memc-roxo-medio to-memc-rosa shadow-sm">
-                                <img src="img/pesquisadores/subsede3/eduardo-jabbur-machado.png"
-                                    alt="Foto Eduardo Jabbur Machado" class="w-full h-full object-cover rounded-full"
-                                    onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden')">
-                                <div
-                                    class="w-full h-full rounded-full bg-instituicoes-subsede3/30 text-neutral-900 flex items-center justify-center font-bold text-xl shadow-inner hidden">
-                                    <span>EM</span>
-                                </div>
-                            </div>
-                            <h3 class="text-base font-bold text-neutral-900 leading-snug">
-                                Eduardo Jabbur Machado
-                            </h3>
-                            <span class="text-xs text-neutral-500 font-medium mt-1 mb-5">
-                                Pesquisador Conectado • UNIFEI
-                            </span>
-                            <div class="w-full space-y-2 mt-auto pt-3 border-t border-neutral-100">
-                                <a href="http://lattes.cnpq.br/6577201319862337" target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-bold text-neutral-700 bg-neutral-100 hover:bg-memc-azul hover:text-white rounded-xl transition-all">
-                                    <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
-                                    <span>Currículo Lattes</span>
-                                </a>
-                                <a href="https://orcid.org/0000-0001-5108-8928" target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-600 hover:text-white rounded-xl transition-all border border-emerald-200/60">
-                                    <i class="fa-brands fa-orcid text-emerald-600" aria-hidden="true"></i>
-                                    <span>ORCID Oficial</span>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Pesquisador 7: Gustavo Henrique de Magalhães Gomes -->
-                        <div
-                            class="bg-white/95 backdrop-blur-md rounded-3xl p-6 shadow-md border-2 border-neutral-200/90 hover:border-memc-laranja hover:shadow-xl transition-all flex flex-col items-center text-center group">
-                            <div
-                                class="relative w-24 h-24 mb-4 rounded-full p-1 bg-gradient-to-tr from-memc-roxo-medio to-memc-rosa shadow-sm">
-                                <img src="img/pesquisadores/subsede3/gustavo-henrique-magalhaes-gomes.jpg"
-                                    alt="Foto Gustavo Henrique de Magalhães Gomes"
-                                    class="w-full h-full object-cover rounded-full"
-                                    onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden')">
-                                <div
-                                    class="w-full h-full rounded-full bg-instituicoes-subsede3/30 text-neutral-900 flex items-center justify-center font-bold text-xl shadow-inner hidden">
-                                    <span>GG</span>
-                                </div>
-                            </div>
-                            <h3 class="text-base font-bold text-memc-roxo-escuro leading-snug">
-                                Gustavo Henrique de Magalhães Gomes
-                            </h3>
-                            <span class="text-xs text-neutral-500 font-medium mt-1 mb-5">
-                                Pesquisador Conectado • UNIFEI
-                            </span>
-                            <div class="w-full space-y-2 mt-auto pt-3 border-t border-neutral-100">
-                                <a href="http://lattes.cnpq.br/4448145503046101" target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-bold text-neutral-700 bg-neutral-100 hover:bg-memc-azul hover:text-white rounded-xl transition-all">
-                                    <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
-                                    <span>Currículo Lattes</span>
-                                </a>
-                                <a href="https://orcid.org/0000-0002-2944-7039" target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-600 hover:text-white rounded-xl transition-all border border-emerald-200/60">
-                                    <i class="fa-brands fa-orcid text-emerald-600" aria-hidden="true"></i>
-                                    <span>ORCID Oficial</span>
-                                </a>
-                            </div>
-                        </div>
-
-                    </div>
+                    <!-- Grade de Pesquisadores Conectados (Renderizada via components/pesquisadores.js) -->
+                    <div id="pesquisadores-subsede3" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
                 </section>
 
             </div>
@@ -2246,7 +1494,7 @@
                         Pequenas Cientistas <br>
                         <span
                             class="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-memc-rosa to-memc-roxo-medio">UFSCar
-                            (Araras, São Carlos, Sorocaba)</span>
+                            (Sorocaba)</span>
                     </h1>
 
                     <p class="text-base sm:text-lg text-neutral-700 font-semibold leading-relaxed max-w-3xl mx-auto">
@@ -2287,6 +1535,18 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- 3. BLOCO: PESQUISADORES CONECTADOS (CARDS COM FOTO, LATTES E ORCID) -->
+                <section class="max-w-5xl w-full text-center mt-8" aria-label="Pesquisadores conectados à Subsede 4">
+                    <div class="mb-8 text-center sm:text-center">
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-memc-roxo-escuro">
+                            Pesquisadores Conectados
+                        </h2>
+                    </div>
+
+                    <!-- Grade de Pesquisadores Conectados (Renderizada via components/pesquisadores.js) -->
+                    <div id="pesquisadores-subsede4" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+                </section>
             </div>
         </section>
 
@@ -2677,7 +1937,8 @@
 
                     <p class="text-sm sm:text-base text-neutral-600 leading-relaxed max-w-3xl mx-auto">
                         Entre em contato com a coordenação do projeto para enviar dúvidas, sugestões, propostas de
-                        parceria ou outras questões relacionadas ao Meninas e Mulheres Cientistas: tecendo redes em São
+                        parceria ou outras questões relacionadas à Rede Meninas e Mulheres Cientistas: tecendo redes em
+                        São
                         Paulo e Minas Gerais.
                     </p>
                 </div>
