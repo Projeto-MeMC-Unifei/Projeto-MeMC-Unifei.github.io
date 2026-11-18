@@ -28,6 +28,13 @@ function obterCoresTipo(tipo) {
 }
 
 const publicacoes = [
+        {
+        tipo: "Artigo",
+        dataLocal: "2027",
+        titulo: "Meninas e Mulheres Cientistas: Discussão de gênero naEducação Científica para a Cidadania",
+        autores: "Luciane Fernandes Goes, Thiago Antunes-Souza e Elaine Gomes Furlan",
+        link: ""
+    },
     {
         tipo: "Artigo",
         dataLocal: "Setembro 2026",
@@ -44,10 +51,31 @@ const publicacoes = [
     },
     {
         tipo: "Artigo",
+        dataLocal: "Dezembro 2025",
+        titulo: "Professoras Mulheres na Engenharia: Representatividade na Docência",
+        autores: "Beatriz Lisboa Pereira, Sabrina de Marchi Gasparini, Elaine Gomes Matheus Furlan",
+        link: "https://educacaopublica.cecierj.edu.br/divulgacao-cientifica/index.php/educacaopublica/article/view/335"
+    },
+    {
+        tipo: "Artigo",
         dataLocal: "Novembro 2025",
         titulo: "Entre o apagamento histórico e os desafios atuais: A participação de mulheres nas Ciências Exatas, Engenharias e Computação",
         autores: "Elisa Maria Costa Silva e Luciane Fernandes Goes",
         link: "https://educacaopublica.cecierj.edu.br/divulgacao-cientifica/index.php/educacaopublica/article/view/362/233"
+    },
+    {
+        tipo: "Artigo",
+        dataLocal: "Outubro 2022",
+        titulo: "Percepções de estudantes do 9º ano do EnsinoFundamental sobre a Participação Feminina nas Ciências",
+        autores: "Talita Martins Oliveira de Souza, Elaine Gomes Matheus Furlan, Thiago Antunes Souza",
+        link: "https://rsdjournal.org/index.php/rsd/article/view/36312"
+    },
+    {
+        tipo: "Artigo",
+        dataLocal: "Outubro 2022",
+        titulo: "Contribuições da Iniciação Científica Júnior Para a Formação de Meninas na Ciência",
+        autores: "Renan Vilela Bertolin, Elaine Gomes Matheus Furlan",
+        link: ""
     },
 ];
 
