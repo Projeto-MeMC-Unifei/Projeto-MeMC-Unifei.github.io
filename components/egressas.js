@@ -19,6 +19,26 @@
  */
 
 /**
+ * @typedef {Object} VideoEgressasConfig
+ * @property {string} url - Link do vídeo no YouTube (suporta watch?v=, youtu.be/, embed/, shorts/ ou apenas o ID). Deixe vazio ('') enquanto o vídeo não estiver publicado.
+ * @property {string} badge - Pequena etiqueta superior de contexto do card de vídeo
+ * @property {string} titulo - Título principal exibido no cabeçalho do card de vídeo
+ * @property {string} descricao - Texto explicativo exibido abaixo do título do card de vídeo
+ */
+
+/**
+ * Configuração do player de vídeo da aba Egressas.
+ * Para ativar o vídeo quando tiver o link, basta colar a URL do YouTube na propriedade `url` abaixo.
+ * @type {VideoEgressasConfig}
+ */
+const VIDEO_EGRESSAS_CONFIG = {
+    url: '', // Ex: 'https://www.youtube.com/watch?v=SEU_ID_AQUI' ou 'https://youtu.be/SEU_ID_AQUI'
+    badge: 'Audiovisual • Rede MeMC',
+    titulo: 'Relatos e Trajetórias das Egressas',
+    descricao: 'Assista aos depoimentos e conheça mais sobre as experiências formativas e os percursos construídos pelas bolsistas da rede.'
+};
+
+/**
  * Base de dados oficial das bolsistas egressas da Rede Meninas e Mulheres Cientistas.
  * Dados consolidados e revisados conforme atribuição de bolsas.
  * @type {EgressaItem[]}
@@ -619,11 +639,110 @@ function buscarEgressasInput(event) {
     renderizarEgressas();
 }
 
+/**
+ * Extrai o ID do vídeo do YouTube a partir de diferentes formatos de URL
+ * (youtube.com/watch?v=, youtu.be/, youtube.com/embed/, youtube.com/shorts/ ou ID puro)
+ * e retorna a URL oficial de incorporação (embed).
+ *
+ * @param {string} urlBruta - URL ou ID do vídeo do YouTube
+ * @returns {string|null} URL formatada para o iframe de embed ou `null` caso vazia/inválida
+ */
+function extrairUrlEmbedYouTube(urlBruta) {
+    if (!urlBruta || typeof urlBruta !== 'string') return null;
+
+    const entrada = urlBruta.trim();
+    if (!entrada) return null;
+
+    // Caso o usuário tenha informado apenas o ID de 11 caracteres do YouTube
+    if (/^[a-zA-Z0-9_-]{11}$/.test(entrada)) {
+        return `https://www.youtube.com/embed/${entrada}?rel=0`;
+    }
+
+    // Expressão regular compatível com watch?v=, youtu.be/, embed/ e shorts/
+    const padraoYouTube = /(?:youtube\.com\/(?:watch\?.*v=|embed\/|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+    const correspondencia = entrada.match(padraoYouTube);
+
+    if (correspondencia && correspondencia[1]) {
+        return `https://www.youtube.com/embed/${correspondencia[1]}?rel=0`;
+    }
+
+    return null;
+}
+
+/**
+ * Renderiza o card do player de vídeo na aba Egressas.
+ * - Quando `config.url` possui um link válido do YouTube, exibe o `<iframe>` responsivo 16:9 com carregamento tardio (`loading="lazy"`).
+ * - Quando `config.url` está vazio, exibe um placeholder 16:9 estilizado com a paleta oficial `memc` indicando que o vídeo estará disponível em breve.
+ *
+ * @param {VideoEgressasConfig} [config=VIDEO_EGRESSAS_CONFIG] - Objeto de configuração do vídeo
+ * @param {string} [containerId='container-video-egressas'] - ID do elemento container no DOM
+ */
+function renderizarVideoEgressas(config = VIDEO_EGRESSAS_CONFIG, containerId = 'container-video-egressas') {
+    const container = document.getElementById(containerId);
+    if (!container || !config) return;
+
+    const urlEmbed = extrairUrlEmbedYouTube(config.url);
+
+    // Conteúdo da moldura 16:9: Iframe oficial do YouTube (se houver link) ou Placeholder estilizado (se vazio)
+    const midiaHTML = urlEmbed
+        ? `<iframe
+               class="w-full h-full border-0"
+               src="${urlEmbed}"
+               title="${config.titulo || 'Vídeo das Egressas da Rede MeMC'}"
+               loading="lazy"
+               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+               referrerpolicy="strict-origin-when-cross-origin"
+               allowfullscreen>
+           </iframe>`
+        : `<div class="w-full h-full bg-gradient-to-br from-memc-roxo-escuro/5 via-memc-rosa/10 to-memc-azul/10 flex flex-col items-center justify-center p-6 text-center select-none">
+               <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white/90 text-memc-rosa border border-memc-rosa/30 shadow-md flex items-center justify-center text-3xl sm:text-4xl mb-4">
+                   <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+               </div>
+               <span class="inline-flex items-center gap-1.5 text-xs font-bold text-memc-rosa bg-white/90 border border-memc-rosa/30 px-3.5 py-1 rounded-full uppercase tracking-wider shadow-2xs mb-2">
+                   <i class="fa-regular fa-clock" aria-hidden="true"></i>
+                   Vídeo em breve
+               </span>
+               <p class="text-xs sm:text-sm font-semibold text-memc-roxo-escuro max-w-md leading-relaxed">
+                   O conteúdo audiovisual será disponibilizado neste espaço assim que publicado no YouTube.
+               </p>
+           </div>`;
+
+    container.innerHTML = `
+        <div class="bg-white/95 backdrop-blur-md rounded-3xl p-6 sm:p-7 shadow-lg border-2 border-neutral-200/90 text-left space-y-5">
+            <!-- Cabeçalho do Card de Vídeo -->
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-neutral-100 pb-4">
+                <div class="space-y-1">
+                    ${config.badge ? `
+                        <span class="inline-flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-wider text-memc-rosa bg-memc-rosa/10 px-3 py-1 rounded-full">
+                            <i class="fa-solid fa-circle-play" aria-hidden="true"></i>
+                            ${config.badge}
+                        </span>
+                    ` : ''}
+                    <h2 class="text-xl sm:text-2xl font-extrabold text-memc-roxo-escuro leading-snug pt-1">
+                        ${config.titulo}
+                    </h2>
+                    ${config.descricao ? `
+                        <p class="text-xs sm:text-sm text-neutral-600 font-medium leading-relaxed">
+                            ${config.descricao}
+                        </p>
+                    ` : ''}
+                </div>
+            </div>
+
+            <!-- Moldura Responsiva 16:9 do Player / Placeholder -->
+            <div class="w-full aspect-video rounded-2xl overflow-hidden border-2 border-memc-roxo-medio/20 shadow-md bg-neutral-100 relative">
+                ${midiaHTML}
+            </div>
+        </div>
+    `;
+}
+
 // Inicialização automática após carregamento do DOM
 document.addEventListener('DOMContentLoaded', () => {
     const inputBusca = document.getElementById('input-busca-egressas');
     if (inputBusca) {
         inputBusca.addEventListener('input', buscarEgressasInput);
     }
+    renderizarVideoEgressas();
     renderizarEgressas();
 });
