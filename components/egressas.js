@@ -32,7 +32,7 @@
  * @type {VideoEgressasConfig}
  */
 const VIDEO_EGRESSAS_CONFIG = {
-    url: '', // Ex: 'https://www.youtube.com/watch?v=SEU_ID_AQUI' ou 'https://youtu.be/SEU_ID_AQUI'
+    url: 'https://youtu.be/W-4At-ci9KU', // Ex: 'https://www.youtube.com/watch?v=SEU_ID_AQUI' ou 'https://youtu.be/SEU_ID_AQUI'
     badge: 'Audiovisual • Rede MeMC',
     titulo: 'Relatos e Trajetórias das Egressas',
     descricao: 'Assista aos depoimentos e conheça mais sobre as experiências formativas e os percursos construídos pelas bolsistas da rede.'
